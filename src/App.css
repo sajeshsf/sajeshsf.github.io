@@ -168,6 +168,19 @@ main {
   margin: 1.5rem 0;
 }
 
+.hero__number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.35rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(48, 79, 254, 0.15);
+  color: var(--primary);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
 .hero img {
   width: min(100%, 420px);
   justify-self: center;

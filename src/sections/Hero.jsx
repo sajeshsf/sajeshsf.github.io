@@ -13,7 +13,9 @@ const Hero = () => (
         <p>
           I specialize in modern React ecosystems, accessibility-first design,
           and lean delivery pipelines. I enjoy turning ambiguous requirements
-          into well-crafted UI that feels effortless.
+          into well-crafted UI that feels effortless. Right now I'm tracking
+          idea number <strong className="hero__number">742913</strong> on my
+          roadmap.
         </p>
 
         <div className="hero__actions">
