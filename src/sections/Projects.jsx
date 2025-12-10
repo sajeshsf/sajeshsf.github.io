@@ -7,7 +7,7 @@ const Projects = () => (
     <SectionHeading
       eyebrow="Projects"
       title="Selected work"
-      copy="Recent work that highlights my focus on usability, performance, and storytelling."
+      copy="Multi-year programs that blend embedded systems, cloud platforms, and AI-driven insights."
     />
 
     <div className="projects-grid">

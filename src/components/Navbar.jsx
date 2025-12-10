@@ -17,7 +17,7 @@ const Navbar = () => {
   return (
     <header className="navbar">
       <a className="navbar__logo" href="#top">
-        sajesh<span className="accent">.</span>
+        sajesh<span className="accent">sf</span>
       </a>
 
       <button
@@ -39,7 +39,7 @@ const Navbar = () => {
         ))}
         <a
           className="navbar__cta"
-          href="mailto:hello@sajesh.dev"
+          href="mailto:official.sajesh@gmail.com"
           onClick={handleNavClick}
         >
           Say hello
