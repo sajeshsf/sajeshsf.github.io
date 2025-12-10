@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Software leadership badge">
+  <defs>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#172554" />
+      <stop offset="100%" stop-color="#2563eb" />
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="12" fill="url(#glow)" />
+  <path d="M20 42 L32 22 L44 42" fill="none" stroke="#bfdbfe" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="32" cy="18" r="4" fill="#f8fafc" />
+  <path d="M18 46h28" stroke="#f8fafc" stroke-width="3" stroke-linecap="round" />
+</svg>
