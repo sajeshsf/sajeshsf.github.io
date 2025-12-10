@@ -5,9 +5,9 @@ import { projects } from '../data/projects'
 const Projects = () => (
   <section className="section" id="projects">
     <SectionHeading
-      eyebrow="Projects"
-      title="Selected work"
-      copy="Multi-year programs that blend embedded systems, cloud platforms, and AI-driven insights."
+      eyebrow="Programs"
+      title="Transformations I've steered end-to-end"
+      copy="From fintech safes to aerospace testbeds, these initiatives span strategy, architecture, delivery, and the field validation needed to hold the gains."
     />
 
     <div className="projects-grid">

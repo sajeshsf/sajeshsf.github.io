@@ -27,15 +27,16 @@ const Contact = () => (
   <section className="section" id="contact">
     <SectionHeading
       eyebrow="Contact"
-      title="Let's build dependable systems together"
-      copy="I'm currently leading platform engineering at American Security and open to advisory or head-of-engineering conversations."
+      title="Engage me when reliability is non-negotiable"
+      copy="Open to head-of-engineering roles, modernization mandates, or fractional advisory work where hardware, firmware, and cloud teams must align fast."
     />
 
     <div className="contact-card">
       <p>
-        If you're navigating modernization, large-scale deployments, or
-        cross-geography delivery, send a quick brief. I typically respond within
-        24 hours with next steps.
+        Send a concise brief if you&apos;re wrestling with large-scale
+        deployments, platform turnarounds, or need a steady hand through
+        post-merger integration. I respond within one business day with a plan
+        to assess, stabilize, and scale.
       </p>
 
       <div className="contact-card__links">
