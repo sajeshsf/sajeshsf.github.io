@@ -1,18 +1,18 @@
 const socials = [
   {
-    label: 'GitHub',
-    href: 'https://github.com/sajesh',
-    text: 'GH',
-  },
-  {
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/sajesh',
+    href: 'https://www.linkedin.com/in/sajesh-sf',
     text: 'IN',
   },
   {
-    label: 'Email',
-    href: 'mailto:hello@sajesh.dev',
+    label: 'Email Sajesh',
+    href: 'mailto:official.sajesh@gmail.com',
     text: '@',
+  },
+  {
+    label: 'Call Sajesh',
+    href: 'tel:+19255686538',
+    text: '+',
   },
 ]
 

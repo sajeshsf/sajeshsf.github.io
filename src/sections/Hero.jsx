@@ -5,25 +5,29 @@ const Hero = () => (
   <section className="section section--hero" aria-label="Hero">
     <div className="hero">
       <div className="hero__content">
-        <p className="eyebrow">Product-minded Front-end Engineer</p>
+        <p className="eyebrow">Engineering Leader · IoT · Robotics · Fintech</p>
         <h1>
-          Hi, I'm Sajesh. I build useful experiences for the web and ship them
-          with care.
+          Hi, I'm Sajesh. I scale mission-critical platforms without losing
+          sleep.
         </h1>
         <p>
-          I specialize in modern React ecosystems, accessibility-first design,
-          and lean delivery pipelines. I enjoy turning ambiguous requirements
-          into well-crafted UI that feels effortless. Right now I'm tracking
-          idea number <strong className="hero__number">742913</strong> on my
-          roadmap.
+          I build and lead cross-functional teams (35+ engineers across the US,
+          India, Japan, and China) to ship zero-downtime IoT, robotics, and
+          enterprise systems. From Rust-based peer-to-peer stacks to AWS-native
+          analytics, I translate field constraints into resilient architecture.
+        </p>
+        <p>
+          Right now I'm modernizing CashWizard smart safes keeping{' '}
+          <strong className="hero__number">15K+</strong> devices online while
+          driving AI-powered analytics for operators.
         </p>
 
         <div className="hero__actions">
           <a className="btn" href="#projects">
-            View selected work
+            See transformation work
           </a>
-          <a className="btn btn--ghost" href="mailto:hello@sajesh.dev">
-            Book a call
+          <a className="btn btn--ghost" href="/sajesh-resume.pdf">
+            Download resume
           </a>
         </div>
 

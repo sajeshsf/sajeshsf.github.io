@@ -3,18 +3,23 @@ import SectionHeading from '../components/SectionHeading'
 const contactOptions = [
   {
     label: 'Email',
-    value: 'hello@sajesh.dev',
-    href: 'mailto:hello@sajesh.dev',
+    value: 'official.sajesh@gmail.com',
+    href: 'mailto:official.sajesh@gmail.com',
   },
   {
-    label: 'Calendly',
-    value: 'Book a 30-min chat',
-    href: 'https://cal.com/sajesh/intro',
+    label: 'Phone',
+    value: '+1 925-568-6538',
+    href: 'tel:+19255686538',
+  },
+  {
+    label: 'LinkedIn',
+    value: 'linkedin.com/in/sajesh-sf',
+    href: 'https://www.linkedin.com/in/sajesh-sf',
   },
   {
     label: 'Resume',
     value: 'Download PDF',
-    href: 'https://sajesh.dev/resume.pdf',
+    href: '/sajesh-resume.pdf',
   },
 ]
 
@@ -22,14 +27,15 @@ const Contact = () => (
   <section className="section" id="contact">
     <SectionHeading
       eyebrow="Contact"
-      title="Let's build the next launch together"
-      copy="Whether you need a sprint partner or a long-term collaborator, I can help."
+      title="Let's build dependable systems together"
+      copy="I'm currently leading platform engineering at American Security and open to advisory or head-of-engineering conversations."
     />
 
     <div className="contact-card">
       <p>
-        I'm currently taking on new freelance work and fractional front-end
-        leads. Send a quick brief, and I'll respond within a day.
+        If you're navigating modernization, large-scale deployments, or
+        cross-geography delivery, send a quick brief. I typically respond within
+        24 hours with next steps.
       </p>
 
       <div className="contact-card__links">

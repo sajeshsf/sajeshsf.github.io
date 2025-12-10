@@ -1,25 +1,26 @@
 import SectionHeading from '../components/SectionHeading'
 
 const highlights = [
-  '5+ years building component libraries and design systems',
-  'Comfortable owning CI/CD pipelines and GitHub Actions deployments',
-  'Mentor for early-career engineers and frequent code reviewer',
+  'Scaled an embedded practice from 3 → 35 engineers across 3 countries',
+  'Cut cloud reporting latency from 45 min to under 3 sec for 15K safes',
+  'Directed $600K+ multi-domain programs in aerospace, medical, and fintech',
+  'Architected AI copilots, IoT firmware, and cloud analytics under one roadmap',
 ]
 
 const About = () => (
   <section className="section" id="about">
     <SectionHeading
       eyebrow="About"
-      title="Curious, collaborative, and obsessed with details"
-      copy="I thrive where design, engineering, and product strategy overlap."
+      title="Technical & organizational leadership at scale"
+      copy="I bring hardware, firmware, cloud, and product teams into the same conversation and keep the outcomes measurable."
     />
 
     <div className="about">
       <p>
-        I partner closely with founders, designers, and backend teams to build
-        resilient interfaces. My toolkit includes React, TypeScript, Vite,
-        Tailwind, testing libraries, and the empathy needed to ship delightful
-        products on time.
+        From American Security to ISRO programs, I've navigated highly regulated
+        environments where downtime isn't an option. I pair systems thinking
+        with a product mindset—owning architecture, agile delivery, stakeholder
+        alignment, and the coaching needed to grow resilient teams.
       </p>
 
       <ul>
