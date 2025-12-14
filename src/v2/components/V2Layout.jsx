@@ -1,4 +1,5 @@
 import V2Nav from './V2Nav.jsx'
+import SocialLinks from './SocialLinks.jsx'
 
 export default function V2Layout({ currentPage, children }) {
   return (
@@ -12,7 +13,10 @@ export default function V2Layout({ currentPage, children }) {
           <a className="v2-brand" href="/v2/" aria-label="Sajesh S F home">
             Sajesh S F
           </a>
-          <V2Nav currentPage={currentPage} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-lg)' }}>
+            <V2Nav currentPage={currentPage} />
+            <SocialLinks />
+          </div>
         </div>
       </header>
 
