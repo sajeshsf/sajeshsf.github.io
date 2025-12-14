@@ -1,7 +1,18 @@
 import { useState } from 'react'
+import PropTypes from 'prop-types'
 import { ArrowDown } from './ArrowIcon.jsx'
+import {
+  DEFAULT_MAX_LENGTH,
+  CHARS_PER_LINE,
+  DEFAULT_FADE_LINES,
+} from '../config/constants.js'
 
-export default function ExpandableText({ text, maxLength = 200, className = '', fadeLines = 2 }) {
+export default function ExpandableText({
+  text,
+  maxLength = DEFAULT_MAX_LENGTH,
+  className = '',
+  fadeLines = DEFAULT_FADE_LINES,
+}) {
   const [isExpanded, setIsExpanded] = useState(false)
   
   if (!text) return null
@@ -12,10 +23,8 @@ export default function ExpandableText({ text, maxLength = 200, className = '', 
     return <p className={className}>{text}</p>
   }
 
-  // Calculate approximate lines (rough estimate: ~60 chars per line)
-  const charsPerLine = 60
-  const linesToShow = fadeLines
-  const charsToShow = linesToShow * charsPerLine
+  // Calculate approximate lines
+  const charsToShow = fadeLines * CHARS_PER_LINE
   
   const displayText = isExpanded 
     ? text 
@@ -84,4 +93,11 @@ export default function ExpandableText({ text, maxLength = 200, className = '', 
       </button>
     </div>
   )
+}
+
+ExpandableText.propTypes = {
+  text: PropTypes.string.isRequired,
+  maxLength: PropTypes.number,
+  className: PropTypes.string,
+  fadeLines: PropTypes.number,
 }
