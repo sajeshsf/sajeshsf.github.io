@@ -90,10 +90,50 @@
   background: color-mix(in oklab, Canvas 92%, CanvasText 8%);
 }
 
+.v2-image-placeholder {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 0.75rem;
+  border: 2px dashed color-mix(in oklab, CanvasText 35%, transparent);
+  background: color-mix(in oklab, Canvas 96%, CanvasText 4%);
+}
+
 .v2-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1rem;
+}
+
+.v2-timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1rem;
+  position: relative;
+}
+
+.v2-timeline__item {
+  display: grid;
+  grid-template-columns: 1rem 1fr;
+  gap: 0.75rem;
+  align-items: start;
+}
+
+.v2-timeline__marker {
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 999px;
+  border: 2px solid currentColor;
+  background: Canvas;
+  margin-top: 0.25rem;
+}
+
+.v2-timeline__content {
+  border: 1px solid color-mix(in oklab, CanvasText 15%, transparent);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  background: color-mix(in oklab, Canvas 92%, CanvasText 8%);
 }
 
 .v2-footer {
