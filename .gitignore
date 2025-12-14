@@ -3,3 +3,8 @@ dist-ssr
 node_modules
 *.local
 .DS_Store
+
+# Test artifacts
+playwright-report/
+test-results/
+.lighthouseci/
