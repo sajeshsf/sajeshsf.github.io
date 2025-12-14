@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { ArrowRight } from './ArrowIcon.jsx'
 
 export default function ProjectCard({ project }) {
@@ -47,4 +48,12 @@ export default function ProjectCard({ project }) {
       </a>
     </article>
   )
+}
+
+ProjectCard.propTypes = {
+  project: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    year: PropTypes.string.isRequired,
+  }).isRequired,
 }

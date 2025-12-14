@@ -1,9 +1,7 @@
-import { useState } from 'react'
 import { v2Projects } from '../data/projects.js'
 import { useHash } from '../utils/useHash.js'
-import ExpandableText from '../components/ExpandableText.jsx'
-import ProjectCard from '../components/ProjectCard.jsx'
-import { ArrowLeft, ArrowDown } from '../components/ArrowIcon.jsx'
+import ProjectsGrid from '../components/ProjectsGrid.jsx'
+import { ArrowLeft } from '../components/ArrowIcon.jsx'
 
 function getIdFromHash(hash) {
   return String(hash || '').replace(/^#/, '').trim()
@@ -52,7 +50,7 @@ function parseDescriptionToBullets(description) {
     const bullets = []
     let lastIndex = 0
     
-    matches.forEach((match, idx) => {
+    matches.forEach((match) => {
       // Add text before this match
       if (match.index > lastIndex) {
         const before = description.substring(lastIndex, match.index).trim()
@@ -97,20 +95,9 @@ function ProjectDetail({ project }) {
   
   return (
     <article aria-labelledby="project-detail-title">
-      <nav aria-label="Breadcrumb" style={{ marginBottom: '1.5rem' }}>
-        <a 
-          href="/v2/projects/" 
-          style={{
-            color: 'var(--text-secondary)',
-            textDecoration: 'none',
-            fontSize: '0.95rem',
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '0.5rem',
-            transition: 'color 0.2s ease',
-          }}
-        >
-          <ArrowLeft size={16} style={{ marginRight: '0.5rem' }} />
+      <nav aria-label="Breadcrumb" className="v2-breadcrumb">
+        <a href="/v2/projects/" className="v2-breadcrumb-link">
+          <ArrowLeft size={16} />
           Back to projects
         </a>
       </nav>
@@ -159,12 +146,6 @@ export default function V2ProjectsPage() {
   const hash = useHash()
   const selectedId = getIdFromHash(hash)
   const selected = selectedId ? v2Projects.find((p) => p.id === selectedId) : null
-  const [showAllProjects, setShowAllProjects] = useState(false)
-
-  // Show first 6 projects initially (2 rows of 3)
-  const initialProjectsCount = 6
-  const displayedProjects = showAllProjects ? v2Projects : v2Projects.slice(0, initialProjectsCount)
-  const hasMoreProjects = v2Projects.length > initialProjectsCount
 
   return (
     <section aria-labelledby="projects-title">
@@ -173,70 +154,8 @@ export default function V2ProjectsPage() {
         Professional and personal projects. Click a card to view details.
       </p>
 
-      <div style={{ marginTop: '1.25rem', position: 'relative' }}>
-        {selected ? (
-          <ProjectDetail project={selected} />
-        ) : (
-          <>
-            <div 
-              className="v2-projects-grid"
-              style={{
-                maxHeight: showAllProjects ? 'none' : '600px',
-                overflow: 'hidden',
-                position: 'relative',
-              }}
-            >
-              {displayedProjects.map((p) => (
-                <ProjectCard key={p.id} project={p} />
-              ))}
-            </div>
-            
-            {!showAllProjects && hasMoreProjects && (
-              <>
-                <div 
-                  className="v2-projects-fade-overlay"
-                  style={{
-                    position: 'absolute',
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    height: '150px',
-                    background: 'linear-gradient(to bottom, transparent, var(--bg-primary))',
-                    pointerEvents: 'none',
-                    zIndex: 1,
-                  }}
-                />
-                <div style={{ 
-                  textAlign: 'center', 
-                  marginTop: '1.5rem',
-                  position: 'relative',
-                  zIndex: 2,
-                }}>
-                  <button
-                    onClick={() => setShowAllProjects(true)}
-                    className="v2-expand-projects-button"
-                    style={{
-                      background: 'var(--bg-secondary)',
-                      border: '1px solid var(--border)',
-                      color: 'var(--text-primary)',
-                      padding: '0.75rem 1.5rem',
-                      borderRadius: 'var(--radius-md)',
-                      fontSize: '0.95rem',
-                      cursor: 'pointer',
-                      transition: 'all 0.2s ease',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '0.5rem',
-                    }}
-                  >
-                    <span>Show all</span>
-                    <ArrowDown size={18} />
-                  </button>
-                </div>
-              </>
-            )}
-          </>
-        )}
+      <div style={{ marginTop: '1.25rem' }}>
+        {selected ? <ProjectDetail project={selected} /> : <ProjectsGrid />}
       </div>
     </section>
   )
