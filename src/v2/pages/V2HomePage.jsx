@@ -4,7 +4,6 @@ import { v2Projects } from '../data/projects.js'
 import { writing } from '../data/writing.js'
 import { experience } from '../../data/experience.js'
 import { useScroll } from '../utils/useScroll.js'
-import ExpandableText from '../components/ExpandableText.jsx'
 import ProjectCard from '../components/ProjectCard.jsx'
 import TimelineItem from '../components/TimelineItem.jsx'
 import { ArrowDown, ArrowLeft } from '../components/ArrowIcon.jsx'
@@ -231,10 +230,16 @@ export default function V2HomePage() {
               <h3 style={{ marginTop: 0, marginBottom: '1rem' }}>
                 Professional Image
               </h3>
-              <div
-                className="v2-image-placeholder"
-                role="img"
-                aria-label="Professional headshot placeholder"
+              <img
+                src="/profile.jpg"
+                alt="Sajesh S F - Professional headshot"
+                className="v2-profile-image"
+                style={{
+                  width: '100%',
+                  aspectRatio: '1 / 1',
+                  borderRadius: 'var(--radius-md)',
+                  objectFit: 'cover',
+                }}
               />
             </div>
             <div className="v2-card v2-bento-span-2">
@@ -242,7 +247,7 @@ export default function V2HomePage() {
                 Executive Summary
               </h3>
               <p className="v2-muted" style={{ margin: 0, lineHeight: '1.8' }}>
-                Executive summary to be added.
+                Seasoned Engineering leader with a quality-driven mindset, passion for data-driven decision making, 7+ years of experience delivering IoT, embedded systems, and enterprise applications, SaaS solutions in industrial, robotics, medical, aerospace, and fintech domains. Proven record of transitioning products from prototype to large-scale deployments, leading cross-functional engineering teams (35+ members), coordinating global engineering teams (US, India, Japan, and China), and ensuring zero-downtime operations across global infrastructure. Skilled in Agile/Scrum leadership, application development (C#, .NET, React.js, WPF), cloud platforms (AWS, IaC), and real-time embedded/IoT integration (C, C++). I excel at taking ideas from the conceptual stage to fully realized products. With a keen eye for detail and a deep understanding of all stages of product development, I can create high-quality products that accurately reflect the vision of the client. I am passionate about bringing innovative ideas to life and thrive in fast-paced, collaborative environments.
               </p>
             </div>
           </div>
