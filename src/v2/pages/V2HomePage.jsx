@@ -230,10 +230,16 @@ export default function V2HomePage() {
               <h3 style={{ marginTop: 0, marginBottom: '1rem' }}>
                 Professional Image
               </h3>
-              <div
-                className="v2-image-placeholder"
-                role="img"
-                aria-label="Professional headshot placeholder"
+              <img
+                src="/profile.jpg"
+                alt="Sajesh S F - Professional headshot"
+                className="v2-profile-image"
+                style={{
+                  width: '100%',
+                  aspectRatio: '1 / 1',
+                  borderRadius: 'var(--radius-md)',
+                  objectFit: 'cover',
+                }}
               />
             </div>
             <div className="v2-card v2-bento-span-2">
