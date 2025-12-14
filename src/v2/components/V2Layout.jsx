@@ -9,8 +9,8 @@ export default function V2Layout({ currentPage, children }) {
 
       <header className="v2-header">
         <div className="v2-container v2-header__row">
-          <a className="v2-brand" href="/v2/" aria-label="Sajesh V2 home">
-            sajesh<span aria-hidden="true">sf</span>
+          <a className="v2-brand" href="/v2/" aria-label="Sajesh S F home">
+            Sajesh S F
           </a>
           <V2Nav currentPage={currentPage} />
         </div>
