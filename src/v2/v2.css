@@ -135,6 +135,12 @@
   font-weight: 500;
 }
 
+.v2-header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
 /* Social Links */
 .v2-social-links {
   display: flex;
@@ -812,7 +818,85 @@ html {
   outline-offset: 2px;
 }
 
-/* Timeline Fade Overlay */
+/* Progressive Disclosure Pattern */
+.v2-progressive-disclosure {
+  position: relative;
+}
+
+.v2-fade-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to bottom, transparent, var(--bg-primary));
+  pointer-events: none;
+  z-index: 1;
+}
+
+.v2-expand-button-container {
+  text-align: center;
+  margin-top: var(--spacing-lg);
+  position: relative;
+  z-index: 2;
+}
+
+.v2-expand-button {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.v2-expand-button:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-bright);
+  transform: translateY(-2px);
+  color: var(--text-primary);
+}
+
+.v2-expand-button:focus-visible {
+  outline: 2px solid var(--accent-soft);
+  outline-offset: 2px;
+}
+
+/* Legacy button classes for backward compatibility */
+.v2-expand-projects-button,
+.v2-expand-timeline-button {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.v2-expand-projects-button:hover,
+.v2-expand-timeline-button:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-bright);
+  transform: translateY(-2px);
+  color: var(--text-primary);
+}
+
+.v2-expand-projects-button:focus-visible,
+.v2-expand-timeline-button:focus-visible {
+  outline: 2px solid var(--accent-soft);
+  outline-offset: 2px;
+}
+
+/* Timeline Fade Overlay (legacy) */
 .v2-timeline-fade-overlay {
   position: absolute;
   bottom: 0;
@@ -824,3 +908,100 @@ html {
   z-index: 1;
 }
 
+.v2-projects-fade-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: linear-gradient(to bottom, transparent, var(--bg-primary));
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+
+/* Profile Image */
+.v2-profile-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+}
+
+/* Breadcrumb Navigation */
+.v2-breadcrumb {
+  margin-bottom: var(--spacing-lg);
+}
+
+.v2-breadcrumb-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  transition: color 0.2s ease;
+}
+
+.v2-breadcrumb-link:hover {
+  color: var(--text-primary);
+}
+
+/* Card Headings */
+.v2-card h3 {
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+}
+
+/* Writing Grid */
+.v2-writing-grid {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+/* Empty State */
+.v2-empty-state {
+  text-align: center;
+  padding: var(--spacing-2xl) var(--spacing-xl);
+}
+
+.v2-empty-state h3 {
+  margin-top: 0;
+  margin-bottom: var(--spacing-xs);
+}
+
+/* Error Boundary */
+.v2-error-boundary {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-2xl) 0;
+}
+
+.v2-error-boundary .v2-card {
+  padding: var(--spacing-2xl);
+  text-align: center;
+}
+
+.v2-error-boundary h1 {
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+}
+
+.v2-error-boundary button {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.v2-error-boundary button:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-bright);
+}

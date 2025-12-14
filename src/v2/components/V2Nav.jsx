@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 const nav = [
   { id: 'about', href: '/v2/#about', label: 'About' },
   { id: 'experience', href: '/v2/#experience', label: 'Experience' },
@@ -32,4 +34,8 @@ export default function V2Nav({ currentPage }) {
       ))}
     </nav>
   )
+}
+
+V2Nav.propTypes = {
+  currentPage: PropTypes.string,
 }

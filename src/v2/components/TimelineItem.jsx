@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 export default function TimelineItem({ item }) {
   return (
     <li className="v2-timeline__item">
@@ -15,5 +17,14 @@ export default function TimelineItem({ item }) {
       </div>
     </li>
   )
+}
+
+TimelineItem.propTypes = {
+  item: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    role: PropTypes.string.isRequired,
+    org: PropTypes.string.isRequired,
+    dateLabel: PropTypes.string.isRequired,
+  }).isRequired,
 }
 

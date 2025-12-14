@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import V2Nav from './V2Nav.jsx'
 import SocialLinks from './SocialLinks.jsx'
 
@@ -13,7 +14,7 @@ export default function V2Layout({ currentPage, children }) {
           <a className="v2-brand" href="/v2/" aria-label="Sajesh S F home">
             Sajesh S F
           </a>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-lg)' }}>
+          <div className="v2-header__actions">
             <V2Nav currentPage={currentPage} />
             <SocialLinks />
           </div>
@@ -27,11 +28,16 @@ export default function V2Layout({ currentPage, children }) {
       <footer className="v2-footer">
         <div className="v2-container">
           <p className="v2-muted" style={{ margin: 0 }}>
-            V2 pages are in progress. Back to the original one-page version at{' '}
+            Portfolio v2. Back to the original one-page version at{' '}
             <a href="/">/</a>.
           </p>
         </div>
       </footer>
     </div>
   )
+}
+
+V2Layout.propTypes = {
+  currentPage: PropTypes.string,
+  children: PropTypes.node.isRequired,
 }
