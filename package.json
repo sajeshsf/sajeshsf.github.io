@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Personal React portfolio for sajesh.github.io hosted on GitHub Pages.",
   "type": "module",
-  "homepage": "https://sajesh.github.io",
+  "homepage": "https://sajeshsf.github.io",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

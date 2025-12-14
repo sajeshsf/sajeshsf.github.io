@@ -9,6 +9,12 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 export default defineConfig({
   base: '/',
   plugins: [react()],
+  server: {
+    watch: {
+      usePolling: true,
+      interval: 1000,
+    },
+  },
   build: {
     sourcemap: true,
     rollupOptions: {
