@@ -18,7 +18,7 @@ export default function V2HomePage() {
   const projectsRef = useRef(null)
   const writingRef = useRef(null)
   const scrollY = useScroll()
-  const [visibleSections, setVisibleSections] = useState(new Set())
+  const [, setVisibleSections] = useState(new Set())
 
   // Parallax effect for hero section
   useEffect(() => {

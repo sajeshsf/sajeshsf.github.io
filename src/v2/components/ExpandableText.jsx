@@ -37,7 +37,7 @@ export default function ExpandableText({
         style={{ 
           margin: 0,
           lineHeight: '1.6',
-          maxHeight: isExpanded ? 'none' : `${linesToShow * 1.6}em`,
+          maxHeight: isExpanded ? 'none' : `${fadeLines * 1.6}em`,
           overflow: 'hidden',
         }}
       >

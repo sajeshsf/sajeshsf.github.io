@@ -50,7 +50,7 @@ function parseDescriptionToBullets(description) {
     const bullets = []
     let lastIndex = 0
     
-    matches.forEach((match, idx) => {
+    matches.forEach((match) => {
       // Add text before this match
       if (match.index > lastIndex) {
         const before = description.substring(lastIndex, match.index).trim()
