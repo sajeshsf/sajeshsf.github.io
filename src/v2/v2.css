@@ -1,0 +1,156 @@
+:root {
+  color-scheme: light dark;
+}
+
+/* Keep v2 styling isolated and predictable */
+.v2 {
+  min-height: 100vh;
+  padding: 0;
+}
+
+.v2 a {
+  color: inherit;
+}
+
+.v2-container {
+  width: min(1000px, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.v2-skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: Canvas;
+  color: CanvasText;
+  border: 1px solid currentColor;
+  border-radius: 0.5rem;
+  z-index: 9999;
+}
+
+.v2-skip-link:focus {
+  left: 0.5rem;
+}
+
+.v2-header {
+  border-bottom: 1px solid color-mix(in oklab, CanvasText 15%, transparent);
+  padding: 1rem 0;
+}
+
+.v2-header__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.v2-brand {
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  text-decoration: none;
+}
+
+.v2-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.v2-nav a {
+  text-decoration: none;
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.5rem;
+}
+
+.v2-nav a[aria-current='page'] {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.v2-main {
+  padding: 2rem 0 3rem;
+}
+
+.v2-main h1 {
+  font-size: clamp(1.9rem, 3vw, 2.4rem);
+  line-height: 1.15;
+  margin: 0 0 0.75rem;
+}
+
+.v2-main p {
+  line-height: 1.65;
+}
+
+.v2-card {
+  border: 1px solid color-mix(in oklab, CanvasText 15%, transparent);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  background: color-mix(in oklab, Canvas 92%, CanvasText 8%);
+}
+
+.v2-image-placeholder {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 0.75rem;
+  border: 2px dashed color-mix(in oklab, CanvasText 35%, transparent);
+  background: color-mix(in oklab, Canvas 96%, CanvasText 4%);
+}
+
+.v2-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.v2-timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1rem;
+  position: relative;
+}
+
+.v2-timeline__item {
+  display: grid;
+  grid-template-columns: 1rem 1fr;
+  gap: 0.75rem;
+  align-items: start;
+}
+
+.v2-timeline__marker {
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 999px;
+  border: 2px solid currentColor;
+  background: Canvas;
+  margin-top: 0.25rem;
+}
+
+.v2-timeline__content {
+  border: 1px solid color-mix(in oklab, CanvasText 15%, transparent);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  background: color-mix(in oklab, Canvas 92%, CanvasText 8%);
+}
+
+.v2-footer {
+  border-top: 1px solid color-mix(in oklab, CanvasText 15%, transparent);
+  padding: 1.25rem 0;
+  font-size: 0.95rem;
+}
+
+.v2-muted {
+  opacity: 0.8;
+}
+
+.v2-kbd {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
+  padding: 0.1rem 0.35rem;
+  border: 1px solid color-mix(in oklab, CanvasText 25%, transparent);
+  border-bottom-width: 2px;
+  border-radius: 0.4rem;
+}
