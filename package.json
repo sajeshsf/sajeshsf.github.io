@@ -10,9 +10,11 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test:render": "playwright test",
+    "test:render": "playwright test tests/rendering.spec.js",
+    "test:responsive": "playwright test tests/responsive.spec.js",
     "test:lighthouse": "lhci autorun",
-    "test:accessibility": "playwright test tests/accessibility.spec.js"
+    "test:accessibility": "playwright test tests/accessibility.spec.js",
+    "test": "playwright test"
   },
   "dependencies": {
     "react": "^19.2.0",

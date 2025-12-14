@@ -40,6 +40,9 @@ jobs:
       - name: Run rendering tests
         run: npm run test:render
 
+      - name: Run responsive design tests
+        run: npm run test:responsive
+
       - name: Run accessibility tests
         run: npm run test:accessibility
 
