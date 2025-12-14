@@ -1,14 +1,16 @@
+const baseURL = process.env.BASE_URL || 'http://localhost:4173'
+
 module.exports = {
   ci: {
     collect: {
-      startServerCommand: 'npm run preview',
+      startServerCommand: baseURL === 'http://localhost:4173' ? 'npm run preview' : undefined,
       url: [
-        'http://localhost:4173/',
-        'http://localhost:4173/v2/',
-        'http://localhost:4173/v2/about/',
-        'http://localhost:4173/v2/experience/',
-        'http://localhost:4173/v2/projects/',
-        'http://localhost:4173/v2/writing/',
+        `${baseURL}/`,
+        `${baseURL}/v2/`,
+        `${baseURL}/v2/about/`,
+        `${baseURL}/v2/experience/`,
+        `${baseURL}/v2/projects/`,
+        `${baseURL}/v2/writing/`,
       ],
       numberOfRuns: 2,
     },
