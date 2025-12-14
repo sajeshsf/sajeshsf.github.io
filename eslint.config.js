@@ -26,4 +26,29 @@ export default defineConfig([
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
     },
   },
+  // Tooling / Node scripts (run in CI and locally)
+  {
+    files: [
+      'vite.config.js',
+      'playwright.config.js',
+      'start-server.js',
+      'check-setup.js',
+    ],
+    languageOptions: {
+      globals: globals.node,
+      parserOptions: {
+        sourceType: 'module',
+      },
+    },
+  },
+  // CommonJS config files (needed even though project is ESM)
+  {
+    files: ['lighthouserc.cjs'],
+    languageOptions: {
+      globals: globals.node,
+      parserOptions: {
+        sourceType: 'script',
+      },
+    },
+  },
 ])

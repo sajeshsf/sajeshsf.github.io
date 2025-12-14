@@ -12,7 +12,7 @@
     "preview": "vite preview",
     "test:render": "playwright test tests/rendering.spec.js",
     "test:responsive": "playwright test tests/responsive.spec.js",
-    "test:lighthouse": "lhci autorun",
+    "test:lighthouse": "lhci autorun --config=lighthouserc.cjs",
     "test:accessibility": "playwright test tests/accessibility.spec.js",
     "test": "playwright test"
   },
