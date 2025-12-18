@@ -9,7 +9,8 @@ import {
 } from '../config/constants.js'
 import TimelineGrid from '../components/TimelineGrid.jsx'
 import ProjectsGrid from '../components/ProjectsGrid.jsx'
-import { ArrowDown } from '../components/ArrowIcon.jsx'
+import RotatingTagline from '../components/RotatingTagline.jsx'
+import SocialLinks from '../components/SocialLinks.jsx'
 
 export default function V2HomePage() {
   const heroRef = useRef(null)
@@ -62,19 +63,41 @@ export default function V2HomePage() {
     <div className="v2-landing">
       {/* Hero Section with Parallax */}
       <section ref={heroRef} className="v2-hero" aria-labelledby="hero-title">
+        <div className="v2-hero-background" />
         <div className="v2-hero-content">
+          <span className="v2-hero-greeting">Hi, I am</span>
           <h1 id="hero-title" className="v2-hero-title">
             Sajesh
           </h1>
           <p className="v2-hero-subtitle">
-            Software Engineering Leader
+            I am a{' '}
+            <RotatingTagline
+              taglines={[
+                'Technological leader',
+                'Organisational leader',
+                'Engineering leader',
+                'Product architect',
+                'Team builder',
+              ]}
+              interval={3000}
+            />
           </p>
-          <div className="v2-hero-scroll-indicator">
-            <span>Scroll to explore</span>
-            <div className="v2-scroll-arrow">
-              <ArrowDown size={24} />
-            </div>
+          <div className="v2-hero-social-links">
+            <SocialLinks />
           </div>
+          <a 
+            href="#about" 
+            className="v2-hero-scroll-indicator"
+            onClick={(e) => {
+              e.preventDefault()
+              document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })
+            }}
+            aria-label="Scroll to about section"
+          >
+            <div className="v2-scroll-mouse">
+              <div className="v2-scroll-mouse-wheel"></div>
+            </div>
+          </a>
         </div>
       </section>
 

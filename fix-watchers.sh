@@ -17,3 +17,4 @@ cat /proc/sys/fs/inotify/max_user_watches
 echo ""
 echo "Done! You can now run 'npm run dev'"
 
+
