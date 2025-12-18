@@ -1,30 +1,29 @@
-import { useState, useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import V2Nav from './V2Nav.jsx'
 import SocialLinks from './SocialLinks.jsx'
 
 export default function V2Layout({ currentPage, children }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [showHeader, setShowHeader] = useState(currentPage !== 'home')
+  const [isPastHero, setIsPastHero] = useState(false)
   const menuRef = useRef(null)
 
+  const showHeader = currentPage !== 'home' || isPastHero
+
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen)
+    setIsMobileMenuOpen((open) => !open)
   }
 
   // Show header when scrolling past hero section (only on home page)
   useEffect(() => {
-    if (currentPage !== 'home') {
-      setShowHeader(true)
-      return
-    }
+    if (currentPage !== 'home') return
 
     const handleScroll = () => {
       const heroSection = document.querySelector('.v2-hero')
       if (heroSection) {
         const heroBottom = heroSection.offsetTop + heroSection.offsetHeight
         const scrollPosition = window.scrollY + window.innerHeight * 0.1 // Show header when 10% past hero
-        setShowHeader(scrollPosition > heroBottom)
+        setIsPastHero(scrollPosition > heroBottom)
       }
     }
 
