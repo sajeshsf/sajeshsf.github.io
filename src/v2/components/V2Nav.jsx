@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 const nav = [
@@ -7,7 +8,7 @@ const nav = [
   { id: 'writing', href: '/v2/#writing', label: 'Writing' },
 ]
 
-export default function V2Nav({ currentPage }) {
+export default function V2Nav({ currentPage, isMobileMenuOpen, onMobileMenuToggle }) {
   const handleClick = (e, href) => {
     // If we're on the home page, use smooth scroll to section
     if (currentPage === 'home' && href.startsWith('/v2/#')) {
@@ -18,10 +19,15 @@ export default function V2Nav({ currentPage }) {
         section.scrollIntoView({ behavior: 'smooth', block: 'start' })
       }
     }
+    
+    // Close mobile menu after navigation
+    if (isMobileMenuOpen && onMobileMenuToggle) {
+      onMobileMenuToggle()
+    }
   }
 
   return (
-    <nav className="v2-nav" aria-label="V2 primary">
+    <nav className={`v2-nav ${isMobileMenuOpen ? 'v2-nav--open' : ''}`} aria-label="V2 primary">
       {nav.map((item) => (
         <a
           key={item.id}
@@ -38,4 +44,6 @@ export default function V2Nav({ currentPage }) {
 
 V2Nav.propTypes = {
   currentPage: PropTypes.string,
+  isMobileMenuOpen: PropTypes.bool,
+  onMobileMenuToggle: PropTypes.func,
 }

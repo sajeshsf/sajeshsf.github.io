@@ -74,3 +74,4 @@ The site is automatically deployed to GitHub Pages via GitHub Actions on push to
 - **Error Handling**: ErrorBoundary component for graceful error handling
 - **Styling**: CSS variables for theming, Bento Box grid system
 
+
