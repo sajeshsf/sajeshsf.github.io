@@ -107,7 +107,6 @@ export default function V2Layout({ currentPage, children }) {
             )}
           </div>
         </header>
-      )}
 
       <main id="main" className="v2-main">
         {currentPage === 'home' ? children : <div className="v2-container">{children}</div>}
