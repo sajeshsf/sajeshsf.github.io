@@ -96,8 +96,8 @@ main {
 
 .navbar__toggle {
   display: none;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   padding: 0.25rem;
   border-radius: 50%;
   border: 1px solid var(--border);
@@ -462,8 +462,16 @@ main {
   text-align: center;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
+  .navbar__logo {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 0.25rem;
+  }
+
   .navbar__menu {
+    display: none;
     position: absolute;
     top: 70px;
     right: 24px;
@@ -473,14 +481,10 @@ main {
     border-radius: 16px;
     border: 1px solid var(--border);
     box-shadow: var(--shadow);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 150ms ease;
   }
 
   .navbar__menu.is-open {
-    opacity: 1;
-    visibility: visible;
+    display: flex;
   }
 
   .navbar__toggle {
