@@ -1,4 +1,6 @@
-export const projects = [
+import { slugify } from '../utils/slugify.js'
+
+const projectsData = [
   {
     title: 'Cash Wizard Smart Safes · American Security',
     description:
@@ -90,3 +92,11 @@ export const projects = [
     year: '2020',
   },
 ]
+
+// Convert projects data to format with IDs
+export const projects = projectsData.map((p) => ({
+  id: slugify(p.title),
+  title: p.title,
+  headline: p.description,
+  year: p.year,
+}))
