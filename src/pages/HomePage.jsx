@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { writing } from '../data/writing.js'
+import { writing, writingCategories } from '../data/writing.js'
 import { useScroll } from '../utils/useScroll.js'
 import {
   SCROLL_PARALLAX_FACTOR,
@@ -160,22 +160,45 @@ export default function HomePage() {
             </div>
           ) : (
             <div className="writing-grid">
-              {writing.map((post) => (
-                <article key={post.title} className="card">
-                  <h3 className="no-margin margin-bottom-sm">
-                    <a href={post.url}>{post.title}</a>
-                  </h3>
-                  <p className="text-muted no-margin font-size-xs">
-                    <time dateTime={post.date}>{post.date}</time>
-                    {post.kind ? ` · ${post.kind}` : ''}
-                  </p>
-                  {post.summary && (
-                    <p className="text-muted margin-top-sm">
-                      {post.summary}
+              {writing.slice(0, 3).map((post) => {
+                const category = writingCategories[post.category]
+                return (
+                  <article key={post.id || post.title} className="card">
+                    {post.series && (
+                      <div style={{ marginBottom: '0.5rem' }}>
+                        <span
+                          style={{
+                            fontSize: '0.85rem',
+                            color: 'var(--accent-soft)',
+                            fontWeight: 500,
+                          }}
+                        >
+                          Series: {post.seriesTitle || post.series}
+                        </span>
+                      </div>
+                    )}
+                    <h3 className="no-margin margin-bottom-sm">
+                      <a href={`/writing/#${post.id || post.title.toLowerCase().replace(/\s+/g, '-')}`}>{post.title}</a>
+                    </h3>
+                    <p className="text-muted no-margin font-size-xs">
+                      <time dateTime={post.date}>{post.date}</time>
+                      {category && (
+                        <>
+                          {' · '}
+                          <span>
+                            {category.icon} {category.name}
+                          </span>
+                        </>
+                      )}
                     </p>
-                  )}
-                </article>
-              ))}
+                    {post.summary && (
+                      <p className="text-muted margin-top-sm">
+                        {post.summary}
+                      </p>
+                    )}
+                  </article>
+                )
+              })}
             </div>
           )}
         </div>

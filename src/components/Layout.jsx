@@ -7,6 +7,7 @@ import { PAGE_IDS, HERO_SCROLL_THRESHOLD } from '../config/constants.js'
 export default function Layout({ currentPage, children }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isPastHero, setIsPastHero] = useState(false)
+  const [scrollProgress, setScrollProgress] = useState(0)
   const menuRef = useRef(null)
 
   const showHeader = currentPage !== PAGE_IDS.HOME || isPastHero
@@ -14,6 +15,24 @@ export default function Layout({ currentPage, children }) {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen((open) => !open)
   }
+
+  // Calculate scroll progress
+  useEffect(() => {
+    const handleScroll = () => {
+      const windowHeight = window.innerHeight
+      const documentHeight = document.documentElement.scrollHeight
+      const scrollTop = window.scrollY || document.documentElement.scrollTop
+      const scrollableHeight = documentHeight - windowHeight
+      const progress = scrollableHeight > 0 ? (scrollTop / scrollableHeight) * 100 : 0
+      setScrollProgress(Math.min(100, Math.max(0, progress)))
+    }
+
+    // Check initial scroll position
+    handleScroll()
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   // Show header when scrolling past hero section (only on home page)
   useEffect(() => {
@@ -141,6 +160,12 @@ export default function Layout({ currentPage, children }) {
                 aria-hidden="true"
               />
             )}
+          </div>
+          <div className="header__scroll-indicator" aria-hidden="true">
+            <div 
+              className="header__scroll-progress" 
+              style={{ width: `${scrollProgress}%` }}
+            />
           </div>
         </header>
 
