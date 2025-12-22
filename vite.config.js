@@ -20,11 +20,10 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        v2: resolve(__dirname, 'v2/index.html'),
-        v2About: resolve(__dirname, 'v2/about/index.html'),
-        v2Experience: resolve(__dirname, 'v2/experience/index.html'),
-        v2Projects: resolve(__dirname, 'v2/projects/index.html'),
-        v2Writing: resolve(__dirname, 'v2/writing/index.html'),
+        about: resolve(__dirname, 'about/index.html'),
+        experience: resolve(__dirname, 'experience/index.html'),
+        projects: resolve(__dirname, 'projects/index.html'),
+        writing: resolve(__dirname, 'writing/index.html'),
       },
     },
   },

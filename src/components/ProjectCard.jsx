@@ -1,32 +1,32 @@
-const ProjectCard = ({ project }) => {
-  const { title, description, stack, live, repo, year } = project
+import PropTypes from 'prop-types'
+import { ArrowRight } from './ArrowIcon.jsx'
 
+export default function ProjectCard({ project }) {
   return (
-    <article className="project-card">
-      <p className="project-card__year">{year}</p>
-      <h3>{title}</h3>
-      <p className="project-card__description">{description}</p>
-
-      <ul className="project-card__stack">
-        {stack.map((item) => (
-          <li key={item}>{item}</li>
-        ))}
-      </ul>
-
-      <div className="project-card__links">
-        {live && (
-          <a href={live} target="_blank" rel="noreferrer">
-            Live site
-          </a>
-        )}
-        {repo && (
-          <a href={repo} target="_blank" rel="noreferrer">
-            Source
-          </a>
-        )}
-      </div>
+    <article className="card project-card">
+      <a href={`/projects/#${project.id}`} className="project-link">
+        <div className="project-header">
+          <div className="project-content">
+            <p className="text-muted no-margin margin-bottom-sm font-size-xs">
+              {project.year}
+            </p>
+            <h2 className="project-title">
+              {project.title}
+            </h2>
+          </div>
+          <span className="project-chevron">
+            <ArrowRight size={20} />
+          </span>
+        </div>
+      </a>
     </article>
   )
 }
 
-export default ProjectCard
+ProjectCard.propTypes = {
+  project: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    year: PropTypes.string.isRequired,
+  }).isRequired,
+}
