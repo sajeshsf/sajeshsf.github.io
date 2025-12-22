@@ -1,10 +1,6 @@
 import { useEffect, useState } from 'react'
 
 export function useHash() {
-  const get = () => {
-    if (typeof window === 'undefined') return ''
-    return window.location.hash || ''
-  }
   const [hash, setHash] = useState(() => {
     // Initialize with current hash on mount
     if (typeof window !== 'undefined') {
@@ -14,23 +10,20 @@ export function useHash() {
   })
 
   useEffect(() => {
+    if (typeof window === 'undefined') return
+
+    const getHash = () => window.location.hash || ''
     const onChange = () => {
-      const newHash = get()
-      setHash(newHash)
+      setHash(getHash())
     }
-    
-    // Set initial hash
-    setHash(get())
     
     // Listen for hash changes
     window.addEventListener('hashchange', onChange)
     
     // Also check periodically in case hash was set programmatically
     const interval = setInterval(() => {
-      const currentHash = get()
-      if (currentHash !== hash) {
-        setHash(currentHash)
-      }
+      const currentHash = getHash()
+      setHash((prev) => (prev === currentHash ? prev : currentHash))
     }, 100)
     
     return () => {
