@@ -163,6 +163,10 @@ body.menu-open {
   letter-spacing: -0.02em;
   text-decoration: none;
   color: var(--text-primary);
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 6px 0;
 }
 
 .nav {
@@ -225,6 +229,8 @@ body.menu-open {
   color: var(--text-primary);
   z-index: 101;
   position: relative;
+  min-width: 44px;
+  min-height: 44px;
 }
 
 .hamburger {
@@ -746,7 +752,7 @@ html {
   bottom: 0;
   width: 100%;
   height: 100%;
-  background-image: url('/hero-photo.jpg');
+  background-image: url('/profile.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -938,6 +944,9 @@ html {
   cursor: pointer;
   text-decoration: none;
   color: inherit;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 6px;
 }
 
 /* Scroll Mouse Animation */
@@ -2092,6 +2101,16 @@ html {
   margin: 0.5rem 0;
   font-size: 1.1rem;
   font-weight: 600;
+}
+
+/* Mobile touch target sizing (WCAG recommendation) */
+@media (max-width: 767px) {
+  .timeline-heading a,
+  .writing-grid h3 a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
 }
 
 .writing-grid-container {

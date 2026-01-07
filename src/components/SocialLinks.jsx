@@ -1,4 +1,6 @@
-export default function SocialLinks() {
+import PropTypes from 'prop-types'
+
+export default function SocialLinks({ ariaLabel = 'Social links' }) {
   const links = [
     {
       name: 'LinkedIn',
@@ -42,7 +44,7 @@ export default function SocialLinks() {
   ]
 
   return (
-    <nav className="social-links" aria-label="Social links">
+    <nav className="social-links" aria-label={ariaLabel}>
       {links.map((link) => (
         <a
           key={link.name}
@@ -57,6 +59,10 @@ export default function SocialLinks() {
       ))}
     </nav>
   )
+}
+
+SocialLinks.propTypes = {
+  ariaLabel: PropTypes.string,
 }
 
 
