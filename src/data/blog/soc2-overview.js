@@ -49,4 +49,3 @@ export default {
   <li><strong>The Audit:</strong> An independent CPA firm reviews your evidence and issues the final report.</li>
 </ul>`,
 }
-

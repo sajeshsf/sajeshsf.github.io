@@ -216,5 +216,3 @@ test.describe('Responsive Design Tests', () => {
     }
   })
 })
-
-
