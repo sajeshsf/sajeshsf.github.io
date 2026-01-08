@@ -81,7 +81,7 @@ export default function HomePage() {
             />
           </p>
           <div className="hero-social-links">
-            <SocialLinks />
+            <SocialLinks ariaLabel="Hero social links" />
           </div>
           <a 
             href="#about" 

@@ -8,13 +8,37 @@ export default function Layout({ currentPage, children }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isPastHero, setIsPastHero] = useState(false)
   const [scrollProgress, setScrollProgress] = useState(0)
+  const [isNonMobileViewport, setIsNonMobileViewport] = useState(false)
   const menuRef = useRef(null)
 
-  const showHeader = currentPage !== PAGE_IDS.HOME || isPastHero
+  const showHeader = currentPage !== PAGE_IDS.HOME || isPastHero || isNonMobileViewport
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen((open) => !open)
   }
+
+  // Keep header visible on tablet+ (tests + usability)
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+
+    const media = window.matchMedia('(min-width: 768px)')
+    const handleChange = () => setIsNonMobileViewport(media.matches)
+
+    handleChange()
+    if (media.addEventListener) {
+      media.addEventListener('change', handleChange)
+    } else if (media.addListener) {
+      media.addListener(handleChange)
+    }
+
+    return () => {
+      if (media.removeEventListener) {
+        media.removeEventListener('change', handleChange)
+      } else if (media.removeListener) {
+        media.removeListener(handleChange)
+      }
+    }
+  }, [])
 
   // Calculate scroll progress
   useEffect(() => {
@@ -151,7 +175,7 @@ export default function Layout({ currentPage, children }) {
                 isMobileMenuOpen={isMobileMenuOpen}
                 onMobileMenuToggle={toggleMobileMenu}
               />
-              <SocialLinks />
+              <SocialLinks ariaLabel="Header social links" />
             </div>
             {isMobileMenuOpen && (
               <div 
