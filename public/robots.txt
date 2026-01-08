@@ -7,5 +7,3 @@ Sitemap: https://sajeshsf.github.io/sitemap.xml
 # Disallow admin or private areas if any
 # Disallow: /admin/
 # Disallow: /private/
-
-

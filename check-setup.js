@@ -29,5 +29,3 @@ if (allGood) {
   console.log('\nTo start the server, run:');
   console.log('  npm run dev');
 }
-
-

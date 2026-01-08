@@ -34,5 +34,3 @@ process.on('SIGTERM', () => {
   vite.kill('SIGTERM');
   process.exit(0);
 });
-
-

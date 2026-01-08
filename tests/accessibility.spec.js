@@ -79,5 +79,3 @@ test.describe('Accessibility Tests', () => {
     })
   }
 })
-
-
