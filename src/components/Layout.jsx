@@ -34,16 +34,19 @@ export default function Layout({ currentPage, children }) {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Show header when scrolling past hero section (only on home page)
+  // Show header when scrolling 10% into hero section (only on home page)
   useEffect(() => {
     if (currentPage !== PAGE_IDS.HOME) return
 
     const handleScroll = () => {
       const heroSection = document.querySelector('.hero')
       if (heroSection) {
-        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight
-        const scrollPosition = window.scrollY + window.innerHeight * HERO_SCROLL_THRESHOLD
-        setIsPastHero(scrollPosition > heroBottom)
+        const heroTop = heroSection.offsetTop
+        const heroHeight = heroSection.offsetHeight
+        const scrollPosition = window.scrollY
+        // Show header when scrolled 10% of the hero section height
+        const heroScrollThreshold = heroHeight * HERO_SCROLL_THRESHOLD
+        setIsPastHero(scrollPosition > heroTop + heroScrollThreshold)
       }
     }
 

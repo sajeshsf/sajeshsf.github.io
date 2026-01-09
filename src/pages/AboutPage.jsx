@@ -1,6 +1,15 @@
+import SEO from '../components/SEO.jsx'
+
 export default function AboutPage() {
   return (
-    <article aria-labelledby="about-title">
+    <>
+      <SEO
+        title="About | Sajesh S F - Software Engineering Leader"
+        description="Learn about Sajesh S F - Software Engineering Leader with 7+ years of experience in IoT, embedded systems, and cloud solutions. Leading global engineering teams and delivering enterprise applications."
+        keywords="Sajesh S F, About, Software Engineering Leader, Engineering Manager, IoT, Embedded Systems, Cloud Solutions, Rancho Cucamonga, California"
+        canonical="https://sajeshsf.github.io/about/"
+      />
+      <article aria-labelledby="about-title">
       <h1 id="about-title">About</h1>
       
       <div className="bento-grid">
@@ -26,5 +35,6 @@ export default function AboutPage() {
         </section>
       </div>
     </article>
+    </>
   )
 }
