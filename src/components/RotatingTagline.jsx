@@ -28,5 +28,3 @@ RotatingTagline.propTypes = {
   taglines: PropTypes.arrayOf(PropTypes.string).isRequired,
   interval: PropTypes.number,
 }
-
-

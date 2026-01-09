@@ -34,12 +34,12 @@ export default function WritingPage() {
   // Show blog post detail if hash is present
   if (selectedPost) {
     const category = writingCategories[selectedPost.category]
-    
+
     return (
       <section aria-labelledby="writing-detail-title">
         <nav className="breadcrumb-nav" style={{ marginBottom: '1.5rem' }}>
-          <a 
-            href="#writing" 
+          <a
+            href="#writing"
             className="breadcrumb-link"
             onClick={(e) => {
               e.preventDefault()
@@ -72,7 +72,7 @@ export default function WritingPage() {
           </header>
 
           {selectedPost.content && (
-            <div 
+            <div
               className="writing-content mt-lg"
               dangerouslySetInnerHTML={{ __html: selectedPost.content }}
             />
@@ -103,7 +103,7 @@ export default function WritingPage() {
           let collectionColor = 'blue'
           if (post.category === 'internet-finds') collectionColor = 'green'
           if (post.category === 'travel-food-experiences') collectionColor = 'purple'
-          
+
           return (
             <div key={post.id || post.title} className={`blog-card outer-card ${collectionColor}`}>
               <div className="tile-holder card-div">
@@ -121,8 +121,8 @@ export default function WritingPage() {
                       </a>
                     )}
                   </div>
-                  <a 
-                    className="subtitle-card" 
+                  <a
+                    className="subtitle-card"
                     href={`/writing/#${post.id || post.title.toLowerCase().replace(/\s+/g, '-')}`}
                   >
                     {post.title}

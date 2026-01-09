@@ -3,16 +3,16 @@ import PropTypes from 'prop-types'
 
 /**
  * SEO Component - Updates document title and meta tags dynamically
- * 
+ *
  * Usage:
- * <SEO 
+ * <SEO
  *   title="Page Title"
  *   description="Page description"
  *   keywords="keyword1, keyword2"
  *   ogImage="/path/to/image.jpg"
  * />
  */
-export default function SEO({ 
+export default function SEO({
   title = 'Sajesh S F | Technical & Organizational Leader',
   description = 'Portfolio of Sajesh S F - Software Engineering Leader with 7+ years of experience in IoT, embedded systems, cloud solutions, and leading global engineering teams.',
   keywords = 'Sajesh S F, Software Engineering Leader, IoT, Embedded Systems, Cloud Solutions, Engineering Manager, React, AWS, C++, C#, .NET, React.js, Portfolio, Software Engineer, Tech Lead',
@@ -28,7 +28,7 @@ export default function SEO({
     const updateMetaTag = (name, content, isProperty = false) => {
       const attribute = isProperty ? 'property' : 'name'
       let meta = document.querySelector(`meta[${attribute}="${name}"]`)
-      
+
       if (!meta) {
         meta = document.createElement('meta')
         meta.setAttribute(attribute, name)
@@ -39,7 +39,7 @@ export default function SEO({
 
     // Update description
     updateMetaTag('description', description)
-    
+
     // Update keywords
     updateMetaTag('keywords', keywords)
 
@@ -77,4 +77,3 @@ SEO.propTypes = {
   canonical: PropTypes.string,
   type: PropTypes.string,
 }
-

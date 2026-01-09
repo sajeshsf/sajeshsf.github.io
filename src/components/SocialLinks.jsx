@@ -64,5 +64,3 @@ export default function SocialLinks({ ariaLabel = 'Social links' }) {
 SocialLinks.propTypes = {
   ariaLabel: PropTypes.string,
 }
-
-

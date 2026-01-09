@@ -11,7 +11,7 @@ export default function AboutPage() {
       />
       <article aria-labelledby="about-title">
       <h1 id="about-title">About</h1>
-      
+
       <div className="bento-grid">
         <section aria-labelledby="headshot-title" className="card">
           <h2 id="headshot-title" className="no-margin-top margin-bottom-md">

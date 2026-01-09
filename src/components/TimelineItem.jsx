@@ -27,4 +27,3 @@ TimelineItem.propTypes = {
     dateLabel: PropTypes.string.isRequired,
   }).isRequired,
 }
-

@@ -19,11 +19,23 @@ export function useHash() {
       setHash(newHash)
     }
 
+    // Set initial hash
+    setHash(get())
+
     // Listen for hash changes
     window.addEventListener('hashchange', onChange)
 
+    // Also check periodically in case hash was set programmatically
+    const interval = setInterval(() => {
+      const currentHash = get()
+      if (currentHash !== hash) {
+        setHash(currentHash)
+      }
+    }, 100)
+
     return () => {
       window.removeEventListener('hashchange', onChange)
+      clearInterval(interval)
     }
   }, [])
 

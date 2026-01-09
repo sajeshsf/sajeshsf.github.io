@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { writing, writingCategories } from '../data/writing.js'
 import { useScroll } from '../utils/useScroll.js'
 import {
@@ -83,8 +83,8 @@ export default function HomePage() {
           <div className="hero-social-links">
             <SocialLinks />
           </div>
-          <a 
-            href="#about" 
+          <a
+            href="#about"
             className="hero-scroll-indicator"
             onClick={(e) => {
               e.preventDefault()

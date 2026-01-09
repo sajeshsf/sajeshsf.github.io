@@ -106,7 +106,7 @@ export default function Layout({ currentPage, children }) {
       document.addEventListener('keydown', handleTabKey)
       // Prevent body scroll when menu is open
       document.body.classList.add('menu-open')
-      
+
       // Focus trap: focus first focusable element in menu
       const firstFocusable = menuRef.current?.querySelector('a, button, [tabindex]:not([tabindex="-1"])')
       if (firstFocusable) {
@@ -145,19 +145,19 @@ export default function Layout({ currentPage, children }) {
                 <span></span>
               </span>
             </button>
-            <div 
+            <div
               ref={menuRef}
               className={`header__actions ${isMobileMenuOpen ? 'header__actions--open' : ''}`}
             >
-              <Nav 
-                currentPage={currentPage} 
+              <Nav
+                currentPage={currentPage}
                 isMobileMenuOpen={isMobileMenuOpen}
                 onMobileMenuToggle={toggleMobileMenu}
               />
               <SocialLinks />
             </div>
             {isMobileMenuOpen && (
-              <div 
+              <div
                 className="mobile-menu-overlay"
                 onClick={toggleMobileMenu}
                 aria-hidden="true"
@@ -165,8 +165,8 @@ export default function Layout({ currentPage, children }) {
             )}
           </div>
           <div className="header__scroll-indicator" aria-hidden="true">
-            <div 
-              className="header__scroll-progress" 
+            <div
+              className="header__scroll-progress"
               style={{ width: `${scrollProgress}%` }}
             />
           </div>

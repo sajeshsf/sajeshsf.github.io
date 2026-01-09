@@ -28,8 +28,8 @@ export default function BlogCollection({ title, posts, collectionColor = 'blue' 
                         </a>
                       )}
                     </div>
-                    <a 
-                      className="subtitle-card" 
+                    <a
+                      className="subtitle-card"
                       href={`/writing/#${post.id || post.title.toLowerCase().replace(/\s+/g, '-')}`}
                     >
                       {post.title}
@@ -53,4 +53,3 @@ BlogCollection.propTypes = {
   posts: PropTypes.arrayOf(PropTypes.object).isRequired,
   collectionColor: PropTypes.oneOf(['blue', 'green', 'purple']),
 }
-

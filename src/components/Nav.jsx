@@ -19,7 +19,7 @@ export default function Nav({ currentPage, isMobileMenuOpen, onMobileMenuToggle 
         section.scrollIntoView({ behavior: 'smooth', block: 'start' })
       }
     }
-    
+
     // Close mobile menu after navigation
     if (isMobileMenuOpen && onMobileMenuToggle) {
       onMobileMenuToggle()
