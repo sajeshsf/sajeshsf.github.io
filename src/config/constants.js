@@ -21,7 +21,7 @@ export const INTERSECTION_THRESHOLD = 0.1
 export const INTERSECTION_ROOT_MARGIN = '0px 0px -100px 0px'
 
 // Scroll and Animation
-export const HERO_SCROLL_THRESHOLD = 0.1 // 10% past hero to show header
+export const HERO_SCROLL_THRESHOLD = 0.1 // 10% of hero height to show header
 export const SCROLL_THROTTLE_MS = 16 // ~60fps
 
 // Page IDs

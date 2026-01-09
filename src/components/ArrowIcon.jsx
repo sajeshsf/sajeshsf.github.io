@@ -60,5 +60,3 @@ export function ArrowLeft({ size = 16, className = '' }) {
     </svg>
   )
 }
-
-
