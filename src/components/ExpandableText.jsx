@@ -14,27 +14,27 @@ export default function ExpandableText({
   fadeLines = DEFAULT_FADE_LINES,
 }) {
   const [isExpanded, setIsExpanded] = useState(false)
-  
+
   if (!text) return null
-  
+
   const shouldTruncate = text.length > maxLength
-  
+
   if (!shouldTruncate) {
     return <p className={className}>{text}</p>
   }
 
   // Calculate approximate lines
   const charsToShow = fadeLines * CHARS_PER_LINE
-  
-  const displayText = isExpanded 
-    ? text 
+
+  const displayText = isExpanded
+    ? text
     : text.slice(0, charsToShow)
 
   return (
     <div className="expandable-text" style={{ position: 'relative' }}>
-      <p 
-        className={className} 
-        style={{ 
+      <p
+        className={className}
+        style={{
           margin: 0,
           lineHeight: '1.6',
           maxHeight: isExpanded ? 'none' : `${fadeLines * 1.6}em`,
@@ -44,9 +44,9 @@ export default function ExpandableText({
         {displayText}
         {!isExpanded && text.length > charsToShow && '...'}
       </p>
-      
+
       {!isExpanded && (
-        <div 
+        <div
           className="fade-overlay"
           style={{
             position: 'absolute',
@@ -59,7 +59,7 @@ export default function ExpandableText({
           }}
         />
       )}
-      
+
       <button
         onClick={() => setIsExpanded(!isExpanded)}
         className="expand-button"
@@ -79,7 +79,7 @@ export default function ExpandableText({
         }}
       >
         <span>{isExpanded ? 'Show less' : 'Read more'}</span>
-        <span 
+        <span
           style={{
             transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)',
             transition: 'transform 0.3s ease',

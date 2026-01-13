@@ -9,10 +9,10 @@ function getIdFromHash(hash) {
 
 function parseDescriptionToBullets(description) {
   if (!description) return []
-  
+
   // Split by " - " pattern first (common for sub-items like "Cloud Portal -", "Niox1900 -")
   let parts = description.split(/ - /)
-  
+
   // If we got multiple parts, process each
   if (parts.length > 1) {
     const bullets = []
@@ -21,7 +21,7 @@ function parseDescriptionToBullets(description) {
     if (intro.length > 0) {
       bullets.push(intro)
     }
-    
+
     // Remaining parts are sub-items
     for (let i = 1; i < parts.length; i++) {
       let bullet = parts[i].trim()
@@ -37,19 +37,19 @@ function parseDescriptionToBullets(description) {
         bullets.push(bullet)
       }
     }
-    
+
     return bullets.filter(b => b.length > 0)
   }
-  
+
   // If no " - " pattern, try splitting by product names or major sections
   // Look for patterns like "ProductName -" or "ProductName:"
   const productPattern = /([A-Z][a-zA-Z0-9]+(?: |\d+)?) - /g
   const matches = [...description.matchAll(productPattern)]
-  
+
   if (matches.length > 0) {
     const bullets = []
     let lastIndex = 0
-    
+
     matches.forEach((match) => {
       // Add text before this match
       if (match.index > lastIndex) {
@@ -60,7 +60,7 @@ function parseDescriptionToBullets(description) {
       }
       lastIndex = match.index + match[0].length
     })
-    
+
     // Add remaining text
     if (lastIndex < description.length) {
       const remaining = description.substring(lastIndex).trim()
@@ -68,31 +68,31 @@ function parseDescriptionToBullets(description) {
         bullets.push(remaining)
       }
     }
-    
+
     if (bullets.length > 1) {
       return bullets
     }
   }
-  
+
   // Fallback: split by sentence boundaries for long text
   if (description.length > 150) {
     const sentences = description
       .split(/\. (?=[A-Z])/)
       .filter(s => s.trim().length > 30)
       .map(s => s.trim().replace(/\.$/, ''))
-    
+
     if (sentences.length > 1) {
       return sentences
     }
   }
-  
+
   // If all else fails, return as single bullet
   return [description.trim()]
 }
 
 function ProjectDetail({ project }) {
   const bullets = parseDescriptionToBullets(project.headline)
-  
+
   return (
     <article aria-labelledby="project-detail-title">
       <nav aria-label="Breadcrumb" className="breadcrumb">

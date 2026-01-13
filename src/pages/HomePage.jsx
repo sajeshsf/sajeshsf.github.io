@@ -81,10 +81,10 @@ export default function HomePage() {
             />
           </p>
           <div className="hero-social-links">
-            <SocialLinks ariaLabel="Hero social links" />
+            <SocialLinks />
           </div>
-          <a 
-            href="#about" 
+          <a
+            href="#about"
             className="hero-scroll-indicator"
             onClick={(e) => {
               e.preventDefault()
