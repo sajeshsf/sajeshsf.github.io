@@ -28,9 +28,7 @@ export function useHash() {
     // Also check periodically in case hash was set programmatically
     const interval = setInterval(() => {
       const currentHash = get()
-      if (currentHash !== hash) {
-        setHash(currentHash)
-      }
+      setHash((prev) => (prev === currentHash ? prev : currentHash))
     }, 100)
 
     return () => {

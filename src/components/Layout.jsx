@@ -8,13 +8,34 @@ export default function Layout({ currentPage, children }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isPastHero, setIsPastHero] = useState(false)
   const [scrollProgress, setScrollProgress] = useState(0)
+  const [isNonMobileViewport, setIsNonMobileViewport] = useState(false)
   const menuRef = useRef(null)
 
-  const showHeader = currentPage !== PAGE_IDS.HOME || isPastHero
+  const showHeader = currentPage !== PAGE_IDS.HOME || isPastHero || isNonMobileViewport
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen((open) => !open)
   }
+
+  // Keep header visible on non-mobile viewports (tests + usability)
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(min-width: 768px)')
+
+    const handleChange = () => {
+      setIsNonMobileViewport(mediaQuery.matches)
+    }
+
+    handleChange()
+
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener('change', handleChange)
+      return () => mediaQuery.removeEventListener('change', handleChange)
+    }
+
+    // Safari < 14
+    mediaQuery.addListener(handleChange)
+    return () => mediaQuery.removeListener(handleChange)
+  }, [])
 
   // Calculate scroll progress
   useEffect(() => {
