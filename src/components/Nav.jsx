@@ -27,7 +27,10 @@ export default function Nav({ currentPage, isMobileMenuOpen, onMobileMenuToggle 
   }
 
   return (
-    <nav className={`nav ${isMobileMenuOpen ? 'nav--open' : ''}`} aria-label="Primary navigation">
+    <nav
+      className={`nav v2-nav ${isMobileMenuOpen ? 'nav--open' : ''}`}
+      aria-label="Primary navigation"
+    >
       {nav.map((item) => (
         <a
           key={item.id}
