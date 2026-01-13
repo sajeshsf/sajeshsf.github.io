@@ -19,9 +19,6 @@ export function useHash() {
       setHash(newHash)
     }
 
-    // Set initial hash
-    setHash(get())
-
     // Listen for hash changes
     window.addEventListener('hashchange', onChange)
 
