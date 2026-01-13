@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { writing, writingCategories } from '../data/writing.js'
 import { useScroll } from '../utils/useScroll.js'
 import {
