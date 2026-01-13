@@ -1,43 +1,33 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 export function useHash() {
-  const get = () => {
+  const getHash = useCallback(() => {
     if (typeof window === 'undefined') return ''
     return window.location.hash || ''
-  }
-  const [hash, setHash] = useState(() => {
-    // Initialize with current hash on mount
-    if (typeof window !== 'undefined') {
-      return window.location.hash || ''
-    }
-    return ''
-  })
+  }, [])
+
+  // Initialize with current hash on mount (no effect needed)
+  const [hash, setHash] = useState(getHash)
 
   useEffect(() => {
     const onChange = () => {
-      const newHash = get()
-      setHash(newHash)
+      setHash(getHash())
     }
-
-    // Set initial hash
-    setHash(get())
 
     // Listen for hash changes
     window.addEventListener('hashchange', onChange)
 
     // Also check periodically in case hash was set programmatically
     const interval = setInterval(() => {
-      const currentHash = get()
-      if (currentHash !== hash) {
-        setHash(currentHash)
-      }
-    }, 100)
+      const currentHash = getHash()
+      setHash((prev) => (prev === currentHash ? prev : currentHash))
+    }, 250)
 
     return () => {
       window.removeEventListener('hashchange', onChange)
       clearInterval(interval)
     }
-  }, [])
+  }, [getHash])
 
   return hash
 }
