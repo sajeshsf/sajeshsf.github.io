@@ -175,7 +175,7 @@ export default function Layout({ currentPage, children }) {
                 isMobileMenuOpen={isMobileMenuOpen}
                 onMobileMenuToggle={toggleMobileMenu}
               />
-              <SocialLinks />
+              <SocialLinks ariaLabel="Header social links" />
             </div>
             {isMobileMenuOpen && (
               <div
