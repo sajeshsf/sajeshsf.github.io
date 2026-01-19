@@ -54,7 +54,6 @@ test.describe('Component Visibility and Layout Tests', () => {
 
       const titleBox = await experienceTitle.boundingBox()
       const titleTop = titleBox?.y || 0
-      const titleBottom = titleTop + (titleBox?.height || 0)
 
       // Title should be visible and not covered by header
       // Check if title top is at least 20px below header
@@ -240,8 +239,6 @@ test.describe('Component Visibility and Layout Tests', () => {
     // Title should still be visible (not covered by header)
     // When scrolled, title top might be negative (above viewport), but that's OK
     // What matters is that when title is in viewport, it's not covered
-    const scrollY = await page.evaluate(() => window.scrollY)
-    const titleAbsoluteTop = scrollY + titleTop
 
     // If title is in viewport, it should be below header
     if (titleTop >= 0 && titleTop < page.viewportSize().height) {
