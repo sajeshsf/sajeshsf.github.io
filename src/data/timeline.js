@@ -6,7 +6,7 @@ export function getExperienceForTimelineItem(timelineItem) {
   if (timelineItem.type === 'education') {
     return null
   }
-  
+
   return experience.find((exp) => {
     const expId = slugify(`${exp.role}-${exp.company}-${exp.period}`)
     return expId === timelineItem.id || exp.role === timelineItem.role
@@ -28,14 +28,14 @@ function getStartMonth(period) {
     jan: 1, feb: 2, mar: 3, apr: 4, may: 5, jun: 6,
     jul: 7, aug: 8, sep: 9, oct: 10, nov: 11, dec: 12
   }
-  
+
   const periodStr = String(period || '').toLowerCase()
   for (const [month, num] of Object.entries(monthNames)) {
     if (periodStr.startsWith(month)) {
       return num
     }
   }
-  
+
   // Default to 0 (January) if month not found
   return 0
 }
@@ -45,7 +45,7 @@ function getStartMonth(period) {
 const experienceItems = experience.map((r) => {
   const startYear = getStartYear(r.period)
   const startMonth = getStartMonth(r.period)
-  
+
   return {
   type: 'role',
   id: slugify(`${r.role}-${r.company}-${r.period}`),

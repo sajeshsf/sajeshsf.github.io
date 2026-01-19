@@ -64,6 +64,14 @@ jobs:
         with:
           path: './dist'
 
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: build-artifacts
+          path: dist/
+          retention-days: 30
+
   deploy:
     environment:
       name: github-pages
@@ -122,11 +130,30 @@ jobs:
         env:
           BASE_URL: https://sajeshsf.github.io
 
+      - name: Run visibility tests
+        run: npm run test:visibility
+        env:
+          BASE_URL: https://sajeshsf.github.io
+
+      - name: Run navigation tests
+        run: npm run test:navigation
+        env:
+          BASE_URL: https://sajeshsf.github.io
+
       - name: Run Lighthouse CI
         run: npm run test:lighthouse
         continue-on-error: true
         env:
           BASE_URL: https://sajeshsf.github.io
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-results
+          path: test-results/
+          retention-days: 30
+          if-no-files-found: ignore
 
       - name: Upload Playwright report
         uses: actions/upload-artifact@v4

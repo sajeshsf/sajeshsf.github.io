@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { writing, writingCategories } from '../data/writing.js'
 import { useScroll } from '../utils/useScroll.js'
+import { slugify } from '../utils/slugify.js'
 import {
   SCROLL_PARALLAX_FACTOR,
   SCROLL_FADE_START,
@@ -83,8 +84,8 @@ export default function HomePage() {
           <div className="hero-social-links">
             <SocialLinks ariaLabel="Hero social links" />
           </div>
-          <a 
-            href="#about" 
+          <a
+            href="#about"
             className="hero-scroll-indicator"
             onClick={(e) => {
               e.preventDefault()
@@ -126,9 +127,6 @@ export default function HomePage() {
       <section ref={experienceRef} id="experience" className="section section-experience">
         <div className="container">
           <h2 className="section-title">Experience</h2>
-          <p className="text-muted margin-bottom-lg text-center">
-            Professional roles and education timeline
-          </p>
           <TimelineGrid />
         </div>
       </section>
@@ -137,9 +135,6 @@ export default function HomePage() {
       <section ref={projectsRef} id="projects" className="section section-projects">
         <div className="container">
           <h2 className="section-title">Projects</h2>
-          <p className="text-muted margin-bottom-lg text-center">
-            Professional and personal projects
-          </p>
           <ProjectsGrid />
         </div>
       </section>
@@ -148,9 +143,6 @@ export default function HomePage() {
       <section ref={writingRef} id="writing" className="section section-writing">
         <div className="container">
           <h2 className="section-title">Writing</h2>
-          <p className="text-muted margin-bottom-lg text-center">
-            Technical articles and blog posts
-          </p>
           {writing.length === 0 ? (
             <div className="card empty-state">
               <h3>Coming Soon</h3>
@@ -162,8 +154,9 @@ export default function HomePage() {
             <div className="writing-grid">
               {writing.slice(0, 3).map((post) => {
                 const category = writingCategories[post.category]
+                const postSlug = post.id ?? slugify(post.title)
                 return (
-                  <article key={post.id || post.title} className="card">
+                  <article key={postSlug} className="card">
                     {post.series && (
                       <div style={{ marginBottom: '0.5rem' }}>
                         <span
@@ -178,7 +171,7 @@ export default function HomePage() {
                       </div>
                     )}
                     <h3 className="no-margin margin-bottom-sm">
-                      <a href={`/writing/#${post.id || post.title.toLowerCase().replace(/\s+/g, '-')}`}>{post.title}</a>
+                      <a href={`/writing/#${postSlug}`}>{post.title}</a>
                     </h3>
                     <p className="text-muted no-margin font-size-xs">
                       <time dateTime={post.date}>{post.date}</time>

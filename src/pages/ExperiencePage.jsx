@@ -22,7 +22,7 @@ function ExperienceDetail({ item }) {
     return (
       <article aria-labelledby="experience-detail-title">
         <nav aria-label="Breadcrumb" className="breadcrumb">
-          <a href="/experience/" className="breadcrumb-link">
+          <a href="/#experience" className="breadcrumb-link">
             <ArrowLeft size={16} />
             Back to timeline
           </a>
@@ -46,7 +46,7 @@ function ExperienceDetail({ item }) {
   return (
     <article aria-labelledby="experience-detail-title">
       <nav aria-label="Breadcrumb" className="breadcrumb-nav">
-        <a href="/experience/" className="breadcrumb-link-alt">
+        <a href="/#experience" className="breadcrumb-link-alt">
           <ArrowLeft size={16} />
           Back to timeline
         </a>
@@ -99,11 +99,8 @@ export default function ExperiencePage() {
   const selected = selectedId ? timeline.find((t) => t.id === selectedId) : null
 
   return (
-    <section aria-labelledby="experience-title">
-      <h1 id="experience-title">Experience</h1>
-      <p className="text-muted margin-bottom-0">
-        Timeline view of professional roles and education. Click an item to view details.
-      </p>
+    <section aria-labelledby={selected ? 'experience-detail-title' : 'experience-title'}>
+      {!selected && <h1 id="experience-title">Experience</h1>}
 
       <div className="section-spacer">
         {selected ? <ExperienceDetail item={selected} /> : <ExperienceTimeline />}

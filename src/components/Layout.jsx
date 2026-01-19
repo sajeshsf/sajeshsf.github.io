@@ -17,27 +17,24 @@ export default function Layout({ currentPage, children }) {
     setIsMobileMenuOpen((open) => !open)
   }
 
-  // Keep header visible on tablet+ (tests + usability)
+  // Keep header visible on non-mobile viewports (tests + usability)
   useEffect(() => {
-    if (typeof window === 'undefined') return
+    const mediaQuery = window.matchMedia('(min-width: 768px)')
 
-    const media = window.matchMedia('(min-width: 768px)')
-    const handleChange = () => setIsNonMobileViewport(media.matches)
+    const handleChange = () => {
+      setIsNonMobileViewport(mediaQuery.matches)
+    }
 
     handleChange()
-    if (media.addEventListener) {
-      media.addEventListener('change', handleChange)
-    } else if (media.addListener) {
-      media.addListener(handleChange)
+
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener('change', handleChange)
+      return () => mediaQuery.removeEventListener('change', handleChange)
     }
 
-    return () => {
-      if (media.removeEventListener) {
-        media.removeEventListener('change', handleChange)
-      } else if (media.removeListener) {
-        media.removeListener(handleChange)
-      }
-    }
+    // Safari < 14
+    mediaQuery.addListener(handleChange)
+    return () => mediaQuery.removeListener(handleChange)
   }, [])
 
   // Calculate scroll progress
@@ -58,16 +55,19 @@ export default function Layout({ currentPage, children }) {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Show header when scrolling past hero section (only on home page)
+  // Show header when scrolling 10% into hero section (only on home page)
   useEffect(() => {
     if (currentPage !== PAGE_IDS.HOME) return
 
     const handleScroll = () => {
       const heroSection = document.querySelector('.hero')
       if (heroSection) {
-        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight
-        const scrollPosition = window.scrollY + window.innerHeight * HERO_SCROLL_THRESHOLD
-        setIsPastHero(scrollPosition > heroBottom)
+        const heroTop = heroSection.offsetTop
+        const heroHeight = heroSection.offsetHeight
+        const scrollPosition = window.scrollY
+        // Show header when scrolled 10% of the hero section height
+        const heroScrollThreshold = heroHeight * HERO_SCROLL_THRESHOLD
+        setIsPastHero(scrollPosition > heroTop + heroScrollThreshold)
       }
     }
 
@@ -127,7 +127,7 @@ export default function Layout({ currentPage, children }) {
       document.addEventListener('keydown', handleTabKey)
       // Prevent body scroll when menu is open
       document.body.classList.add('menu-open')
-      
+
       // Focus trap: focus first focusable element in menu
       const firstFocusable = menuRef.current?.querySelector('a, button, [tabindex]:not([tabindex="-1"])')
       if (firstFocusable) {
@@ -166,19 +166,19 @@ export default function Layout({ currentPage, children }) {
                 <span></span>
               </span>
             </button>
-            <div 
+            <div
               ref={menuRef}
               className={`header__actions ${isMobileMenuOpen ? 'header__actions--open' : ''}`}
             >
-              <Nav 
-                currentPage={currentPage} 
+              <Nav
+                currentPage={currentPage}
                 isMobileMenuOpen={isMobileMenuOpen}
                 onMobileMenuToggle={toggleMobileMenu}
               />
               <SocialLinks ariaLabel="Header social links" />
             </div>
             {isMobileMenuOpen && (
-              <div 
+              <div
                 className="mobile-menu-overlay"
                 onClick={toggleMobileMenu}
                 aria-hidden="true"
@@ -186,8 +186,8 @@ export default function Layout({ currentPage, children }) {
             )}
           </div>
           <div className="header__scroll-indicator" aria-hidden="true">
-            <div 
-              className="header__scroll-progress" 
+            <div
+              className="header__scroll-progress"
               style={{ width: `${scrollProgress}%` }}
             />
           </div>

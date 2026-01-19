@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import { writingCategories } from '../data/writing.js'
+import { slugify } from '../utils/slugify.js'
 
 export default function BlogCollection({ title, posts, collectionColor = 'blue' }) {
   if (!posts || posts.length === 0) return null
@@ -11,8 +12,9 @@ export default function BlogCollection({ title, posts, collectionColor = 'blue' 
         <div className="blog-collection-track">
           {posts.map((post) => {
             const category = writingCategories[post.category]
+            const postSlug = post.id ?? slugify(post.title)
             return (
-              <div key={post.id || post.title} className={`blog-card outer-card ${collectionColor}`}>
+              <div key={postSlug} className={`blog-card outer-card ${collectionColor}`}>
                 <div className="tile-holder card-div">
                   <div className="tile-content-holder">
                     <div className="category-holder">
@@ -28,9 +30,9 @@ export default function BlogCollection({ title, posts, collectionColor = 'blue' 
                         </a>
                       )}
                     </div>
-                    <a 
-                      className="subtitle-card" 
-                      href={`/writing/#${post.id || post.title.toLowerCase().replace(/\s+/g, '-')}`}
+                    <a
+                      className="subtitle-card"
+                      href={`/writing/#${postSlug}`}
                     >
                       {post.title}
                     </a>
@@ -53,4 +55,3 @@ BlogCollection.propTypes = {
   posts: PropTypes.arrayOf(PropTypes.object).isRequired,
   collectionColor: PropTypes.oneOf(['blue', 'green', 'purple']),
 }
-

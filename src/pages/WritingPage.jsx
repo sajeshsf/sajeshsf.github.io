@@ -1,9 +1,14 @@
 import { writing, writingCategories } from '../data/writing.js'
 import { useHash } from '../utils/useHash.js'
+import { slugify } from '../utils/slugify.js'
 import { ArrowLeft } from '../components/ArrowIcon.jsx'
 
 function getIdFromHash(hash) {
   return String(hash || '').replace(/^#/, '').trim()
+}
+
+function getPostSlug(post) {
+  return post?.id ?? slugify(post?.title ?? '')
 }
 
 export default function WritingPage() {
@@ -11,7 +16,9 @@ export default function WritingPage() {
   const postId = getIdFromHash(hash)
 
   // Find the post if we have a hash (and it's not just '#writing')
-  const selectedPost = postId && postId !== 'writing' ? writing.find((post) => post.id === postId) : null
+  const selectedPost = postId && postId !== 'writing'
+    ? writing.find((post) => getPostSlug(post) === postId)
+    : null
 
   // If no posts, show coming soon
   if (writing.length === 0) {
@@ -34,21 +41,44 @@ export default function WritingPage() {
   // Show blog post detail if hash is present
   if (selectedPost) {
     const category = writingCategories[selectedPost.category]
-    
+
     return (
       <section aria-labelledby="writing-detail-title">
-        <nav className="breadcrumb-nav" style={{ marginBottom: '1.5rem' }}>
-          <a 
-            href="#writing" 
-            className="breadcrumb-link"
-            onClick={(e) => {
-              e.preventDefault()
-              window.location.hash = '#writing'
-            }}
-          >
+        <nav className="breadcrumb-nav" style={{ marginBottom: '1.5rem', display: 'flex', flexWrap: 'wrap', gap: '1rem', alignItems: 'center' }}>
+          <a href="/#writing" className="breadcrumb-link">
             <ArrowLeft size={16} />
             <span style={{ marginLeft: '0.5rem' }}>Back to Writing</span>
           </a>
+          <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginLeft: 'auto' }}>
+            <a
+              href="/"
+              className="breadcrumb-link"
+              style={{ fontSize: '0.9rem', padding: '0.5rem 0.75rem' }}
+            >
+              Home
+            </a>
+            <a
+              href="/#about"
+              className="breadcrumb-link"
+              style={{ fontSize: '0.9rem', padding: '0.5rem 0.75rem' }}
+            >
+              About
+            </a>
+            <a
+              href="/#experience"
+              className="breadcrumb-link"
+              style={{ fontSize: '0.9rem', padding: '0.5rem 0.75rem' }}
+            >
+              Experience
+            </a>
+            <a
+              href="/#projects"
+              className="breadcrumb-link"
+              style={{ fontSize: '0.9rem', padding: '0.5rem 0.75rem' }}
+            >
+              Projects
+            </a>
+          </div>
         </nav>
 
         <article>
@@ -72,7 +102,7 @@ export default function WritingPage() {
           </header>
 
           {selectedPost.content && (
-            <div 
+            <div
               className="writing-content mt-lg"
               dangerouslySetInnerHTML={{ __html: selectedPost.content }}
             />
@@ -99,13 +129,14 @@ export default function WritingPage() {
       <div className="blog-masonry-grid">
         {writing.map((post) => {
           const category = writingCategories[post.category]
+          const postSlug = getPostSlug(post)
           // Determine color based on category
           let collectionColor = 'blue'
           if (post.category === 'internet-finds') collectionColor = 'green'
           if (post.category === 'travel-food-experiences') collectionColor = 'purple'
-          
+
           return (
-            <div key={post.id || post.title} className={`blog-card outer-card ${collectionColor}`}>
+            <div key={postSlug} className={`blog-card outer-card ${collectionColor}`}>
               <div className="tile-holder card-div">
                 <div className="tile-content-holder">
                   <div className="category-holder">
@@ -121,9 +152,9 @@ export default function WritingPage() {
                       </a>
                     )}
                   </div>
-                  <a 
-                    className="subtitle-card" 
-                    href={`/writing/#${post.id || post.title.toLowerCase().replace(/\s+/g, '-')}`}
+                  <a
+                    className="subtitle-card"
+                    href={`/writing/#${postSlug}`}
                   >
                     {post.title}
                   </a>
