@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { projects } from '../data/projects.js'
 import { useHash } from '../utils/useHash.js'
 import ProjectsGrid from '../components/ProjectsGrid.jsx'
@@ -98,19 +97,11 @@ function ProjectDetail({ project }) {
     <article aria-labelledby="project-detail-title">
       <nav aria-label="Breadcrumb" className="breadcrumb">
         <a
-          href="/projects/"
+          href="/"
           className="breadcrumb-link"
           onClick={(e) => {
             e.preventDefault()
-            window.location.hash = ''
-            setTimeout(() => {
-              const section = document.getElementById('projects-title')
-              if (section) {
-                section.scrollIntoView({ behavior: 'instant', block: 'start' })
-              } else {
-                window.scrollTo({ top: 0, behavior: 'instant' })
-              }
-            }, 0)
+            window.location.href = '/#projects'
           }}
         >
           <ArrowLeft size={16} />
@@ -153,22 +144,6 @@ export default function ProjectsPage() {
   const hash = useHash()
   const selectedId = getIdFromHash(hash)
   const selected = selectedId ? projects.find((p) => p.id === selectedId) : null
-
-  // Scroll to section heading when returning to list view (when hash is cleared)
-  useEffect(() => {
-    if (!selected) {
-      // Scroll to the Projects section heading when returning to projects grid
-      // Use a small delay to ensure DOM has updated
-      setTimeout(() => {
-        const section = document.getElementById('projects-title')
-        if (section) {
-          section.scrollIntoView({ behavior: 'instant', block: 'start' })
-        } else {
-          window.scrollTo({ top: 0, behavior: 'instant' })
-        }
-      }, 0)
-    }
-  }, [selected])
 
   return (
     <section aria-labelledby="projects-title">

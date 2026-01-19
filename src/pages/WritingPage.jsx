@@ -37,18 +37,64 @@ export default function WritingPage() {
 
     return (
       <section aria-labelledby="writing-detail-title">
-        <nav className="breadcrumb-nav" style={{ marginBottom: '1.5rem' }}>
+        <nav className="breadcrumb-nav" style={{ marginBottom: '1.5rem', display: 'flex', flexWrap: 'wrap', gap: '1rem', alignItems: 'center' }}>
           <a
-            href="#writing"
+            href="/"
             className="breadcrumb-link"
             onClick={(e) => {
               e.preventDefault()
-              window.location.hash = '#writing'
+              window.location.href = '/#writing'
             }}
           >
             <ArrowLeft size={16} />
             <span style={{ marginLeft: '0.5rem' }}>Back to Writing</span>
           </a>
+          <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginLeft: 'auto' }}>
+            <a
+              href="/"
+              className="breadcrumb-link"
+              onClick={(e) => {
+                e.preventDefault()
+                window.location.href = '/'
+              }}
+              style={{ fontSize: '0.9rem', padding: '0.5rem 0.75rem' }}
+            >
+              Home
+            </a>
+            <a
+              href="/"
+              className="breadcrumb-link"
+              onClick={(e) => {
+                e.preventDefault()
+                window.location.href = '/#about'
+              }}
+              style={{ fontSize: '0.9rem', padding: '0.5rem 0.75rem' }}
+            >
+              About
+            </a>
+            <a
+              href="/"
+              className="breadcrumb-link"
+              onClick={(e) => {
+                e.preventDefault()
+                window.location.href = '/#experience'
+              }}
+              style={{ fontSize: '0.9rem', padding: '0.5rem 0.75rem' }}
+            >
+              Experience
+            </a>
+            <a
+              href="/"
+              className="breadcrumb-link"
+              onClick={(e) => {
+                e.preventDefault()
+                window.location.href = '/#projects'
+              }}
+              style={{ fontSize: '0.9rem', padding: '0.5rem 0.75rem' }}
+            >
+              Projects
+            </a>
+          </div>
         </nav>
 
         <article>
