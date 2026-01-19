@@ -122,6 +122,16 @@ jobs:
         env:
           BASE_URL: https://sajeshsf.github.io
 
+      - name: Run visibility tests
+        run: npm run test:visibility
+        env:
+          BASE_URL: https://sajeshsf.github.io
+
+      - name: Run navigation tests
+        run: npm run test:navigation
+        env:
+          BASE_URL: https://sajeshsf.github.io
+
       - name: Run Lighthouse CI
         run: npm run test:lighthouse
         continue-on-error: true

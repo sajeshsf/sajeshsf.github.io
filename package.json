@@ -14,6 +14,8 @@
     "test:responsive": "playwright test tests/responsive.spec.js",
     "test:lighthouse": "lhci autorun",
     "test:accessibility": "playwright test tests/accessibility.spec.js",
+    "test:visibility": "playwright test tests/visibility.spec.js",
+    "test:navigation": "playwright test tests/navigation.spec.js",
     "test": "playwright test"
   },
   "dependencies": {

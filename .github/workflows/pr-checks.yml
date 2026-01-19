@@ -30,6 +30,23 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Run basic tests
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run visibility tests
+        run: npm run test:visibility
+
+      - name: Run navigation tests
+        run: npm run test:navigation
+
+      - name: Run accessibility tests
         run: npm run test:accessibility
         continue-on-error: true
+
+      - name: Upload Playwright report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report-pr
+          path: playwright-report/
+          retention-days: 7
