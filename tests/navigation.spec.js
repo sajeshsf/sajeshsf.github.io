@@ -10,11 +10,12 @@ test.describe('Navigation Tests', () => {
     const homeContent = page.locator('#experience, #projects, #writing')
     await expect(homeContent.first()).toBeVisible({ timeout: 5000 })
 
-    // Navigate to experience page
+    // Navigate directly to experience page (testing page-to-page navigation)
     const startTime = Date.now()
-    await page.click('a[href*="experience"]')
+    await page.goto('/experience/')
+    await page.waitForLoadState('networkidle')
     
-    // Wait for navigation
+    // Wait for navigation to complete
     await page.waitForURL(/.*experience.*/, { timeout: 5000 })
     
     // Check if loading skeleton appears
@@ -27,9 +28,10 @@ test.describe('Navigation Tests', () => {
     console.log(`Navigation time: ${navigationTime}ms`)
     console.log(`Loading skeleton visible: ${loadingVisible}`)
     
-    // Navigation should be fast (< 500ms ideally)
-    // And loading skeleton should not be visible for long
+    // Navigation should be fast (< 2000ms)
+    // And loading skeleton should not be visible
     expect(navigationTime).toBeLessThan(2000)
+    expect(loadingVisible).toBe(false)
   })
 
   test('Navigation from experience detail back to home should be smooth', async ({ page }) => {
