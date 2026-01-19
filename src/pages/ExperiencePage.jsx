@@ -113,8 +113,8 @@ export default function ExperiencePage() {
   const selected = selectedId ? timeline.find((t) => t.id === selectedId) : null
 
   return (
-    <section aria-labelledby="experience-title">
-      <h1 id="experience-title">Experience</h1>
+    <section aria-labelledby={selected ? 'experience-detail-title' : 'experience-title'}>
+      {!selected && <h1 id="experience-title">Experience</h1>}
 
       <div className="section-spacer">
         {selected ? <ExperienceDetail item={selected} /> : <ExperienceTimeline />}

@@ -146,8 +146,8 @@ export default function ProjectsPage() {
   const selected = selectedId ? projects.find((p) => p.id === selectedId) : null
 
   return (
-    <section aria-labelledby="projects-title">
-      <h1 id="projects-title">Projects</h1>
+    <section aria-labelledby={selected ? 'project-detail-title' : 'projects-title'}>
+      {!selected && <h1 id="projects-title">Projects</h1>}
 
       <div className="section-spacer">
         {selected ? <ProjectDetail project={selected} /> : <ProjectsGrid />}
