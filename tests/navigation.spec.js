@@ -14,20 +14,20 @@ test.describe('Navigation Tests', () => {
     const startTime = Date.now()
     await page.goto('/experience/')
     await page.waitForLoadState('networkidle')
-    
+
     // Wait for navigation to complete
     await page.waitForURL(/.*experience.*/, { timeout: 5000 })
-    
+
     // Check if loading skeleton appears
     const loadingText = page.locator('text=Loading...')
     const loadingVisible = await loadingText.isVisible().catch(() => false)
-    
+
     const navigationTime = Date.now() - startTime
-    
+
     // Log results
     console.log(`Navigation time: ${navigationTime}ms`)
     console.log(`Loading skeleton visible: ${loadingVisible}`)
-    
+
     // Navigation should be fast (< 2000ms)
     // And loading skeleton should not be visible
     expect(navigationTime).toBeLessThan(2000)
@@ -51,19 +51,19 @@ test.describe('Navigation Tests', () => {
     if (await backButton.count() > 0) {
       const startTime = Date.now()
       await backButton.click()
-      
+
       // Wait for navigation
       await page.waitForURL(/.*#experience|.*\/$/, { timeout: 5000 })
-      
+
       // Check for loading skeleton
       const loadingText = page.locator('text=Loading...')
       const loadingVisible = await loadingText.isVisible().catch(() => false)
-      
+
       const navigationTime = Date.now() - startTime
-      
+
       console.log(`Back navigation time: ${navigationTime}ms`)
       console.log(`Loading skeleton visible: ${loadingVisible}`)
-      
+
       expect(navigationTime).toBeLessThan(2000)
     }
   })
@@ -79,23 +79,23 @@ test.describe('Navigation Tests', () => {
 
     for (const pageInfo of pages) {
       console.log(`Testing navigation to ${pageInfo.name}...`)
-      
+
       const startTime = Date.now()
       await page.goto(pageInfo.path)
       await page.waitForLoadState('networkidle')
-      
+
       // Check for loading skeleton
       const loadingText = page.locator('text=Loading...')
       const loadingVisible = await loadingText.isVisible().catch(() => false)
-      
+
       const loadTime = Date.now() - startTime
-      
+
       console.log(`${pageInfo.name} load time: ${loadTime}ms, Loading visible: ${loadingVisible}`)
-      
+
       // Check that main content is visible
       const mainContent = page.locator('main, [role="main"], #main')
       await expect(mainContent.first()).toBeVisible({ timeout: 5000 })
-      
+
       // Loading should not be visible after networkidle
       if (loadingVisible) {
         console.warn(`Warning: Loading skeleton still visible on ${pageInfo.name} after networkidle`)
@@ -109,14 +109,14 @@ test.describe('Navigation Tests', () => {
 
     // Navigate to experience section via hash
     await page.goto('/#experience')
-    
+
     // Wait a bit for any transitions
     await page.waitForTimeout(500)
-    
+
     // Check that we're still on home page (not /experience/)
     const url = page.url()
     expect(url).toMatch(/\/$|#experience/)
-    
+
     // Check that experience section is visible
     const experienceSection = page.locator('#experience')
     await expect(experienceSection).toBeVisible({ timeout: 3000 })

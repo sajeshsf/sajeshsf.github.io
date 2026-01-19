@@ -43,16 +43,16 @@ test.describe('Component Visibility and Layout Tests', () => {
       await timelineItem.click()
       await page.waitForTimeout(500) // Wait for navigation
 
-      // Check Experience title is still visible
-      const experienceTitle = page.locator('#experience-title')
-      await expect(experienceTitle).toBeVisible({ timeout: 3000 })
+      // Check experience detail title is visible (not the main page title which is hidden in detail view)
+      const experienceDetailTitle = page.locator('#experience-detail-title')
+      await expect(experienceDetailTitle).toBeVisible({ timeout: 3000 })
 
       // Get header and title positions
       const header = page.locator('.header')
       const headerBox = await header.boundingBox()
       const headerHeight = headerBox?.height || 0
 
-      const titleBox = await experienceTitle.boundingBox()
+      const titleBox = await experienceDetailTitle.boundingBox()
       const titleTop = titleBox?.y || 0
 
       // Title should be visible and not covered by header
@@ -245,6 +245,7 @@ test.describe('Component Visibility and Layout Tests', () => {
       expect(titleTop).toBeGreaterThan(headerHeight - 20)
     }
 
+    const scrollY = await page.evaluate(() => window.scrollY)
     console.log(`After scroll - Header: ${headerHeight}px, Title top: ${titleTop}px, ScrollY: ${scrollY}px`)
   })
 })
