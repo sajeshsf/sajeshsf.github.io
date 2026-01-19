@@ -148,9 +148,6 @@ export default function ProjectsPage() {
   return (
     <section aria-labelledby="projects-title">
       <h1 id="projects-title">Projects</h1>
-      <p className="text-muted margin-bottom-0">
-        Professional and personal projects. Click a card to view details.
-      </p>
 
       <div className="section-spacer">
         {selected ? <ProjectDetail project={selected} /> : <ProjectsGrid />}

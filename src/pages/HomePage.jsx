@@ -126,9 +126,6 @@ export default function HomePage() {
       <section ref={experienceRef} id="experience" className="section section-experience">
         <div className="container">
           <h2 className="section-title">Experience</h2>
-          <p className="text-muted margin-bottom-lg text-center">
-            Professional roles and education timeline
-          </p>
           <TimelineGrid />
         </div>
       </section>
@@ -137,9 +134,6 @@ export default function HomePage() {
       <section ref={projectsRef} id="projects" className="section section-projects">
         <div className="container">
           <h2 className="section-title">Projects</h2>
-          <p className="text-muted margin-bottom-lg text-center">
-            Professional and personal projects
-          </p>
           <ProjectsGrid />
         </div>
       </section>
@@ -148,9 +142,6 @@ export default function HomePage() {
       <section ref={writingRef} id="writing" className="section section-writing">
         <div className="container">
           <h2 className="section-title">Writing</h2>
-          <p className="text-muted margin-bottom-lg text-center">
-            Technical articles and blog posts
-          </p>
           {writing.length === 0 ? (
             <div className="card empty-state">
               <h3>Coming Soon</h3>
