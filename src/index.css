@@ -306,7 +306,9 @@ body.menu-open {
   .brand,
   .hero-scroll-indicator,
   .nav a,
-  .social-link {
+  .social-link,
+  .timeline-heading a,
+  .writing-grid h3 a {
     min-width: 44px;
     min-height: 44px;
   }
@@ -314,6 +316,11 @@ body.menu-open {
   .social-link {
     width: 44px;
     height: 44px;
+  }
+
+  .writing-grid h3 a {
+    display: inline-flex;
+    align-items: center;
   }
 }
 
