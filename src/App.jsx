@@ -38,7 +38,7 @@ export default function App() {
   return (
     <Layout currentPage={pageId}>
       <Suspense fallback={<PageLoader />}>
-        <Page />
+      <Page />
       </Suspense>
     </Layout>
   )

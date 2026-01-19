@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { timeline } from '../data/timeline.js'
 import { useHash } from '../utils/useHash.js'
 import { experience } from '../data/experience.js'
@@ -22,7 +23,22 @@ function ExperienceDetail({ item }) {
     return (
       <article aria-labelledby="experience-detail-title">
         <nav aria-label="Breadcrumb" className="breadcrumb">
-          <a href="/experience/" className="breadcrumb-link">
+          <a
+            href="/experience/"
+            className="breadcrumb-link"
+            onClick={(e) => {
+              e.preventDefault()
+              window.location.hash = ''
+              setTimeout(() => {
+                const section = document.getElementById('experience-title')
+                if (section) {
+                  section.scrollIntoView({ behavior: 'instant', block: 'start' })
+                } else {
+                  window.scrollTo({ top: 0, behavior: 'instant' })
+                }
+              }, 0)
+            }}
+          >
             <ArrowLeft size={16} />
             Back to timeline
           </a>
@@ -46,7 +62,22 @@ function ExperienceDetail({ item }) {
   return (
     <article aria-labelledby="experience-detail-title">
       <nav aria-label="Breadcrumb" className="breadcrumb-nav">
-        <a href="/experience/" className="breadcrumb-link-alt">
+        <a
+          href="/experience/"
+          className="breadcrumb-link-alt"
+          onClick={(e) => {
+            e.preventDefault()
+            window.location.hash = ''
+            setTimeout(() => {
+              const section = document.getElementById('experience-title')
+              if (section) {
+                section.scrollIntoView({ behavior: 'instant', block: 'start' })
+              } else {
+                window.scrollTo({ top: 0, behavior: 'instant' })
+              }
+            }, 0)
+          }}
+        >
           <ArrowLeft size={16} />
           Back to timeline
         </a>
@@ -98,12 +129,25 @@ export default function ExperiencePage() {
   const selectedId = getIdFromHash(hash)
   const selected = selectedId ? timeline.find((t) => t.id === selectedId) : null
 
+  // Scroll to section heading when returning to list view (when hash is cleared)
+  useEffect(() => {
+    if (!selected) {
+      // Scroll to the Experience section heading when returning to timeline view
+      // Use a small delay to ensure DOM has updated
+      setTimeout(() => {
+        const section = document.getElementById('experience-title')
+        if (section) {
+          section.scrollIntoView({ behavior: 'instant', block: 'start' })
+        } else {
+          window.scrollTo({ top: 0, behavior: 'instant' })
+        }
+      }, 0)
+    }
+  }, [selected])
+
   return (
     <section aria-labelledby="experience-title">
       <h1 id="experience-title">Experience</h1>
-      <p className="text-muted margin-bottom-0">
-        Timeline view of professional roles and education. Click an item to view details.
-      </p>
 
       <div className="section-spacer">
         {selected ? <ExperienceDetail item={selected} /> : <ExperienceTimeline />}
