@@ -1,22 +1,17 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 export function useHash() {
-  const get = () => {
+  const getHash = useCallback(() => {
     if (typeof window === 'undefined') return ''
     return window.location.hash || ''
-  }
-  const [hash, setHash] = useState(() => {
-    // Initialize with current hash on mount
-    if (typeof window !== 'undefined') {
-      return window.location.hash || ''
-    }
-    return ''
-  })
+  }, [])
+
+  // Initialize with current hash on mount (no effect needed)
+  const [hash, setHash] = useState(getHash)
 
   useEffect(() => {
     const onChange = () => {
-      const newHash = get()
-      setHash(newHash)
+      setHash(getHash())
     }
 
     // Listen for hash changes
@@ -24,7 +19,7 @@ export function useHash() {
 
     // Also check periodically in case hash was set programmatically
     const interval = setInterval(() => {
-      const currentHash = get()
+      const currentHash = getHash()
       setHash((prev) => (prev === currentHash ? prev : currentHash))
     }, 100)
 
@@ -32,7 +27,7 @@ export function useHash() {
       window.removeEventListener('hashchange', onChange)
       clearInterval(interval)
     }
-  }, [])
+  }, [getHash])
 
   return hash
 }
