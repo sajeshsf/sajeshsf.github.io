@@ -559,6 +559,7 @@ body.menu-open {
 }
 
 .timeline__content {
+  font-family: 'Roboto', 'Segoe UI', serif;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
@@ -1424,6 +1425,7 @@ html {
 
 /* Writing Content Styles */
 .writing-content {
+  font-family: 'Roboto', 'Segoe UI', serif;
   line-height: 1.8;
   color: var(--text-secondary);
   font-size: 1.05rem;
@@ -1491,6 +1493,7 @@ html {
 }
 
 .blog-card {
+  font-family: 'Roboto', 'Segoe UI', serif;
   break-inside: avoid;
   page-break-inside: avoid;
   display: inline-block;
@@ -1619,6 +1622,7 @@ html {
 }
 
 .post-category {
+  font-family: 'Roboto', 'Segoe UI', serif;
   font-size: 0.85rem;
   font-weight: 500;
   color: var(--text-secondary);
@@ -2044,6 +2048,7 @@ html {
 }
 
 .breadcrumb-link-alt {
+  font-family: 'Roboto', 'Segoe UI', serif;
   color: var(--text-secondary);
   text-decoration: none;
   font-size: 0.95rem;
@@ -2073,12 +2078,14 @@ html {
 }
 
 .highlights-list {
+  font-family: 'Roboto', 'Segoe UI', serif;
   margin: 0;
   padding-left: 1.5rem;
   list-style: disc;
 }
 
 .highlight-item {
+  font-family: 'Roboto', 'Segoe UI', serif;
   margin-bottom: 1rem;
   line-height: 1.8;
 }
