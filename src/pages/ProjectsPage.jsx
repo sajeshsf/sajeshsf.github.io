@@ -96,14 +96,7 @@ function ProjectDetail({ project }) {
   return (
     <article aria-labelledby="project-detail-title">
       <nav aria-label="Breadcrumb" className="breadcrumb">
-        <a
-          href="/"
-          className="breadcrumb-link"
-          onClick={(e) => {
-            e.preventDefault()
-            window.location.href = '/#projects'
-          }}
-        >
+        <a href="/#projects" className="breadcrumb-link">
           <ArrowLeft size={16} />
           Back to projects
         </a>

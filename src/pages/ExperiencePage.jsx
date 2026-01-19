@@ -22,14 +22,7 @@ function ExperienceDetail({ item }) {
     return (
       <article aria-labelledby="experience-detail-title">
         <nav aria-label="Breadcrumb" className="breadcrumb">
-          <a
-            href="/"
-            className="breadcrumb-link"
-            onClick={(e) => {
-              e.preventDefault()
-              window.location.href = '/#experience'
-            }}
-          >
+          <a href="/#experience" className="breadcrumb-link">
             <ArrowLeft size={16} />
             Back to timeline
           </a>
@@ -53,14 +46,7 @@ function ExperienceDetail({ item }) {
   return (
     <article aria-labelledby="experience-detail-title">
       <nav aria-label="Breadcrumb" className="breadcrumb-nav">
-        <a
-          href="/"
-          className="breadcrumb-link-alt"
-          onClick={(e) => {
-            e.preventDefault()
-            window.location.href = '/#experience'
-          }}
-        >
+        <a href="/#experience" className="breadcrumb-link-alt">
           <ArrowLeft size={16} />
           Back to timeline
         </a>

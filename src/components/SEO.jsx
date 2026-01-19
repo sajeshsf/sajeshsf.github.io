@@ -18,7 +18,8 @@ export default function SEO({
   keywords = 'Sajesh S F, Software Engineering Leader, IoT, Embedded Systems, Cloud Solutions, Engineering Manager, React, AWS, C++, C#, .NET, React.js, Portfolio, Software Engineer, Tech Lead',
   ogImage = 'https://sajeshsf.github.io/profile.jpg',
   canonical = 'https://sajeshsf.github.io/',
-  type = 'website'
+  type = 'website',
+  twitterCard = 'summary_large_image'
 }) {
   useEffect(() => {
     // Update document title
@@ -51,10 +52,11 @@ export default function SEO({
     updateMetaTag('og:type', type, true)
 
     // Update Twitter Card tags
-    updateMetaTag('twitter:title', title, true)
-    updateMetaTag('twitter:description', description, true)
-    updateMetaTag('twitter:image', ogImage, true)
-    updateMetaTag('twitter:url', canonical, true)
+    updateMetaTag('twitter:card', twitterCard)
+    updateMetaTag('twitter:title', title)
+    updateMetaTag('twitter:description', description)
+    updateMetaTag('twitter:image', ogImage)
+    updateMetaTag('twitter:url', canonical)
 
     // Update canonical URL
     let canonicalLink = document.querySelector('link[rel="canonical"]')
@@ -64,7 +66,7 @@ export default function SEO({
       document.head.appendChild(canonicalLink)
     }
     canonicalLink.setAttribute('href', canonical)
-  }, [title, description, keywords, ogImage, canonical, type])
+  }, [title, description, keywords, ogImage, canonical, type, twitterCard])
 
   return null
 }
@@ -76,4 +78,5 @@ SEO.propTypes = {
   ogImage: PropTypes.string,
   canonical: PropTypes.string,
   type: PropTypes.string,
+  twitterCard: PropTypes.string,
 }
