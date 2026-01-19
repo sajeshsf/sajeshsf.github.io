@@ -6,7 +6,10 @@ Reusable UI components for the portfolio website.
 
 ### Layout Components
 
-- **Layout.jsx** - Main layout wrapper with header, navigation, footer, and error boundary
+- **Layout.jsx** - Main layout wrapper with header, navigation, footer, and error boundary. Features:
+  - Scroll progress indicator at the bottom of the header
+  - Header visibility logic (shows after 10% scroll into hero section on home page)
+  - Responsive mobile menu
 - **Nav.jsx** - Navigation menu with smooth scroll support and responsive design
 - **ErrorBoundary.jsx** - React error boundary for graceful error handling
 

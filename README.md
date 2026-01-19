@@ -41,7 +41,7 @@ For detailed documentation, see the README in each folder.
 - **Responsive**: Mobile-first design with comprehensive responsive tests
 - **Accessibility**: WCAG compliant with ARIA labels and keyboard navigation
 - **SEO Optimized**: Meta tags, structured data, sitemap, and Open Graph tags
-- **Testing**: Automated E2E tests for rendering, accessibility, and responsive design
+- **Testing**: Automated E2E tests for rendering, accessibility, responsive design, visibility, and navigation
 - **Performance**: Lighthouse CI integration for performance monitoring
 
 ## Scripts
@@ -54,15 +54,29 @@ For detailed documentation, see the README in each folder.
 - `npm run test:render` - Test page rendering
 - `npm run test:responsive` - Test responsive design
 - `npm run test:accessibility` - Test accessibility
+- `npm run test:visibility` - Test component visibility and layout
+- `npm run test:navigation` - Test navigation smoothness and routing
 - `npm run test:lighthouse` - Run Lighthouse CI
 
 ## Deployment
 
 The site is automatically deployed to GitHub Pages via GitHub Actions on push to `main`. The workflow:
 
-1. Runs comprehensive tests (rendering, responsive, accessibility, Lighthouse)
+1. Runs comprehensive tests (rendering, responsive, accessibility, visibility, navigation, Lighthouse)
 2. Builds the production bundle
 3. Deploys to GitHub Pages
+4. Runs post-deployment tests against the live site
+5. Uploads build artifacts and test results for debugging
+
+### CI/CD Artifacts
+
+Both PR checks and deployment workflows upload artifacts:
+
+- **Build artifacts** (`dist/`) - Production build output
+- **Test results** (`test-results/`) - Playwright test results
+- **Playwright reports** (`playwright-report/`) - HTML test reports
+
+Artifacts are available in the GitHub Actions UI for download and analysis.
 
 ## Tech Stack
 

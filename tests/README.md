@@ -43,6 +43,36 @@ Tests accessibility compliance using Axe:
 npm run test:accessibility
 ```
 
+### visibility.spec.js
+
+Tests component visibility and layout:
+- Header does not cover page titles
+- All page titles are visible and properly positioned
+- Main content has correct padding to account for fixed header
+- Section spacing is correct
+- Card spacing is consistent
+- Breadcrumb navigation is visible and positioned correctly
+- Fixed header behavior on scroll
+
+**Run:**
+```bash
+npm run test:visibility
+```
+
+### navigation.spec.js
+
+Tests navigation smoothness and routing:
+- Navigation from home page to other pages works smoothly
+- No loading skeletons appear during navigation
+- Hash-based routing works correctly
+- Navigation back from detail views works properly
+- All pages load without delays
+
+**Run:**
+```bash
+npm run test:navigation
+```
+
 ## Running Tests
 
 ### Run All Tests
@@ -57,6 +87,8 @@ npm run test
 npm run test:render
 npm run test:responsive
 npm run test:accessibility
+npm run test:visibility
+npm run test:navigation
 ```
 
 ### Run Tests in UI Mode
@@ -98,10 +130,19 @@ Configuration is in `lighthouserc.cjs`.
 ## CI/CD Integration
 
 Tests run automatically in GitHub Actions on:
-- Pull requests
-- Pushes to main branch
+- Pull requests (PR checks workflow)
+- Pushes to main branch (deploy workflow)
 
-All tests must pass before deployment to GitHub Pages.
+**PR Checks Workflow:**
+- Runs lint, build, visibility, navigation, and accessibility tests
+- Uploads build artifacts, test results, and Playwright reports (7-day retention)
+
+**Deploy Workflow:**
+- Pre-merge checks: lint and build
+- Post-deployment tests: rendering, responsive, visibility, navigation, and Lighthouse
+- Uploads build artifacts, test results, and Playwright reports (30-day retention)
+
+All tests must pass before deployment to GitHub Pages. Test artifacts are available in the GitHub Actions UI for debugging.
 
 ## Writing New Tests
 

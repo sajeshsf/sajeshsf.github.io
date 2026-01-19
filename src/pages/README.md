@@ -26,6 +26,8 @@ Experience timeline page with detail views for each role. Features:
 - Timeline grid with progressive disclosure
 - Detailed role information with highlights
 - SEO optimization per role
+- Navigation back to home page with hash preservation
+- Conditional rendering of page title (hidden in detail view)
 
 ### ProjectsPage.jsx
 
@@ -34,14 +36,18 @@ Projects grid page with detail pages for each project. Features:
 - Projects grid with progressive disclosure
 - Detailed project descriptions with bullet points
 - SEO optimization per project
+- Navigation back to home page with hash preservation
+- Conditional rendering of page title (hidden in detail view)
 
 ### WritingPage.jsx
 
 Writing/blog posts listing page. Features:
+- Masonry grid layout for blog posts
 - Category-based organization (technical, internet finds, travel)
 - Hash-based routing for individual posts (e.g., `#post-id`)
 - Article content with HTML rendering
 - SEO optimization per post
+- Navigation back to home page with hash preservation
 
 ## Routing
 
@@ -57,11 +63,15 @@ The `App.jsx` component reads the `data-page` attribute and renders the appropri
 ## Hash-Based Routing
 
 Detail pages (experience roles, projects, blog posts) use hash-based routing:
-- Experience: `#experience` → `#experience#role-id`
-- Projects: `#projects` → `#projects#project-id`
-- Writing: `#writing` → `#writing#post-id`
+- Experience: `/experience/` → `/experience/#role-id`
+- Projects: `/projects/` → `/projects/#project-id`
+- Writing: `/writing/` → `/writing/#post-id`
 
 The `useHash` hook (from `utils/useHash.js`) manages hash changes and updates the view accordingly.
+
+**Navigation Behavior:**
+- When navigating back from detail views, users are taken to the home page (`/`) with the appropriate hash (`/#experience`, `/#projects`, `/#writing`)
+- This ensures the full landing page is visible with proper scroll behavior
 
 ## SEO Implementation
 
