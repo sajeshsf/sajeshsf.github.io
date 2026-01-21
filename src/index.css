@@ -2124,8 +2124,12 @@ html {
 
 .highlight-item {
   font-family: 'Roboto', 'Segoe UI', serif;
-  margin-bottom: 1rem;
-  line-height: 1.8;
+  margin-bottom: var(--spacing-xs);
+  line-height: 1.55;
+}
+
+.highlight-item:last-child {
+  margin-bottom: 0;
 }
 
 .section-spacer {
