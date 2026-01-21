@@ -535,12 +535,17 @@ body.menu-open {
   --timeline-date-width: 11rem;
   --timeline-marker-column: 2rem;
   --timeline-marker-size: 1rem;
+  --timeline-column-gap: var(--spacing-md);
 }
 
 .timeline::before {
   content: '';
   position: absolute;
-  left: calc(var(--timeline-date-width) + (var(--timeline-marker-column) / 2));
+  left: calc(
+    var(--timeline-date-width)
+    + var(--timeline-column-gap)
+    + (var(--timeline-marker-column) / 2)
+  );
   top: 0;
   bottom: 0;
   width: 2px;
@@ -552,7 +557,7 @@ body.menu-open {
   display: grid;
   grid-template-columns: var(--timeline-date-width) var(--timeline-marker-column) minmax(0, 1fr);
   grid-template-areas: 'date marker content';
-  gap: var(--spacing-md);
+  gap: var(--timeline-column-gap);
   align-items: start;
   position: relative;
 }
@@ -651,12 +656,8 @@ body.menu-open {
     overflow-x: hidden;
   }
 
-  .timeline::before {
-    left: 0.5rem;
-  }
-
   .timeline__item {
-    grid-template-columns: 1.5rem 1fr;
+    grid-template-columns: var(--timeline-marker-column) 1fr;
     grid-template-areas:
       'marker date'
       'marker content';
@@ -666,6 +667,14 @@ body.menu-open {
     text-align: left;
     padding-right: 0;
     padding-top: 0.1rem;
+  }
+
+  .timeline {
+    --timeline-marker-column: 1.5rem;
+  }
+
+  .timeline::before {
+    left: calc(var(--timeline-marker-column) / 2);
   }
 
   .header {
