@@ -2,8 +2,8 @@ import { test, expect } from '@playwright/test'
 
 const allowedFonts = ['Roboto', 'Oswald']
 
-const getFontReport = async (page) => {
-  return page.evaluate((allowed) => {
+const getFontReport = async (page, allowedList) => {
+  return page.evaluate((allowedFontsList) => {
     const primaryFonts = new Set()
     const disallowedFonts = new Set()
     const elements = Array.from(document.querySelectorAll('body *'))
@@ -19,7 +19,7 @@ const getFontReport = async (page) => {
       if (!primaryFont) continue
 
       primaryFonts.add(primaryFont)
-      if (!allowed.includes(primaryFont)) {
+      if (!allowedFontsList.includes(primaryFont)) {
         disallowedFonts.add(primaryFont)
       }
     }
@@ -28,7 +28,7 @@ const getFontReport = async (page) => {
       primaryFonts: Array.from(primaryFonts),
       disallowedFonts: Array.from(disallowedFonts),
     }
-  }, allowed)
+  }, allowedList)
 }
 
 const pages = [
@@ -75,7 +75,7 @@ test.describe('Page Rendering Checks', () => {
       expect(bodyText?.trim().length).toBeGreaterThan(0)
 
       // Verify only approved fonts are used for text
-      const { primaryFonts, disallowedFonts } = await getFontReport(browserPage)
+      const { primaryFonts, disallowedFonts } = await getFontReport(browserPage, allowedFonts)
       expect(primaryFonts.length).toBeGreaterThan(0)
       expect(
         disallowedFonts,
