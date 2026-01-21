@@ -1,5 +1,16 @@
 import { test, expect } from '@playwright/test'
 
+const allowedFonts = ['Roboto', 'Segoe UI', 'serif']
+const allowed = new Set(allowedFonts)
+
+const hasAllowedFont = (fontFamily) => {
+  if (!fontFamily) return false
+  return fontFamily
+    .split(',')
+    .map((font) => font.trim().replace(/^['"]|['"]$/g, ''))
+    .some((font) => allowed.has(font))
+}
+
 const pages = [
   { path: '/', title: 'Home' },
   { path: '/v2/', title: 'V2 Home' },
@@ -38,6 +49,11 @@ test.describe('Page Rendering Checks', () => {
       // Check key elements exist
       const mainContent = browserPage.locator('main, [role="main"], #main, .v2-main')
       await expect(mainContent.first()).toBeVisible({ timeout: 5000 })
+
+      // Ensure primary font stack is used
+      const appRoot = browserPage.locator('.app')
+      const fontFamily = await appRoot.evaluate((el) => window.getComputedStyle(el).fontFamily)
+      expect(hasAllowedFont(fontFamily)).toBe(true)
 
       // Check body is not empty
       const bodyText = await browserPage.locator('body').textContent()
