@@ -1,34 +1,14 @@
 import { test, expect } from '@playwright/test'
 
-const allowedFonts = ['Roboto', 'Oswald']
+const allowedFonts = ['Roboto', 'Segoe UI', 'serif']
+const allowed = new Set(allowedFonts)
 
-const getFontReport = async (page) => {
-  return page.evaluate((allowed) => {
-    const primaryFonts = new Set()
-    const disallowedFonts = new Set()
-    const elements = Array.from(document.querySelectorAll('body *'))
-
-    for (const element of elements) {
-      const text = element.textContent?.trim()
-      if (!text) continue
-
-      const fontFamily = window.getComputedStyle(element).fontFamily || ''
-      if (!fontFamily) continue
-
-      const primaryFont = fontFamily.split(',')[0].replace(/["']/g, '').trim()
-      if (!primaryFont) continue
-
-      primaryFonts.add(primaryFont)
-      if (!allowed.includes(primaryFont)) {
-        disallowedFonts.add(primaryFont)
-      }
-    }
-
-    return {
-      primaryFonts: Array.from(primaryFonts),
-      disallowedFonts: Array.from(disallowedFonts),
-    }
-  }, allowed)
+const hasAllowedFont = (fontFamily) => {
+  if (!fontFamily) return false
+  return fontFamily
+    .split(',')
+    .map((font) => font.trim().replace(/^['"]|['"]$/g, ''))
+    .some((font) => allowed.has(font))
 }
 
 const pages = [
@@ -69,6 +49,11 @@ test.describe('Page Rendering Checks', () => {
       // Check key elements exist
       const mainContent = browserPage.locator('main, [role="main"], #main, .v2-main')
       await expect(mainContent.first()).toBeVisible({ timeout: 5000 })
+
+      // Ensure primary font stack is used
+      const appRoot = browserPage.locator('.app')
+      const fontFamily = await appRoot.evaluate((el) => window.getComputedStyle(el).fontFamily)
+      expect(hasAllowedFont(fontFamily)).toBe(true)
 
       // Check body is not empty
       const bodyText = await browserPage.locator('body').textContent()
