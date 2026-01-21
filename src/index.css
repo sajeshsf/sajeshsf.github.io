@@ -536,6 +536,7 @@ body.menu-open {
   --timeline-marker-column: 2rem;
   --timeline-marker-size: 1rem;
   --timeline-column-gap: var(--spacing-md);
+  --timeline-line-width: 2px;
 }
 
 .timeline::before {
@@ -548,7 +549,8 @@ body.menu-open {
   );
   top: 0;
   bottom: 0;
-  width: 2px;
+  width: var(--timeline-line-width);
+  transform: translateX(-50%);
   background: linear-gradient(180deg, var(--accent-soft), var(--accent));
   opacity: 0.6;
 }
@@ -675,6 +677,7 @@ body.menu-open {
 
   .timeline::before {
     left: calc(var(--timeline-marker-column) / 2);
+    transform: translateX(-50%);
   }
 
   .header {
