@@ -1,14 +1,35 @@
 import { test, expect } from '@playwright/test'
 
 const allowedFonts = ['Roboto', 'Segoe UI', 'serif']
-const allowed = new Set(allowedFonts)
+const hasAllowedFont = new Set(allowedFonts)
 
-const hasAllowedFont = (fontFamily) => {
-  if (!fontFamily) return false
-  return fontFamily
-    .split(',')
-    .map((font) => font.trim().replace(/^['"]|['"]$/g, ''))
-    .some((font) => allowed.has(font))
+const getFontReport = async (page, allowedList) => {
+  return page.evaluate((allowedFontsList) => {
+    const primaryFonts = new Set()
+    const disallowedFonts = new Set()
+    const elements = Array.from(document.querySelectorAll('body *'))
+
+    for (const element of elements) {
+      const text = element.textContent?.trim()
+      if (!text) continue
+
+      const fontFamily = window.getComputedStyle(element).fontFamily || ''
+      if (!fontFamily) continue
+
+      const primaryFont = fontFamily.split(',')[0].replace(/["']/g, '').trim()
+      if (!primaryFont) continue
+
+      primaryFonts.add(primaryFont)
+      if (!allowedFontsList.includes(primaryFont)) {
+        disallowedFonts.add(primaryFont)
+      }
+    }
+
+    return {
+      primaryFonts: Array.from(primaryFonts),
+      disallowedFonts: Array.from(disallowedFonts),
+    }
+  }, allowedList)
 }
 
 const pages = [
@@ -60,7 +81,7 @@ test.describe('Page Rendering Checks', () => {
       expect(bodyText?.trim().length).toBeGreaterThan(0)
 
       // Verify only approved fonts are used for text
-      const { primaryFonts, disallowedFonts } = await getFontReport(browserPage)
+      const { primaryFonts, disallowedFonts } = await getFontReport(browserPage, allowedFonts)
       expect(primaryFonts.length).toBeGreaterThan(0)
       expect(
         disallowedFonts,
