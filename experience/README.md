@@ -19,16 +19,3 @@ When visiting `/experience/`, Vite serves this `index.html`, which:
 
 Hash-based routing is used for detail views:
 - `/experience/#role-id` - Shows detail view for specific role
-
-## Structure
-
-The HTML file includes:
-- Meta tags for SEO
-- Root div for React mounting
-- Script tag to load the React app
-
-## Related Documentation
-
-- [Pages](../src/pages/README.md) - ExperiencePage component documentation
-- [Data](../src/data/README.md) - Experience and timeline data structure
-- [Components](../src/components/README.md) - Components used in ExperiencePage
