@@ -9,7 +9,8 @@ import {
 import TimelineItem from './TimelineItem.jsx'
 import { ArrowDown } from './ArrowIcon.jsx'
 
-export default function TimelineGrid() {
+export default function TimelineGrid({ initialCount = INITIAL_TIMELINE_ITEMS }) {
+  const totalCount = timeline.length
   const {
     isExpanded,
     hasMore,
@@ -17,7 +18,7 @@ export default function TimelineGrid() {
     containerRef,
     maxHeight,
     toggleExpand,
-  } = useProgressiveDisclosure(INITIAL_TIMELINE_ITEMS, timeline.length, TIMELINE_MAX_HEIGHT)
+  } = useProgressiveDisclosure(initialCount, totalCount, TIMELINE_MAX_HEIGHT)
 
   const displayedItems = timeline.slice(0, displayedCount)
 
@@ -27,12 +28,16 @@ export default function TimelineGrid() {
         ref={containerRef}
         className="timeline"
         style={{
-          maxHeight: maxHeight || TIMELINE_MAX_HEIGHT,
-          overflow: 'hidden',
-          transition: 'max-height 0.5s ease',
           margin: 0,
           padding: 0,
           listStyle: 'none',
+          ...(hasMore
+            ? {
+                maxHeight: maxHeight || TIMELINE_MAX_HEIGHT,
+                overflow: 'hidden',
+                transition: 'max-height 0.5s ease',
+              }
+            : {}),
         }}
       >
         {displayedItems.map((item) => (
@@ -144,4 +149,6 @@ export default function TimelineGrid() {
   )
 }
 
-TimelineGrid.propTypes = {}
+TimelineGrid.propTypes = {
+  initialCount: PropTypes.number,
+}
