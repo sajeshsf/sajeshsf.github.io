@@ -15,6 +15,7 @@
   --text-primary: #f4f6ff;
   --text-secondary: #96a3d9;
   --text-muted: #6b7ba8;
+  --line-height-body: 1.6;
   /* Accents - Purple and cyan from v1 */
   --accent: #8d7bff;
   --accent-soft: #4fd4ff;
@@ -65,7 +66,7 @@ body.menu-open {
     var(--bg-primary);
   color: var(--text-primary);
   font-family: 'Roboto', 'Segoe UI', serif;
-  line-height: 1.6;
+  line-height: var(--line-height-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -1433,7 +1434,7 @@ html {
 /* Writing Content Styles */
 .writing-content {
   font-family: 'Roboto', 'Segoe UI', serif;
-  line-height: 1.8;
+  line-height: var(--line-height-body);
   color: var(--text-secondary);
   font-size: 1.05rem;
 }
@@ -1461,19 +1462,23 @@ html {
 }
 
 .writing-content p {
-  margin: 1rem 0;
-  line-height: 1.8;
+  margin: var(--spacing-sm) 0;
+  line-height: inherit;
 }
 
 .writing-content ul,
 .writing-content ol {
-  margin: 1rem 0;
-  padding-left: 2rem;
-  line-height: 1.8;
+  margin: var(--spacing-sm) 0;
+  padding-left: var(--spacing-lg);
+  line-height: inherit;
 }
 
 .writing-content li {
-  margin: 0.5rem 0;
+  margin: 0 0 var(--spacing-xs);
+}
+
+.writing-content li:last-child {
+  margin-bottom: 0;
 }
 
 .writing-content strong {
@@ -1802,7 +1807,7 @@ html {
 }
 
 .line-height-loose {
-  line-height: 1.8;
+  line-height: var(--line-height-body);
 }
 
 .text-center {
@@ -2087,14 +2092,18 @@ html {
 .highlights-list {
   font-family: 'Roboto', 'Segoe UI', serif;
   margin: 0;
-  padding-left: 1.5rem;
+  padding-left: var(--spacing-lg);
   list-style: disc;
 }
 
 .highlight-item {
   font-family: 'Roboto', 'Segoe UI', serif;
-  margin-bottom: 1rem;
-  line-height: 1.8;
+  margin-bottom: var(--spacing-xs);
+  line-height: var(--line-height-body);
+}
+
+.highlight-item:last-child {
+  margin-bottom: 0;
 }
 
 .section-spacer {
