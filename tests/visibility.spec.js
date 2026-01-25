@@ -213,9 +213,12 @@ test.describe('Component Visibility and Layout Tests', () => {
     await page.goto('/experience/')
     await page.waitForLoadState('networkidle')
 
+    // Disable smooth scrolling to avoid timing differences across browsers
+    await page.addStyleTag({ content: 'html { scroll-behavior: auto !important; }' })
+
     // Scroll down
     await page.evaluate(() => window.scrollTo(0, 300))
-    await page.waitForTimeout(300)
+    await page.waitForFunction(() => Math.abs(window.scrollY - 300) < 5)
 
     // Check header is still visible
     const header = page.locator('.header')
@@ -229,21 +232,20 @@ test.describe('Component Visibility and Layout Tests', () => {
     const experienceTitle = page.locator('#experience-title')
     await expect(experienceTitle).toBeVisible()
 
+    // Ensure the title is in view before checking overlap
+    await experienceTitle.scrollIntoViewIfNeeded()
+
     // Get header and title positions after scroll
     const headerBox = await header.boundingBox()
     const headerHeight = headerBox?.height || 0
 
     const titleBox = await experienceTitle.boundingBox()
     const titleTop = titleBox?.y || 0
+    const headerTop = headerBox?.y || 0
+    const headerBottom = headerTop + headerHeight
 
     // Title should still be visible (not covered by header)
-    // When scrolled, title top might be negative (above viewport), but that's OK
-    // What matters is that when title is in viewport, it's not covered
-
-    // If title is in viewport, it should be below header
-    if (titleTop >= 0 && titleTop < page.viewportSize().height) {
-      expect(titleTop).toBeGreaterThan(headerHeight - 20)
-    }
+    expect(titleTop).toBeGreaterThan(headerBottom - 20)
 
     const scrollY = await page.evaluate(() => window.scrollY)
     console.log(`After scroll - Header: ${headerHeight}px, Title top: ${titleTop}px, ScrollY: ${scrollY}px`)

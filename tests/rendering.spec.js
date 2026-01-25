@@ -1,5 +1,36 @@
 import { test, expect } from '@playwright/test'
 
+const allowedFonts = ['Roboto', 'Oswald']
+
+const getFontReport = async (page, allowedList) => {
+  return page.evaluate((allowedFontsList) => {
+    const primaryFonts = new Set()
+    const disallowedFonts = new Set()
+    const elements = Array.from(document.querySelectorAll('body *'))
+
+    for (const element of elements) {
+      const text = element.textContent?.trim()
+      if (!text) continue
+
+      const fontFamily = window.getComputedStyle(element).fontFamily || ''
+      if (!fontFamily) continue
+
+      const primaryFont = fontFamily.split(',')[0].replace(/["']/g, '').trim()
+      if (!primaryFont) continue
+
+      primaryFonts.add(primaryFont)
+      if (!allowedFontsList.includes(primaryFont)) {
+        disallowedFonts.add(primaryFont)
+      }
+    }
+
+    return {
+      primaryFonts: Array.from(primaryFonts),
+      disallowedFonts: Array.from(disallowedFonts),
+    }
+  }, allowedList)
+}
+
 const pages = [
   { path: '/', title: 'Home' },
   { path: '/v2/', title: 'V2 Home' },
@@ -42,6 +73,14 @@ test.describe('Page Rendering Checks', () => {
       // Check body is not empty
       const bodyText = await browserPage.locator('body').textContent()
       expect(bodyText?.trim().length).toBeGreaterThan(0)
+
+      // Verify only approved fonts are used for text
+      const { primaryFonts, disallowedFonts } = await getFontReport(browserPage, allowedFonts)
+      expect(primaryFonts.length).toBeGreaterThan(0)
+      expect(
+        disallowedFonts,
+        `Unexpected fonts on ${page.title}: ${disallowedFonts.join(', ')}`
+      ).toEqual([])
     })
   }
 
