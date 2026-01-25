@@ -23,10 +23,12 @@ export const writingCategories = {
 
 // Import individual blog posts
 import soc2Overview from './blog/soc2-overview.js'
+import gameOfLifePrinciples from './blog/game-of-life-principles.js'
 
 // All writing posts - add new posts here by importing and adding to the array
 export const writing = [
   soc2Overview,
+  gameOfLifePrinciples,
   // Add more blog posts here as you create them
 ]
 
