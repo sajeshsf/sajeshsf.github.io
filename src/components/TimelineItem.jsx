@@ -3,11 +3,13 @@ import PropTypes from 'prop-types'
 export default function TimelineItem({ item }) {
   return (
     <li className="timeline__item">
-      <div className="timeline__marker" aria-hidden="true" />
-      <div className="timeline__content">
+      <div className="timeline__date">
         <p className="text-muted no-margin font-size-xs">
           {item.dateLabel}
         </p>
+      </div>
+      <div className="timeline__marker" aria-hidden="true" />
+      <div className="timeline__content">
         <h2 className="timeline-heading">
           <a href={`/experience/#${item.id}`}>{item.role}</a>
         </h2>

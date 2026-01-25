@@ -110,7 +110,7 @@ export default function WritingPage() {
 
           {!selectedPost.content && selectedPost.summary && (
             <div className="mt-lg">
-              <p className="text-muted line-height-1-8">{selectedPost.summary}</p>
+              <p className="text-muted line-height-loose">{selectedPost.summary}</p>
             </div>
           )}
         </article>
@@ -159,7 +159,7 @@ export default function WritingPage() {
                     {post.title}
                   </a>
                   {post.summary && (
-                    <p className="text-muted font-size-0-95 line-height-1-6" style={{ marginTop: '0.5rem' }}>
+                    <p className="text-muted font-size-0-95 line-height-loose" style={{ marginTop: '0.5rem' }}>
                       {post.summary}
                     </p>
                   )}

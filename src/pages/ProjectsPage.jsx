@@ -116,9 +116,9 @@ function ProjectDetail({ project }) {
           Description
         </h2>
         {bullets.length > 0 ? (
-          <ul className="text-muted line-height-loose font-size-lg no-margin padding-left-md list-style-disc">
+          <ul className="highlights-list text-muted font-size-lg">
             {bullets.map((bullet, index) => (
-              <li key={index} className="margin-bottom-md">
+              <li key={index} className="highlight-item">
                 {bullet}
               </li>
             ))}

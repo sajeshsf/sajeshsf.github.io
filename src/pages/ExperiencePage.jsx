@@ -90,7 +90,7 @@ function ExperienceDetail({ item }) {
 }
 
 function ExperienceTimeline() {
-  return <TimelineGrid />
+  return <TimelineGrid initialCount={timeline.length} />
 }
 
 export default function ExperiencePage() {
