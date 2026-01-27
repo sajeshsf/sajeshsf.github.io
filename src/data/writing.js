@@ -29,6 +29,9 @@ export const writingCategories = {
 
 // Import individual blog posts
 import howStrangeItIsToBeAnythingAtAll from './blog/how-strange-it-is-to-be-anything-at-all.js'
+import happyIsTheManQuote from './blog/happy-is-the-man-who-finds-a-true-friend-and-far-happier-is-he-who-finds-that-true-friend-in-his-wife.js'
+import iAmComposingLikeAGodQuote from './blog/i-am-composing-like-a-god-as-if-it-simply-had-to-be-done-as-it-has-been-done.js'
+import iNeverForceMyselfToBeDevoutQuote from './blog/i-never-force-myself-to-be-devout-except-when-i-feel-so-inspired-and-never-compose-hymns-of-prayers-unless-i-feel-within-me-real-and-true-devotion.js'
 import myTasteIsPrettySimpleIAmEasilySatisfiedWithTheBest from './blog/my-taste-is-pretty-simple-i-am-easily-satisfied-with-the-best.js'
 import thereAreCathedralsEverywhereForThoseHasEyesToSeeIt from './blog/there-are-cathedrals-everywhere-for-those-has-eyes-to-see-it.js'
 import soc2Overview from './blog/soc2-overview.js'
@@ -36,6 +39,9 @@ import soc2Overview from './blog/soc2-overview.js'
 // All writing posts - add new posts here by importing and adding to the array
 export const writing = [
   howStrangeItIsToBeAnythingAtAll,
+  happyIsTheManQuote,
+  iAmComposingLikeAGodQuote,
+  iNeverForceMyselfToBeDevoutQuote,
   myTasteIsPrettySimpleIAmEasilySatisfiedWithTheBest,
   thereAreCathedralsEverywhereForThoseHasEyesToSeeIt,
   soc2Overview,
