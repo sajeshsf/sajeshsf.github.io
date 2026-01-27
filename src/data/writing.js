@@ -35,6 +35,7 @@ import justBcozItsDifficultDoesntMeanItsWorthWhile from './blog/just-bcoz-its-di
 import nobodyClapsUntilEverybodyClaps from './blog/nobody-claps-until-everybody-claps.js'
 import ifMoneyAndStatusIsNoObjectWhatWouldYouDo from './blog/if-money-and-status-is-no-object-what-would-you-do.js'
 import theWorldIsThereForTaking from './blog/the-world-is-there-for-taking.js'
+import whyDogsAreSpecial from './blog/why-dogs-are-special.js'
 import soc2Overview from './blog/soc2-overview.js'
 
 // All writing posts - add new posts here by importing and adding to the array
@@ -46,6 +47,7 @@ export const writing = [
   nobodyClapsUntilEverybodyClaps,
   ifMoneyAndStatusIsNoObjectWhatWouldYouDo,
   theWorldIsThereForTaking,
+  whyDogsAreSpecial,
   soc2Overview,
   // Add more blog posts here as you create them
 ]
