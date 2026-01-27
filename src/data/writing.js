@@ -29,11 +29,13 @@ export const writingCategories = {
 
 // Import individual blog posts
 import howStrangeItIsToBeAnythingAtAll from './blog/how-strange-it-is-to-be-anything-at-all.js'
+import myTasteIsPrettySimpleIAmEasilySatisfiedWithTheBest from './blog/my-taste-is-pretty-simple-i-am-easily-satisfied-with-the-best.js'
 import soc2Overview from './blog/soc2-overview.js'
 
 // All writing posts - add new posts here by importing and adding to the array
 export const writing = [
   howStrangeItIsToBeAnythingAtAll,
+  myTasteIsPrettySimpleIAmEasilySatisfiedWithTheBest,
   soc2Overview,
   // Add more blog posts here as you create them
 ]
