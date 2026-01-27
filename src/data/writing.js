@@ -23,9 +23,11 @@ export const writingCategories = {
 
 // Import individual blog posts
 import soc2Overview from './blog/soc2-overview.js'
+import grit from './blog/grit.js'
 
 // All writing posts - add new posts here by importing and adding to the array
 export const writing = [
+  grit,
   soc2Overview,
   // Add more blog posts here as you create them
 ]
