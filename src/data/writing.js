@@ -19,13 +19,21 @@ export const writingCategories = {
     description: 'Stories from travels, food adventures, and life experiences',
     icon: '✈️',
   },
+  writes: {
+    id: 'writes',
+    name: 'Writes',
+    description: 'Short quotes and reflections',
+    icon: '✍️',
+  },
 }
 
 // Import individual blog posts
+import howStrangeItIsToBeAnythingAtAll from './blog/how-strange-it-is-to-be-anything-at-all.js'
 import soc2Overview from './blog/soc2-overview.js'
 
 // All writing posts - add new posts here by importing and adding to the array
 export const writing = [
+  howStrangeItIsToBeAnythingAtAll,
   soc2Overview,
   // Add more blog posts here as you create them
 ]
