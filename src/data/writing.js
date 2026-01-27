@@ -32,6 +32,7 @@ import howStrangeItIsToBeAnythingAtAll from './blog/how-strange-it-is-to-be-anyt
 import myTasteIsPrettySimpleIAmEasilySatisfiedWithTheBest from './blog/my-taste-is-pretty-simple-i-am-easily-satisfied-with-the-best.js'
 import thereAreCathedralsEverywhereForThoseHasEyesToSeeIt from './blog/there-are-cathedrals-everywhere-for-those-has-eyes-to-see-it.js'
 import justBcozItsDifficultDoesntMeanItsWorthWhile from './blog/just-bcoz-its-difficult-doesnt-mean-its-worth-while.js'
+import nobodyClapsUntilEverybodyClaps from './blog/nobody-claps-until-everybody-claps.js'
 import soc2Overview from './blog/soc2-overview.js'
 
 // All writing posts - add new posts here by importing and adding to the array
@@ -40,6 +41,7 @@ export const writing = [
   myTasteIsPrettySimpleIAmEasilySatisfiedWithTheBest,
   thereAreCathedralsEverywhereForThoseHasEyesToSeeIt,
   justBcozItsDifficultDoesntMeanItsWorthWhile,
+  nobodyClapsUntilEverybodyClaps,
   soc2Overview,
   // Add more blog posts here as you create them
 ]
