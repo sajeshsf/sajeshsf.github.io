@@ -46,7 +46,6 @@ export const writingCategories = {
 }
 
 // Import individual blog posts
-<<<<<<< HEAD
 import articulationPerspicuityEloquence from './blog/articulation-perspicuity-eloquence.js'
 import howStrangeItIsToBeAnythingAtAll from './blog/how-strange-it-is-to-be-anything-at-all.js'
 import happyIsTheManQuote from './blog/happy-is-the-man-who-finds-a-true-friend-and-far-happier-is-he-who-finds-that-true-friend-in-his-wife.js'
