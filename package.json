@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "pretest": "npm run build",
     "lint": "eslint .",
     "preview": "vite preview",
     "test:render": "playwright test tests/rendering.spec.js",
