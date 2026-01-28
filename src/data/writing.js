@@ -50,11 +50,13 @@ import thereAreCathedralsEverywhereForThoseHasEyesToSeeIt from './blog/there-are
 import soc2Overview from './blog/soc2-overview.js'
 import gameOfLifePrinciples from './blog/game-of-life-principles.js'
 import albumsYouMustHear from './blog/1001-albums-you-must-hear-before-you-die.js'
+import grit from './blog/grit.js'
 
 // All writing posts - add new posts here by importing and adding to the array
 export const writing = [
   albumsYouMustHear,
   articulationPerspicuityEloquence,
+  grit,
   howStrangeItIsToBeAnythingAtAll,
   happyIsTheManQuote,
   iAmComposingLikeAGodQuote,
