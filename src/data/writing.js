@@ -16,11 +16,7 @@ export const writingCategories = {
   'internet-finds': {
     id: 'internet-finds',
     name: 'Internet Finds',
-<<<<<<< HEAD
-    description: 'Notable discoveries and resources from around the web',
-=======
     description: 'Curated notes on useful links, tools, and ideas from the web',
->>>>>>> origin/cursor/internet-finds-category-c0a3
     icon: '🌐',
   },
   'book-notes': {
