@@ -25,9 +25,21 @@ export const writingCategories = {
     description: 'Stories from travels, food adventures, and life experiences',
     icon: '✈️',
   },
+  writes: {
+    id: 'writes',
+    name: 'Writes',
+    description: 'Short quotes and reflections',
+    icon: '✍️',
+  },
 }
 
 // Import individual blog posts
+import howStrangeItIsToBeAnythingAtAll from './blog/how-strange-it-is-to-be-anything-at-all.js'
+import happyIsTheManQuote from './blog/happy-is-the-man-who-finds-a-true-friend-and-far-happier-is-he-who-finds-that-true-friend-in-his-wife.js'
+import iAmComposingLikeAGodQuote from './blog/i-am-composing-like-a-god-as-if-it-simply-had-to-be-done-as-it-has-been-done.js'
+import iNeverForceMyselfToBeDevoutQuote from './blog/i-never-force-myself-to-be-devout-except-when-i-feel-so-inspired-and-never-compose-hymns-of-prayers-unless-i-feel-within-me-real-and-true-devotion.js'
+import myTasteIsPrettySimpleIAmEasilySatisfiedWithTheBest from './blog/my-taste-is-pretty-simple-i-am-easily-satisfied-with-the-best.js'
+import thereAreCathedralsEverywhereForThoseHasEyesToSeeIt from './blog/there-are-cathedrals-everywhere-for-those-has-eyes-to-see-it.js'
 import soc2Overview from './blog/soc2-overview.js'
 import gameOfLifePrinciples from './blog/game-of-life-principles.js'
 import albumsYouMustHear from './blog/1001-albums-you-must-hear-before-you-die.js'
@@ -35,6 +47,12 @@ import albumsYouMustHear from './blog/1001-albums-you-must-hear-before-you-die.j
 // All writing posts - add new posts here by importing and adding to the array
 export const writing = [
   albumsYouMustHear,
+  howStrangeItIsToBeAnythingAtAll,
+  happyIsTheManQuote,
+  iAmComposingLikeAGodQuote,
+  iNeverForceMyselfToBeDevoutQuote,
+  myTasteIsPrettySimpleIAmEasilySatisfiedWithTheBest,
+  thereAreCathedralsEverywhereForThoseHasEyesToSeeIt,
   soc2Overview,
   gameOfLifePrinciples,
   // Add more blog posts here as you create them
