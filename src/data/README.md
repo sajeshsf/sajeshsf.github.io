@@ -71,7 +71,7 @@ Blog posts and articles organized by category.
   id: 'unique-id',
   title: 'Post Title',
   date: 'YYYY-MM-DD',
-  category: 'technical' | 'internet-finds' | 'travel-food-experiences',
+  category: 'how-tos' | 'internet-finds' | 'travel',
   summary: 'Brief summary',
   content: '<HTML content>',
   seriesTitle: 'Series name' | null
@@ -79,9 +79,9 @@ Blog posts and articles organized by category.
 ```
 
 **Categories:**
-- `technical` - Technical articles and guides
+- `how-tos` - Step-by-step guides and tutorials
 - `internet-finds` - Interesting links and resources
-- `travel-food-experiences` - Travel and food stories
+- `travel` - Travel destination notes and guides
 
 ### blog/
 
