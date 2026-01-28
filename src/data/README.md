@@ -2,28 +2,24 @@
 
 Content data files for the portfolio website.
 
-## Files
+## Overview
 
-### experience.js
+This directory contains all content data:
+- **experience.js** - Professional experience data
+- **timeline.js** - Combined timeline data for experience and education
+- **projects.js** - Project listings
+- **writing.js** - Blog posts and articles
+- **blog/** - Individual blog post content files
 
-Professional experience data including roles, companies, periods, and highlights.
+## Adding Content
 
-**Structure:**
-```javascript
-{
-  period: 'Jun 2024 – Present',
-  role: 'Head of Software Engineering',
-  company: 'American Security · Los Angeles, CA',
-  focus: 'CashWizard Smart Safe Platform & Analytics',
-  highlights: [
-    'Achievement or responsibility 1',
-    'Achievement or responsibility 2',
-    ...
-  ]
-}
-```
+- **Experience**: Edit `experience.js` and add a new entry
+- **Projects**: Edit `projects.js` and add a new entry
+- **Blog Posts**: Create a new file in `blog/` directory and import into `writing.js`
 
-### timeline.js
+## Detailed Documentation
+
+For complete data structure documentation including examples, data transformation, and best practices, see [src/README.md](../README.md#data).
 
 Combined timeline data for both experience roles and education entries, sorted by date.
 
@@ -54,7 +50,7 @@ Project listings with descriptions, stack, and metadata.
   id: 'unique-id',
   title: 'Project Name',
   headline: 'Project description',
-  year: '2023 – ongoing',
+  year: '2023 - ongoing',
   stack: ['Technology1', 'Technology2'],
   live: 'URL' | null,
   repo: 'URL' | null
@@ -71,7 +67,13 @@ Blog posts and articles organized by category.
   id: 'unique-id',
   title: 'Post Title',
   date: 'YYYY-MM-DD',
-  category: 'technical' | 'internet-finds' | 'travel-food-experiences',
+  category: 'how-tos'
+    | 'communication-craft'
+    | 'internet-finds'
+    | 'book-notes'
+    | 'travel'
+    | 'travel-food-experiences'
+    | 'writes',
   summary: 'Brief summary',
   content: '<HTML content>',
   seriesTitle: 'Series name' | null
@@ -79,9 +81,13 @@ Blog posts and articles organized by category.
 ```
 
 **Categories:**
-- `technical` - Technical articles and guides
-- `internet-finds` - Interesting links and resources
-- `travel-food-experiences` - Travel and food stories
+- `how-tos` - Step-by-step guides and tutorials
+- `communication-craft` - Notes on writing, rhetoric, and clarity
+- `internet-finds` - Curated notes on useful links, tools, and ideas from the web
+- `book-notes` - Highlights and reflections from books
+- `travel` - Destination notes, itineraries, and travel planning tips
+- `travel-food-experiences` - Stories from travels, food adventures, and life experiences
+- `writes` - Short quotes and reflections
 
 ### blog/
 
@@ -118,7 +124,7 @@ Edit `projects.js` and add a new entry with required fields.
    export default {
      title: 'My Post',
      date: '2025-01-16',
-     category: 'technical',
+     category: 'how-tos',
      summary: 'Post summary',
      content: '<HTML content>'
    }
