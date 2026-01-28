@@ -19,6 +19,12 @@ export const writingCategories = {
     description: 'Curated notes on useful links, tools, and ideas from the web',
     icon: '🌐',
   },
+  travel: {
+    id: 'travel',
+    name: 'Travel',
+    description: 'Destination notes, itineraries, and travel planning tips',
+    icon: '✈️',
+  },
   'book-notes': {
     id: 'book-notes',
     name: 'Book Notes',
@@ -53,6 +59,22 @@ import albumsYouMustHear from './blog/1001-albums-you-must-hear-before-you-die.j
 import grit from './blog/grit.js'
 import roadmapSh from './blog/roadmap-sh.js'
 import internetFindsIntro from './blog/internet-finds-intro.js'
+import bhuj from './blog/bhuj.js'
+import dehradun from './blog/dehradun.js'
+import goa from './blog/goa.js'
+import gokarna from './blog/gokarna.js'
+import haridwar from './blog/haridwar.js'
+import jaipur from './blog/jaipur.js'
+import jodhpur from './blog/jodhpur.js'
+import kargil from './blog/kargil.js'
+import leh from './blog/leh.js'
+import manali from './blog/manali.js'
+import mumba from './blog/mumba.js'
+import rannOfKuch from './blog/rann-of-kuch.js'
+import rishikesh from './blog/rishikesh.js'
+import shimla from './blog/shimla.js'
+import srinagar from './blog/srinagar.js'
+import udupi from './blog/udupi.js'
 
 // All writing posts - add new posts here by importing and adding to the array
 export const writing = [
@@ -69,6 +91,22 @@ export const writing = [
   thereAreCathedralsEverywhereForThoseHasEyesToSeeIt,
   soc2Overview,
   gameOfLifePrinciples,
+  haridwar,
+  rishikesh,
+  dehradun,
+  shimla,
+  manali,
+  leh,
+  kargil,
+  srinagar,
+  jaipur,
+  jodhpur,
+  bhuj,
+  rannOfKuch,
+  mumba,
+  goa,
+  gokarna,
+  udupi,
   // Add more blog posts here as you create them
 ]
 
