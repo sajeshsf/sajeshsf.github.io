@@ -10,6 +10,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "pretest": "npm run build",
     "test:render": "playwright test tests/rendering.spec.js",
     "test:responsive": "playwright test tests/responsive.spec.js",
     "test:lighthouse": "lhci autorun",
