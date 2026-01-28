@@ -7,6 +7,12 @@ export const writingCategories = {
     description: 'Step-by-step guides and tutorials',
     icon: '📚',
   },
+  'communication-craft': {
+    id: 'communication-craft',
+    name: 'Communication Craft',
+    description: 'Notes on writing, rhetoric, and clarity',
+    icon: '✍️',
+  },
   'internet-finds': {
     id: 'internet-finds',
     name: 'Interesting Internet Finds',
@@ -34,6 +40,7 @@ export const writingCategories = {
 }
 
 // Import individual blog posts
+import articulationPerspicuityEloquence from './blog/articulation-perspicuity-eloquence.js'
 import howStrangeItIsToBeAnythingAtAll from './blog/how-strange-it-is-to-be-anything-at-all.js'
 import happyIsTheManQuote from './blog/happy-is-the-man-who-finds-a-true-friend-and-far-happier-is-he-who-finds-that-true-friend-in-his-wife.js'
 import iAmComposingLikeAGodQuote from './blog/i-am-composing-like-a-god-as-if-it-simply-had-to-be-done-as-it-has-been-done.js'
@@ -47,6 +54,7 @@ import albumsYouMustHear from './blog/1001-albums-you-must-hear-before-you-die.j
 // All writing posts - add new posts here by importing and adding to the array
 export const writing = [
   albumsYouMustHear,
+  articulationPerspicuityEloquence,
   howStrangeItIsToBeAnythingAtAll,
   happyIsTheManQuote,
   iAmComposingLikeAGodQuote,
