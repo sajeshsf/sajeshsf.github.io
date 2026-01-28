@@ -15,8 +15,8 @@ export const writingCategories = {
   },
   'internet-finds': {
     id: 'internet-finds',
-    name: 'Interesting Internet Finds',
-    description: 'Cool discoveries and resources from around the web',
+    name: 'Internet Finds',
+    description: 'Notable discoveries and resources from around the web',
     icon: '🌐',
   },
   'book-notes': {
@@ -51,12 +51,14 @@ import soc2Overview from './blog/soc2-overview.js'
 import gameOfLifePrinciples from './blog/game-of-life-principles.js'
 import albumsYouMustHear from './blog/1001-albums-you-must-hear-before-you-die.js'
 import grit from './blog/grit.js'
+import roadmapSh from './blog/roadmap-sh.js'
 
 // All writing posts - add new posts here by importing and adding to the array
 export const writing = [
   albumsYouMustHear,
   articulationPerspicuityEloquence,
   grit,
+  roadmapSh,
   howStrangeItIsToBeAnythingAtAll,
   happyIsTheManQuote,
   iAmComposingLikeAGodQuote,
