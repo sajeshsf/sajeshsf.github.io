@@ -46,6 +46,7 @@ export const writingCategories = {
 }
 
 // Import individual blog posts
+<<<<<<< HEAD
 import articulationPerspicuityEloquence from './blog/articulation-perspicuity-eloquence.js'
 import howStrangeItIsToBeAnythingAtAll from './blog/how-strange-it-is-to-be-anything-at-all.js'
 import happyIsTheManQuote from './blog/happy-is-the-man-who-finds-a-true-friend-and-far-happier-is-he-who-finds-that-true-friend-in-his-wife.js'
@@ -57,6 +58,7 @@ import soc2Overview from './blog/soc2-overview.js'
 import gameOfLifePrinciples from './blog/game-of-life-principles.js'
 import albumsYouMustHear from './blog/1001-albums-you-must-hear-before-you-die.js'
 import grit from './blog/grit.js'
+import discernmentQuality from './blog/discernment-quality.js'
 import roadmapSh from './blog/roadmap-sh.js'
 import internetFindsIntro from './blog/internet-finds-intro.js'
 import bhuj from './blog/bhuj.js'
@@ -81,6 +83,7 @@ export const writing = [
   albumsYouMustHear,
   articulationPerspicuityEloquence,
   grit,
+  discernmentQuality,
   roadmapSh,
   internetFindsIntro,
   howStrangeItIsToBeAnythingAtAll,
