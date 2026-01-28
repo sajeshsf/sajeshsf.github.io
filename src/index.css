@@ -55,6 +55,13 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
 body.menu-open {
   overflow: hidden;
 }
