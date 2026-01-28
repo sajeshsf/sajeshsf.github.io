@@ -53,6 +53,11 @@ import iAmComposingLikeAGodQuote from './blog/i-am-composing-like-a-god-as-if-it
 import iNeverForceMyselfToBeDevoutQuote from './blog/i-never-force-myself-to-be-devout-except-when-i-feel-so-inspired-and-never-compose-hymns-of-prayers-unless-i-feel-within-me-real-and-true-devotion.js'
 import myTasteIsPrettySimpleIAmEasilySatisfiedWithTheBest from './blog/my-taste-is-pretty-simple-i-am-easily-satisfied-with-the-best.js'
 import thereAreCathedralsEverywhereForThoseHasEyesToSeeIt from './blog/there-are-cathedrals-everywhere-for-those-has-eyes-to-see-it.js'
+import justBcozItsDifficultDoesntMeanItsWorthWhile from './blog/just-bcoz-its-difficult-doesnt-mean-its-worth-while.js'
+import nobodyClapsUntilEverybodyClaps from './blog/nobody-claps-until-everybody-claps.js'
+import ifMoneyAndStatusIsNoObjectWhatWouldYouDo from './blog/if-money-and-status-is-no-object-what-would-you-do.js'
+import theWorldIsThereForTaking from './blog/the-world-is-there-for-taking.js'
+import whyDogsAreSpecial from './blog/why-dogs-are-special.js'
 import soc2Overview from './blog/soc2-overview.js'
 import gameOfLifePrinciples from './blog/game-of-life-principles.js'
 import albumsYouMustHear from './blog/1001-albums-you-must-hear-before-you-die.js'
@@ -91,6 +96,11 @@ export const writing = [
   iNeverForceMyselfToBeDevoutQuote,
   myTasteIsPrettySimpleIAmEasilySatisfiedWithTheBest,
   thereAreCathedralsEverywhereForThoseHasEyesToSeeIt,
+  justBcozItsDifficultDoesntMeanItsWorthWhile,
+  nobodyClapsUntilEverybodyClaps,
+  ifMoneyAndStatusIsNoObjectWhatWouldYouDo,
+  theWorldIsThereForTaking,
+  whyDogsAreSpecial,
   soc2Overview,
   gameOfLifePrinciples,
   haridwar,
