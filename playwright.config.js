@@ -5,10 +5,11 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : undefined,
+  workers: 1,
+  timeout: 60000,
   reporter: 'html',
   use: {
-    baseURL: process.env.BASE_URL || 'http://localhost:4173',
+    baseURL: process.env.BASE_URL || 'http://127.0.0.1:4173',
     trace: 'on-first-retry',
   },
   projects: [
@@ -30,9 +31,9 @@ export default defineConfig({
     },
   ],
   webServer: process.env.BASE_URL ? undefined : {
-    command: 'npm run build && npm run preview',
-    url: 'http://localhost:4173',
-    reuseExistingServer: !process.env.CI,
+    command: 'npm run build && npm run preview -- --host 127.0.0.1 --strictPort',
+    url: 'http://127.0.0.1:4173',
+    reuseExistingServer: false,
     timeout: 120000,
   },
 })
