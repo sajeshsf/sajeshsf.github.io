@@ -13,6 +13,12 @@ export const writingCategories = {
     description: 'Cool discoveries and resources from around the web',
     icon: '🌐',
   },
+  'book-notes': {
+    id: 'book-notes',
+    name: 'Book Notes',
+    description: 'Highlights and reflections from books',
+    icon: '📖',
+  },
   'travel-food-experiences': {
     id: 'travel-food-experiences',
     name: 'Travel, Food & Experiences',
@@ -24,9 +30,11 @@ export const writingCategories = {
 // Import individual blog posts
 import soc2Overview from './blog/soc2-overview.js'
 import gameOfLifePrinciples from './blog/game-of-life-principles.js'
+import albumsYouMustHear from './blog/1001-albums-you-must-hear-before-you-die.js'
 
 // All writing posts - add new posts here by importing and adding to the array
 export const writing = [
+  albumsYouMustHear,
   soc2Overview,
   gameOfLifePrinciples,
   // Add more blog posts here as you create them
