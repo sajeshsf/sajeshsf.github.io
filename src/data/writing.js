@@ -22,10 +22,12 @@ export const writingCategories = {
 }
 
 // Import individual blog posts
+import discernmentQuality from './blog/discernment-quality.js'
 import soc2Overview from './blog/soc2-overview.js'
 
 // All writing posts - add new posts here by importing and adding to the array
 export const writing = [
+  discernmentQuality,
   soc2Overview,
   // Add more blog posts here as you create them
 ]
