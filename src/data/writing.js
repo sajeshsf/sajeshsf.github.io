@@ -7,6 +7,12 @@ export const writingCategories = {
     description: 'Step-by-step guides and tutorials',
     icon: '📚',
   },
+  'communication-craft': {
+    id: 'communication-craft',
+    name: 'Communication Craft',
+    description: 'Notes on writing, rhetoric, and clarity',
+    icon: '✍️',
+  },
   'internet-finds': {
     id: 'internet-finds',
     name: 'Interesting Internet Finds',
@@ -22,10 +28,12 @@ export const writingCategories = {
 }
 
 // Import individual blog posts
+import articulationPerspicuityEloquence from './blog/articulation-perspicuity-eloquence.js'
 import soc2Overview from './blog/soc2-overview.js'
 
 // All writing posts - add new posts here by importing and adding to the array
 export const writing = [
+  articulationPerspicuityEloquence,
   soc2Overview,
   // Add more blog posts here as you create them
 ]
