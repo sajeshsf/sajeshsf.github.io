@@ -74,7 +74,8 @@ test.describe('Page Rendering Checks', () => {
       // Ensure primary font stack is used
       const appRoot = browserPage.locator('.app')
       const fontFamily = await appRoot.evaluate((el) => window.getComputedStyle(el).fontFamily)
-      expect(hasAllowedFont(fontFamily)).toBe(true)
+      const primaryFont = fontFamily.split(',')[0].replace(/["']/g, '').trim()
+      expect(hasAllowedFont.has(primaryFont)).toBe(true)
 
       // Check body is not empty
       const bodyText = await browserPage.locator('body').textContent()
