@@ -80,6 +80,9 @@ test.describe('Page Rendering Checks', () => {
       const bodyText = await browserPage.locator('body').textContent()
       expect(bodyText?.trim().length).toBeGreaterThan(0)
 
+      // Wait for fonts to finish loading before inspection
+      await browserPage.evaluate(() => document.fonts?.ready)
+
       // Verify only approved fonts are used for text
       const { primaryFonts, disallowedFonts } = await getFontReport(browserPage, allowedFonts)
       expect(primaryFonts.length).toBeGreaterThan(0)
