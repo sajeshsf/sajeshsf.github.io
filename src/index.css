@@ -103,6 +103,13 @@ textarea {
   color: var(--accent-hover);
 }
 
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
 /* Container */
 .container {
   width: min(1200px, calc(100% - var(--spacing-xl)));
