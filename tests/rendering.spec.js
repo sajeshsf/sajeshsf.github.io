@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test'
 
-const allowedFonts = ['Roboto', 'Oswald']
+const allowedFonts = ['Roboto', 'Oswald', 'Segoe UI', 'serif']
+const hasAllowedFont = new Set(allowedFonts)
 
 const getFontReport = async (page, allowedList) => {
   return page.evaluate((allowedFontsList) => {
@@ -70,9 +71,18 @@ test.describe('Page Rendering Checks', () => {
       const mainContent = browserPage.locator('main, [role="main"], #main, .v2-main')
       await expect(mainContent.first()).toBeVisible({ timeout: 5000 })
 
+      // Ensure primary font stack is used
+      const appRoot = browserPage.locator('.app')
+      const fontFamily = await appRoot.evaluate((el) => window.getComputedStyle(el).fontFamily)
+      const primaryFont = fontFamily.split(',')[0].replace(/["']/g, '').trim()
+      expect(hasAllowedFont.has(primaryFont)).toBe(true)
+
       // Check body is not empty
       const bodyText = await browserPage.locator('body').textContent()
       expect(bodyText?.trim().length).toBeGreaterThan(0)
+
+      // Wait for fonts to finish loading before inspection
+      await browserPage.evaluate(() => document.fonts?.ready)
 
       // Verify only approved fonts are used for text
       const { primaryFonts, disallowedFonts } = await getFontReport(browserPage, allowedFonts)

@@ -2,28 +2,22 @@
 
 Static assets (images, icons, etc.) used in the portfolio website.
 
-## SVG Images
+## Overview
 
-- **profile.svg** - Profile picture SVG (fallback)
-- **react.svg** - React logo (if needed)
+This directory contains static assets like SVG images that are imported in components.
 
 ## Usage
 
 Assets are imported in components:
-
 ```javascript
 import profileSvg from '../assets/profile.svg'
-
 <img src={profileSvg} alt="Profile" />
 ```
-
-## Best Practices
-
-1. **Optimization**: Use SVG for scalable graphics
-2. **Alt Text**: Always include alt text for images
-3. **Naming**: Use descriptive filenames
-4. **Size**: Optimize file sizes for web
 
 ## Public Assets
 
 For publicly accessible assets (like profile.jpg), use the `public/` directory instead. See [public/README.md](../../public/README.md) for more information.
+
+## Detailed Documentation
+
+For complete assets documentation including best practices, see [src/README.md](../README.md#assets).

@@ -24,13 +24,22 @@ sajeshsf.github.io/
 │   └── assets/       # Static assets (SVG images)
 ├── public/           # Public assets (see public/README.md)
 ├── tests/            # E2E tests (see tests/README.md)
-├── about/            # HTML entry point for About page
-├── experience/       # HTML entry point for Experience page
-├── projects/         # HTML entry point for Projects page
-└── writing/          # HTML entry point for Writing page
+├── about/            # HTML entry point for About page (see about/README.md)
+├── experience/       # HTML entry point for Experience page (see experience/README.md)
+├── projects/         # HTML entry point for Projects page (see projects/README.md)
+└── writing/          # HTML entry point for Writing page (see writing/README.md)
 ```
 
-For detailed documentation, see the README in each folder.
+For detailed documentation, see the README in each folder:
+- [Source Code](src/README.md) - Complete source code documentation
+- [Components](src/components/README.md) - UI components
+- [Pages](src/pages/README.md) - Page components
+- [Data](src/data/README.md) - Content data structure
+- [Utils](src/utils/README.md) - Utility functions and hooks
+- [Config](src/config/README.md) - Configuration constants
+- [Assets](src/assets/README.md) - Static assets
+- [Tests](tests/README.md) - Testing documentation
+- [Public Assets](public/README.md) - Public assets and SEO files
 
 ## Features
 
@@ -88,13 +97,15 @@ Artifacts are available in the GitHub Actions UI for download and analysis.
 
 ## Architecture
 
-- **Components**: Reusable, focused components with PropTypes (see `src/components/README.md`)
-- **Pages**: Page-level components with SEO support (see `src/pages/README.md`)
-- **Data**: Content data organized by type (see `src/data/README.md`)
-- **Utils**: Custom hooks for scroll tracking, hash routing, progressive disclosure (see `src/utils/README.md`)
-- **Config**: Centralized configuration (see `src/config/README.md`)
+- **Components**: Reusable, focused components with PropTypes
+- **Pages**: Page-level components with SEO support
+- **Data**: Content data organized by type
+- **Utils**: Custom hooks for scroll tracking, hash routing, progressive disclosure
+- **Config**: Centralized configuration
 - **Error Handling**: ErrorBoundary component for graceful error handling
 - **Styling**: CSS variables for theming, Bento Box grid system
+
+For complete architecture documentation, see [src/README.md](src/README.md). For folder-specific overviews, see the README files in each directory.
 
 ## SEO Implementation
 

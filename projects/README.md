@@ -19,16 +19,3 @@ When visiting `/projects/`, Vite serves this `index.html`, which:
 
 Hash-based routing is used for detail views:
 - `/projects/#project-id` - Shows detail view for specific project
-
-## Structure
-
-The HTML file includes:
-- Meta tags for SEO
-- Root div for React mounting
-- Script tag to load the React app
-
-## Related Documentation
-
-- [Pages](../src/pages/README.md) - ProjectsPage component documentation
-- [Data](../src/data/README.md) - Projects data structure
-- [Components](../src/components/README.md) - Components used in ProjectsPage
