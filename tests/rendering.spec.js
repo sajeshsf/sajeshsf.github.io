@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
 
-const allowedFonts = ['Roboto', 'Segoe UI', 'serif']
+const allowedFonts = ['Roboto', 'Oswald', 'Segoe UI', 'serif']
 const hasAllowedFont = new Set(allowedFonts)
 
 const getFontReport = async (page, allowedList) => {
