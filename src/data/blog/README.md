@@ -12,7 +12,7 @@ Each blog post is stored as a separate JavaScript file that exports the post con
 export default {
   title: 'Post Title',
   date: '2025-01-16',
-  category: 'technical', // or 'internet-finds', 'travel-food-experiences'
+  category: 'how-tos', // or 'internet-finds', 'travel'
   summary: 'Brief summary of the post',
   content: '<HTML content with the full post>',
   seriesTitle: 'Series Name' // Optional
@@ -39,7 +39,7 @@ import myPost from './blog/my-post.js'
 
 - **title**: Post title (required)
 - **date**: Publication date in ISO format (YYYY-MM-DD) (required)
-- **category**: One of 'technical', 'internet-finds', 'travel-food-experiences' (required)
+- **category**: One of 'how-tos', 'internet-finds', 'travel' (required)
 - **summary**: Brief summary for listing pages (optional but recommended)
 - **content**: Full HTML content of the post (required)
 - **seriesTitle**: If part of a series (optional)
