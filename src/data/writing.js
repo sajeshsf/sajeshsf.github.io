@@ -19,13 +19,35 @@ export const writingCategories = {
     description: 'Stories from travels, food adventures, and life experiences',
     icon: '✈️',
   },
+  writes: {
+    id: 'writes',
+    name: 'Writes',
+    description: 'Short quotes and reflections',
+    icon: '✍️',
+  },
 }
 
 // Import individual blog posts
+import howStrangeItIsToBeAnythingAtAll from './blog/how-strange-it-is-to-be-anything-at-all.js'
+import myTasteIsPrettySimpleIAmEasilySatisfiedWithTheBest from './blog/my-taste-is-pretty-simple-i-am-easily-satisfied-with-the-best.js'
+import thereAreCathedralsEverywhereForThoseHasEyesToSeeIt from './blog/there-are-cathedrals-everywhere-for-those-has-eyes-to-see-it.js'
+import justBcozItsDifficultDoesntMeanItsWorthWhile from './blog/just-bcoz-its-difficult-doesnt-mean-its-worth-while.js'
+import nobodyClapsUntilEverybodyClaps from './blog/nobody-claps-until-everybody-claps.js'
+import ifMoneyAndStatusIsNoObjectWhatWouldYouDo from './blog/if-money-and-status-is-no-object-what-would-you-do.js'
+import theWorldIsThereForTaking from './blog/the-world-is-there-for-taking.js'
+import whyDogsAreSpecial from './blog/why-dogs-are-special.js'
 import soc2Overview from './blog/soc2-overview.js'
 
 // All writing posts - add new posts here by importing and adding to the array
 export const writing = [
+  howStrangeItIsToBeAnythingAtAll,
+  myTasteIsPrettySimpleIAmEasilySatisfiedWithTheBest,
+  thereAreCathedralsEverywhereForThoseHasEyesToSeeIt,
+  justBcozItsDifficultDoesntMeanItsWorthWhile,
+  nobodyClapsUntilEverybodyClaps,
+  ifMoneyAndStatusIsNoObjectWhatWouldYouDo,
+  theWorldIsThereForTaking,
+  whyDogsAreSpecial,
   soc2Overview,
   // Add more blog posts here as you create them
 ]
