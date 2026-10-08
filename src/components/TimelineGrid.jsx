@@ -60,43 +60,14 @@ export default function TimelineGrid({ initialCount = INITIAL_TIMELINE_ITEMS }) 
               zIndex: 1,
             }}
           />
-          <div
-            className="expand-button-container"
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              marginTop: '1.5rem',
-              position: 'relative',
-              zIndex: 2,
-            }}
-          >
+          <div className="expand-button-wrapper">
             <button
               onClick={toggleExpand}
-              className="expand-button"
+              className="expand-button-base"
               aria-expanded={isExpanded}
-              style={{
-                background: 'transparent',
-                border: '1px solid var(--border)',
-                color: 'var(--text-secondary)',
-                cursor: 'pointer',
-                fontSize: '0.9rem',
-                padding: '0.75rem 1.5rem',
-                borderRadius: 'var(--radius-md)',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.5rem',
-                transition: 'all 0.2s ease',
-              }}
             >
               <span>Show all</span>
-              <span
-                style={{
-                  transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)',
-                  transition: 'transform 0.3s ease',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                }}
-              >
+              <span className={`expand-arrow ${isExpanded ? 'expand-arrow--rotated' : ''}`}>
                 <ArrowDown size={16} />
               </span>
             </button>
@@ -105,41 +76,14 @@ export default function TimelineGrid({ initialCount = INITIAL_TIMELINE_ITEMS }) 
       )}
 
       {isExpanded && (
-        <div
-          className="expand-button-container"
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            marginTop: '1.5rem',
-          }}
-        >
+        <div className="expand-button-wrapper">
           <button
             onClick={toggleExpand}
-            className="expand-button"
+            className="expand-button-base"
             aria-expanded={isExpanded}
-            style={{
-              background: 'transparent',
-              border: '1px solid var(--border)',
-              color: 'var(--text-secondary)',
-              cursor: 'pointer',
-              fontSize: '0.9rem',
-              padding: '0.75rem 1.5rem',
-              borderRadius: 'var(--radius-md)',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              transition: 'all 0.2s ease',
-            }}
           >
             <span>Show less</span>
-            <span
-              style={{
-                transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)',
-                transition: 'transform 0.3s ease',
-                display: 'inline-flex',
-                alignItems: 'center',
-              }}
-            >
+            <span className={`expand-arrow ${isExpanded ? 'expand-arrow--rotated' : ''}`}>
               <ArrowDown size={16} />
             </span>
           </button>

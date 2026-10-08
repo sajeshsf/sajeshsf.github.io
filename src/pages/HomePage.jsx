@@ -159,13 +159,7 @@ export default function HomePage() {
                   <article key={postSlug} className="card">
                     {post.series && (
                       <div style={{ marginBottom: '0.5rem' }}>
-                        <span
-                          style={{
-                            fontSize: '0.85rem',
-                            color: 'var(--accent-soft)',
-                            fontWeight: 500,
-                          }}
-                        >
+                        <span className="post-series">
                           Series: {post.seriesTitle || post.series}
                         </span>
                       </div>

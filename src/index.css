@@ -1,12 +1,3 @@
-@import '@fontsource/roboto/300.css';
-@import '@fontsource/roboto/400.css';
-@import '@fontsource/roboto/500.css';
-@import '@fontsource/roboto/700.css';
-@import '@fontsource/oswald/400.css';
-@import '@fontsource/oswald/500.css';
-@import '@fontsource/oswald/600.css';
-@import '@fontsource/oswald/700.css';
-
 /* Dark theme with high contrast - Bento Box Grid Design System */
 /* Color scheme inspired by v1 with more emphasis on black */
 
@@ -29,6 +20,8 @@
   --accent: #8d7bff;
   --accent-soft: #4fd4ff;
   --accent-hover: #4fd4ff;
+  --accent-green: #34d399;
+  --accent-gradient: linear-gradient(90deg, var(--accent-soft), var(--accent));
   /* Spacing */
   --spacing-xs: 0.5rem;
   --spacing-sm: 0.75rem;
@@ -44,6 +37,8 @@
   /* Shadows and glows from v1 */
   --shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
   --glow: 0 0 45px rgba(79, 212, 255, 0.2);
+  --hover-lift: -2px;
+  --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.7);
 }
 
 /* Prevent horizontal scrolling */
@@ -101,13 +96,6 @@ textarea {
 
 .app a:hover {
   color: var(--accent-hover);
-}
-
-button,
-input,
-select,
-textarea {
-  font-family: inherit;
 }
 
 /* Container */
@@ -240,7 +228,7 @@ textarea {
 
 .header__scroll-progress {
   height: 100%;
-  background: linear-gradient(90deg, var(--accent-soft), var(--accent));
+  background: var(--accent-gradient);
   transition: width 0.1s ease-out;
   box-shadow: 0 0 8px rgba(79, 212, 255, 0.5);
 }
@@ -302,8 +290,8 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   border-radius: var(--radius-sm);
   color: var(--text-secondary);
   transition: all 0.2s ease;
@@ -364,7 +352,8 @@ textarea {
   padding-top: calc(var(--spacing-2xl) + 100px); /* Add extra padding to account for fixed header */
 }
 
-.main h1 {
+/* :where() keeps these defaults at element specificity so heading classes win */
+:where(.main) h1 {
   font-family: 'Roboto', sans-serif;
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
@@ -375,7 +364,7 @@ textarea {
   scroll-margin-top: 100px; /* Account for fixed header height */
 }
 
-.main h2 {
+:where(.main) h2 {
   font-family: 'Roboto', sans-serif;
   font-size: clamp(1.25rem, 2vw, 1.5rem);
   font-weight: 600;
@@ -423,8 +412,8 @@ textarea {
 .card:hover {
   background: var(--bg-card-hover);
   border-color: var(--border-bright);
-  transform: translateY(-2px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+  transform: translateY(var(--hover-lift));
+  box-shadow: var(--shadow-hover);
   z-index: 2;
 }
 
@@ -525,7 +514,7 @@ textarea {
 }
 
 .project-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(var(--hover-lift));
   z-index: 3;
 }
 
@@ -541,8 +530,6 @@ textarea {
 
 .project-link {
   margin-top: auto;
-  text-decoration: none;
-  color: var(--text-primary);
 }
 
 .project-link:hover {
@@ -617,7 +604,7 @@ textarea {
   font-family: 'Roboto', sans-serif;
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   padding: var(--spacing-md);
   transition: all 0.3s ease;
   box-shadow: var(--shadow);
@@ -629,8 +616,8 @@ textarea {
 .timeline__content:hover {
   background: var(--bg-card-hover);
   border-color: var(--border-bright);
-  transform: translateX(4px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+  transform: translateX(calc(var(--hover-lift) * -1));
+  box-shadow: var(--shadow-hover);
   z-index: 2;
 }
 
@@ -927,7 +914,7 @@ html {
   text-transform: uppercase;
 }
 
-.hero-subtitle {
+.hero .hero-subtitle {
   font-family: 'Roboto', sans-serif;
   font-size: clamp(1.5rem, 4vw, 2.25rem);
   color: var(--text-primary);
@@ -1142,7 +1129,7 @@ html {
 }
 
 .section-title {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Oswald', sans-serif;
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 700;
   text-align: center;
@@ -1161,7 +1148,7 @@ html {
   transform: translateX(-50%);
   width: 60px;
   height: 2px;
-  background: var(--border-bright);
+  background: var(--accent-gradient);
 }
 
 /* Section-specific backgrounds - All use consistent darker backgrounds */
@@ -1280,10 +1267,6 @@ html {
   z-index: 2;
 }
 
-.expand-button:hover {
-  color: var(--accent-soft);
-}
-
 .expand-button:focus-visible {
   outline: 2px solid var(--accent-soft);
   outline-offset: 2px;
@@ -1328,33 +1311,9 @@ html {
   z-index: 1;
 }
 
-.expand-projects-button:hover,
-.expand-timeline-button:hover {
-  background: var(--bg-card-hover);
-  border-color: var(--border-bright);
-  transform: translateY(-2px);
-  color: var(--text-primary);
-}
-
-.expand-projects-button:focus-visible,
-.expand-timeline-button:focus-visible {
-  outline: 2px solid var(--accent-soft);
-  outline-offset: 2px;
-}
-
 /* Progressive Disclosure Pattern */
 .progressive-disclosure {
   position: relative;
-}
-
-.fade-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(to bottom, transparent, var(--bg-primary));
-  pointer-events: none;
-  z-index: 1;
 }
 
 .expand-button-container {
@@ -1432,16 +1391,6 @@ html {
   z-index: 1;
 }
 
-.projects-fade-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 150px;
-  background: linear-gradient(to bottom, transparent, var(--bg-primary));
-  pointer-events: none;
-  z-index: 1;
-}
 
 
 
@@ -1670,7 +1619,7 @@ html {
 }
 
 .outer-card.green .card-div::before {
-  background: #4fd4ff;
+  background: var(--accent-green);
 }
 
 .outer-card.purple .card-div::before {
@@ -1680,8 +1629,8 @@ html {
 .card-div:hover {
   background: var(--bg-card-hover);
   border-color: var(--border-bright);
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  transform: translateY(var(--hover-lift));
+  box-shadow: var(--shadow-hover);
 }
 
 .card-div:hover::before {
@@ -2077,17 +2026,9 @@ html {
   transition: all 0.2s ease;
 }
 
-.transition-transform {
-  transition: transform 0.3s ease;
-}
-
 .inline-flex-center {
   display: inline-flex;
   align-items: center;
-}
-
-.list-style-disc {
-  list-style-type: disc;
 }
 
 .project-link {
@@ -2158,6 +2099,16 @@ html {
   color: var(--text-primary);
 }
 
+.post-title {
+  margin: 0.75rem 0 0;
+}
+
+.post-series {
+  font-size: 0.85rem;
+  color: var(--accent-soft);
+  font-weight: 500;
+}
+
 .highlights-list {
   font-family: 'Roboto', sans-serif;
   margin: 0;
@@ -2201,6 +2152,18 @@ html {
   transition: all 0.2s ease;
 }
 
+.expand-button-base:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-bright);
+  color: var(--text-primary);
+  transform: translateY(var(--hover-lift));
+}
+
+.expand-button-base:focus-visible {
+  outline: 2px solid var(--accent-soft);
+  outline-offset: 2px;
+}
+
 .expand-arrow {
   transform: rotate(0deg);
   transition: transform 0.3s ease;
@@ -2226,16 +2189,6 @@ html {
   margin: 0.5rem 0;
   font-size: 1.1rem;
   font-weight: 600;
-}
-
-.writing-grid-container {
-  margin-top: 1.25rem;
-  display: grid;
-  gap: 1rem;
-}
-
-.writing-meta {
-  margin: 0.35rem 0 0;
 }
 
 /* Responsive motion support */

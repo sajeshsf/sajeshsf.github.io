@@ -82,34 +82,34 @@ export default function WritingPage() {
         </nav>
 
         <article>
-          <header className="detail-header">
+          <header>
             {category && (
-              <p className="text-muted m-0 font-size-0-95">
+              <p className="text-muted font-size-sm">
               {category.icon} {category.name}
               </p>
             )}
             {selectedPost.series && (
-              <p className="text-muted m-0 font-size-0-95" style={{ marginTop: '0.25rem' }}>
+              <p className="text-muted font-size-sm" style={{ marginTop: '0.25rem' }}>
                 Series: {selectedPost.seriesTitle || selectedPost.series}
               </p>
             )}
-            <h1 id="writing-detail-title" className="mt-md font-size-2xl">
+            <h1 id="writing-detail-title" className="post-title">
               {selectedPost.title}
             </h1>
-            <p className="text-muted m-0 font-size-1-05" style={{ marginTop: '0.5rem' }}>
+            <p className="text-muted font-size-lg" style={{ marginTop: '0.5rem' }}>
               <time dateTime={selectedPost.date}>{selectedPost.date}</time>
             </p>
           </header>
 
           {selectedPost.content && (
             <div
-              className="writing-content mt-lg"
+              className="writing-content margin-top-2xl"
               dangerouslySetInnerHTML={{ __html: selectedPost.content }}
             />
           )}
 
           {!selectedPost.content && selectedPost.summary && (
-            <div className="mt-lg">
+            <div className="margin-top-2xl">
               <p className="text-muted line-height-loose">{selectedPost.summary}</p>
             </div>
           )}
@@ -133,7 +133,7 @@ export default function WritingPage() {
           // Determine color based on category
           let collectionColor = 'blue'
           if (post.category === 'internet-finds') collectionColor = 'green'
-          if (post.category === 'travel') collectionColor = 'purple'
+          if (post.category === 'travel' || post.category === 'travel-food-experiences') collectionColor = 'purple'
 
           return (
             <div key={postSlug} className={`blog-card outer-card ${collectionColor}`}>
@@ -159,7 +159,7 @@ export default function WritingPage() {
                     {post.title}
                   </a>
                   {post.summary && (
-                    <p className="text-muted font-size-0-95 line-height-loose" style={{ marginTop: '0.5rem' }}>
+                    <p className="text-muted font-size-sm line-height-loose" style={{ marginTop: '0.5rem' }}>
                       {post.summary}
                     </p>
                   )}
