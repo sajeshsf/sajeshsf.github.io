@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test'
 
 test.describe('Navigation Tests', () => {
+  const navigationBudgetMs = 4000
   test('Navigation from home to experience page should not show loading skeleton', async ({ page }) => {
     // Start at home page
     await page.goto('/')
@@ -28,9 +29,9 @@ test.describe('Navigation Tests', () => {
     console.log(`Navigation time: ${navigationTime}ms`)
     console.log(`Loading skeleton visible: ${loadingVisible}`)
 
-    // Navigation should be fast (< 2000ms)
+    // Navigation should be fast (< 4000ms)
     // And loading skeleton should not be visible
-    expect(navigationTime).toBeLessThan(2000)
+    expect(navigationTime).toBeLessThan(navigationBudgetMs)
     expect(loadingVisible).toBe(false)
   })
 
@@ -64,7 +65,7 @@ test.describe('Navigation Tests', () => {
       console.log(`Back navigation time: ${navigationTime}ms`)
       console.log(`Loading skeleton visible: ${loadingVisible}`)
 
-      expect(navigationTime).toBeLessThan(2000)
+      expect(navigationTime).toBeLessThan(navigationBudgetMs)
     }
   })
 

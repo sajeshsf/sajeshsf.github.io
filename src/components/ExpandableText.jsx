@@ -54,7 +54,7 @@ export default function ExpandableText({
             left: 0,
             right: 0,
             height: '3em',
-            background: 'linear-gradient(to bottom, rgba(26, 26, 26, 0), var(--bg-card) 70%)',
+            background: 'linear-gradient(to bottom, transparent, var(--bg-card) 70%)',
             pointerEvents: 'none',
           }}
         />
