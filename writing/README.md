@@ -19,17 +19,3 @@ When visiting `/writing/`, Vite serves this `index.html`, which:
 
 Hash-based routing is used for individual posts:
 - `/writing/#post-id` - Shows full content of specific blog post
-
-## Structure
-
-The HTML file includes:
-- Meta tags for SEO
-- Root div for React mounting
-- Script tag to load the React app
-
-## Related Documentation
-
-- [Pages](../src/pages/README.md) - WritingPage component documentation
-- [Data](../src/data/README.md) - Writing and blog data structure
-- [Data/Blog](../src/data/blog/README.md) - Individual blog post files
-- [Components](../src/components/README.md) - Components used in WritingPage

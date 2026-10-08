@@ -133,7 +133,7 @@ export default function WritingPage() {
           // Determine color based on category
           let collectionColor = 'blue'
           if (post.category === 'internet-finds') collectionColor = 'green'
-          if (post.category === 'travel-food-experiences') collectionColor = 'purple'
+          if (post.category === 'travel') collectionColor = 'purple'
 
           return (
             <div key={postSlug} className={`blog-card outer-card ${collectionColor}`}>
