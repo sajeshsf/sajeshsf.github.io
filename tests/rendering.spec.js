@@ -34,11 +34,10 @@ const getFontReport = async (page, allowedList) => {
 
 const pages = [
   { path: '/', title: 'Home' },
-  { path: '/v2/', title: 'V2 Home' },
-  { path: '/v2/about/', title: 'V2 About' },
-  { path: '/v2/experience/', title: 'V2 Experience' },
-  { path: '/v2/projects/', title: 'V2 Projects' },
-  { path: '/v2/writing/', title: 'V2 Writing' },
+  { path: '/about/', title: 'About' },
+  { path: '/experience/', title: 'Experience' },
+  { path: '/projects/', title: 'Projects' },
+  { path: '/writing/', title: 'Writing' },
 ]
 
 test.describe('Page Rendering Checks', () => {
@@ -68,7 +67,7 @@ test.describe('Page Rendering Checks', () => {
       expect(errors.length).toBe(0)
 
       // Check key elements exist
-      const mainContent = browserPage.locator('main, [role="main"], #main, .v2-main')
+      const mainContent = browserPage.locator('main, [role="main"], #main')
       await expect(mainContent.first()).toBeVisible({ timeout: 5000 })
 
       // Ensure primary font stack is used
@@ -94,8 +93,8 @@ test.describe('Page Rendering Checks', () => {
     })
   }
 
-  test('V2 Home page has all sections', async ({ page }) => {
-    await page.goto('/v2/')
+  test('Home page has all sections', async ({ page }) => {
+    await page.goto('/')
     await page.waitForLoadState('networkidle')
 
     // Check for main sections
@@ -106,12 +105,12 @@ test.describe('Page Rendering Checks', () => {
     }
   })
 
-  test('V2 Navigation works', async ({ page }) => {
-    await page.goto('/v2/')
+  test('Navigation works', async ({ page }) => {
+    await page.goto('/')
     await page.waitForLoadState('networkidle')
 
     // Check navigation links exist
-    const navLinks = page.locator('.v2-nav a')
+    const navLinks = page.locator('.nav a')
     const count = await navLinks.count()
     expect(count).toBeGreaterThan(0)
   })

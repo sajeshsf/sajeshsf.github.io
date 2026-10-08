@@ -10,11 +10,10 @@ const viewports = {
 
 const pages = [
   { path: '/', name: 'Home' },
-  { path: '/v2/', name: 'V2 Home' },
-  { path: '/v2/about/', name: 'V2 About' },
-  { path: '/v2/experience/', name: 'V2 Experience' },
-  { path: '/v2/projects/', name: 'V2 Projects' },
-  { path: '/v2/writing/', name: 'V2 Writing' },
+  { path: '/about/', name: 'About' },
+  { path: '/experience/', name: 'Experience' },
+  { path: '/projects/', name: 'Projects' },
+  { path: '/writing/', name: 'Writing' },
 ]
 
 test.describe('Responsive Design Tests', () => {
@@ -30,7 +29,7 @@ test.describe('Responsive Design Tests', () => {
           await expect(browserPage).toHaveURL(new RegExp(page.path.replace(/\//g, '\\/')), { timeout: 10000 })
 
           // Check main content is visible
-          const mainContent = browserPage.locator('main, [role="main"], #main, .v2-main')
+          const mainContent = browserPage.locator('main, [role="main"], #main')
           await expect(mainContent.first()).toBeVisible({ timeout: 5000 })
 
           // Check no horizontal scrolling (content fits viewport)
@@ -59,12 +58,12 @@ test.describe('Responsive Design Tests', () => {
           await browserPage.waitForLoadState('networkidle')
 
           // Check navigation exists
-          const nav = browserPage.locator('nav, .v2-nav')
+          const nav = browserPage.locator('nav, .nav')
           const navCount = await nav.count()
 
           if (navCount > 0) {
             // Check navigation links are visible or accessible (mobile menu)
-            const navLinks = browserPage.locator('nav a, .v2-nav a')
+            const navLinks = browserPage.locator('nav a, .nav a')
             const linkCount = await navLinks.count()
 
             if (linkCount > 0) {
@@ -107,9 +106,9 @@ test.describe('Responsive Design Tests', () => {
         })
       }
 
-      test('V2 Home page sections stack correctly on mobile', async ({ page: browserPage }) => {
+      test('Home page sections stack correctly on mobile', async ({ page: browserPage }) => {
         await browserPage.setViewportSize(viewport)
-        await browserPage.goto('/v2/')
+        await browserPage.goto('/')
         await browserPage.waitForLoadState('networkidle')
 
         // Check sections exist
@@ -134,12 +133,12 @@ test.describe('Responsive Design Tests', () => {
         }
       })
 
-      test('V2 Projects grid is responsive', async ({ page: browserPage }) => {
+      test('Projects grid is responsive', async ({ page: browserPage }) => {
         await browserPage.setViewportSize(viewport)
-        await browserPage.goto('/v2/projects/')
+        await browserPage.goto('/projects/')
         await browserPage.waitForLoadState('networkidle')
 
-        const projectGrid = browserPage.locator('.v2-projects-grid')
+        const projectGrid = browserPage.locator('.projects-grid')
         const gridCount = await projectGrid.count()
 
         if (gridCount > 0) {
@@ -147,7 +146,7 @@ test.describe('Responsive Design Tests', () => {
           await expect(projectGrid.first()).toBeVisible()
 
           // Check project cards are visible
-          const projectCards = browserPage.locator('.v2-project-card, .v2-card')
+          const projectCards = browserPage.locator('.project-card')
           const cardCount = await projectCards.count()
 
           if (cardCount > 0) {
@@ -156,26 +155,27 @@ test.describe('Responsive Design Tests', () => {
             const cardBox = await firstCard.boundingBox()
 
             if (cardBox && viewport.width < 768) {
-              // Card should fit within viewport width
-              expect(cardBox.width).toBeLessThanOrEqual(viewport.width - 40) // Allow padding
+              // Card should fit within the viewport (no horizontal overflow)
+              expect(cardBox.x).toBeGreaterThanOrEqual(0)
+              expect(cardBox.x + cardBox.width).toBeLessThanOrEqual(viewport.width)
             }
           }
         }
       })
 
-      test('V2 Timeline is responsive', async ({ page: browserPage }) => {
+      test('Timeline is responsive', async ({ page: browserPage }) => {
         await browserPage.setViewportSize(viewport)
-        await browserPage.goto('/v2/experience/')
+        await browserPage.goto('/experience/')
         await browserPage.waitForLoadState('networkidle')
 
-        const timeline = browserPage.locator('.v2-timeline')
+        const timeline = browserPage.locator('.timeline')
         const timelineCount = await timeline.count()
 
         if (timelineCount > 0) {
           await expect(timeline.first()).toBeVisible()
 
           // Check timeline items are visible
-          const timelineItems = browserPage.locator('.v2-timeline__item')
+          const timelineItems = browserPage.locator('.timeline__item')
           const itemCount = await timelineItems.count()
 
           if (itemCount > 0) {
@@ -183,8 +183,9 @@ test.describe('Responsive Design Tests', () => {
             const itemBox = await firstItem.boundingBox()
 
             if (itemBox) {
-              // Timeline items should fit viewport
-              expect(itemBox.width).toBeLessThanOrEqual(viewport.width - 40)
+              // Timeline items should fit within the viewport (no horizontal overflow)
+              expect(itemBox.x).toBeGreaterThanOrEqual(0)
+              expect(itemBox.x + itemBox.width).toBeLessThanOrEqual(viewport.width)
             }
           }
         }
@@ -194,7 +195,7 @@ test.describe('Responsive Design Tests', () => {
 
   test('Mobile menu toggles correctly (if applicable)', async ({ page: browserPage }) => {
     await browserPage.setViewportSize(viewports.mobile)
-    await browserPage.goto('/v2/')
+    await browserPage.goto('/')
     await browserPage.waitForLoadState('networkidle')
 
     // Check for mobile menu button
@@ -210,7 +211,7 @@ test.describe('Responsive Design Tests', () => {
         await button.click()
 
         // Check navigation is now visible/expanded
-        const nav = browserPage.locator('nav, .v2-nav')
+        const nav = browserPage.locator('nav, .nav')
         await expect(nav.first()).toBeVisible({ timeout: 2000 })
       }
     }
