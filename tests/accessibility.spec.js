@@ -3,11 +3,10 @@ import AxeBuilder from '@axe-core/playwright'
 
 const pages = [
   { path: '/', name: 'Home' },
-  { path: '/v2/', name: 'V2 Home' },
-  { path: '/v2/about/', name: 'V2 About' },
-  { path: '/v2/experience/', name: 'V2 Experience' },
-  { path: '/v2/projects/', name: 'V2 Projects' },
-  { path: '/v2/writing/', name: 'V2 Writing' },
+  { path: '/about/', name: 'About' },
+  { path: '/experience/', name: 'Experience' },
+  { path: '/projects/', name: 'Projects' },
+  { path: '/writing/', name: 'Writing' },
 ]
 
 test.describe('Accessibility Tests', () => {
