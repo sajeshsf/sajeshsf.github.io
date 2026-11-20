@@ -113,10 +113,14 @@ import srinagar from './blog/srinagar.js'
 import udupi from './blog/udupi.js'
 import essentialism from './blog/essentialism.js'
 import psychoCybernetics from './blog/psycho-cybernetics.js'
+import neverStayUpLate from './blog/never-stay-up-late-for-something-you-wouldnt-wake-up-early-for.js'
+import theImpossibleMile from './blog/the-impossible-mile.js'
 
 // All writing posts - add new posts here by importing and adding to the array
 export const writing = [
   // Newest first - the home page shows the first three
+  theImpossibleMile,
+  neverStayUpLate,
   psychoCybernetics,
   essentialism,
   albumsYouMustHear,

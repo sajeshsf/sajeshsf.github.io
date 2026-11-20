@@ -2202,3 +2202,20 @@ html {
     scroll-behavior: auto !important;
   }
 }
+
+/* Tables inside blog posts */
+.writing-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 1.5rem;
+  display: block;
+  overflow-x: auto;
+}
+
+.writing-content th,
+.writing-content td {
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+  text-align: left;
+  vertical-align: top;
+}
