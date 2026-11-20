@@ -40,10 +40,19 @@ For complete blog post structure, categories, and content format documentation, 
 
 - **title**: Post title (required)
 - **date**: Publication date in ISO format (YYYY-MM-DD) (required)
-- **category**: One of 'how-tos', 'communication-craft', 'internet-finds', 'book-notes', 'travel', 'travel-food-experiences', 'writes' (required)
+- **category**: One of 'how-tos', 'communication-craft', 'internet-finds', 'book-notes', 'travel', 'travel-food-experiences', 'writes'
 - **summary**: Brief summary for listing pages (optional but recommended)
 - **content**: Full HTML content of the post (required)
-- **seriesTitle**: If part of a series (optional)
+- **category**: Optional while drafting - an uncategorized post still renders; assign a category later
+- **series**: Optional series id from `writingSeries` in `writing.js` (`'brain-dump'`, `'rabbit-hole'`, `'self-introspection'`)
+- **seriesTitle**: Legacy display name for series not in the registry (optional)
+
+## Series vs. Category
+
+- **Category** = the topic (book notes, travel, how-tos...).
+- **Series** = the mode of writing (Brain Dump, Rabbit Hole, Self Introspection).
+
+They are independent: a post can have either, both, or neither. To add a new series, add an entry to `writingSeries` in `src/data/writing.js`.
 
 ## HTML Content
 

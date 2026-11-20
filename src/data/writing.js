@@ -45,6 +45,36 @@ export const writingCategories = {
   },
 }
 
+// Blog series - a recurring "mode" of writing, independent of the topic category.
+// A post can belong to a series, a category, both, or neither (uncategorized is fine
+// while drafting; assign a category later once the shape of the post is clear).
+export const writingSeries = {
+  'brain-dump': {
+    id: 'brain-dump',
+    name: 'Brain Dump',
+    description: 'Unfiltered first-pass notes - get it out of my head, tidy it later',
+    icon: '🧠',
+  },
+  'rabbit-hole': {
+    id: 'rabbit-hole',
+    name: 'Rabbit Hole',
+    description: 'Deep dives into whatever topic grabbed my curiosity',
+    icon: '🕳️',
+  },
+  'self-introspection': {
+    id: 'self-introspection',
+    name: 'Self Introspection',
+    description: 'Looking inward - how I think, act, and want to grow',
+    icon: '🪞',
+  },
+}
+
+// Display label for a post's series (registry name, then legacy seriesTitle, then raw id)
+export function getSeriesTitle(post) {
+  if (!post?.series) return null
+  return writingSeries[post.series]?.name ?? post.seriesTitle ?? post.series
+}
+
 // Import individual blog posts
 import articulationPerspicuityEloquence from './blog/articulation-perspicuity-eloquence.js'
 import howStrangeItIsToBeAnythingAtAll from './blog/how-strange-it-is-to-be-anything-at-all.js'
@@ -81,9 +111,14 @@ import rishikesh from './blog/rishikesh.js'
 import shimla from './blog/shimla.js'
 import srinagar from './blog/srinagar.js'
 import udupi from './blog/udupi.js'
+import essentialism from './blog/essentialism.js'
+import psychoCybernetics from './blog/psycho-cybernetics.js'
 
 // All writing posts - add new posts here by importing and adding to the array
 export const writing = [
+  // Newest first - the home page shows the first three
+  psychoCybernetics,
+  essentialism,
   albumsYouMustHear,
   articulationPerspicuityEloquence,
   grit,
@@ -132,6 +167,11 @@ export function getPostsByCategory(categoryId) {
 export function getPostsBySeries(seriesId) {
   if (!seriesId) return []
   return writing.filter((post) => post.series === seriesId)
+}
+
+// Helper function to get posts that have no category yet
+export function getUncategorizedPosts() {
+  return writing.filter((post) => !writingCategories[post.category])
 }
 
 // Helper function to get all categories that have posts

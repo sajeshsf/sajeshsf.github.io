@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { writing, writingCategories } from '../data/writing.js'
+import { writing, writingCategories, getSeriesTitle } from '../data/writing.js'
 import { useScroll } from '../utils/useScroll.js'
 import { slugify } from '../utils/slugify.js'
 import {
@@ -160,7 +160,7 @@ export default function HomePage() {
                     {post.series && (
                       <div style={{ marginBottom: '0.5rem' }}>
                         <span className="post-series">
-                          Series: {post.seriesTitle || post.series}
+                          Series: {getSeriesTitle(post)}
                         </span>
                       </div>
                     )}

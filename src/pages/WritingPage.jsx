@@ -1,4 +1,4 @@
-import { writing, writingCategories } from '../data/writing.js'
+import { writing, writingCategories, writingSeries, getSeriesTitle } from '../data/writing.js'
 import { useHash } from '../utils/useHash.js'
 import { slugify } from '../utils/slugify.js'
 import { ArrowLeft } from '../components/ArrowIcon.jsx'
@@ -90,7 +90,7 @@ export default function WritingPage() {
             )}
             {selectedPost.series && (
               <p className="text-muted font-size-sm" style={{ marginTop: '0.25rem' }}>
-                Series: {selectedPost.seriesTitle || selectedPost.series}
+                Series: {writingSeries[selectedPost.series]?.icon} {getSeriesTitle(selectedPost)}
               </p>
             )}
             <h1 id="writing-detail-title" className="post-title">
@@ -152,6 +152,11 @@ export default function WritingPage() {
                       </a>
                     )}
                   </div>
+                  {post.series && (
+                    <p className="text-muted font-size-xs" style={{ margin: '0 0 0.25rem' }}>
+                      Series: {writingSeries[post.series]?.icon} {getSeriesTitle(post)}
+                    </p>
+                  )}
                   <a
                     className="subtitle-card"
                     href={`/writing/#${postSlug}`}
