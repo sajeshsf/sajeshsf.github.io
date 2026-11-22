@@ -81,9 +81,11 @@ import rishikesh from './blog/rishikesh.js'
 import shimla from './blog/shimla.js'
 import srinagar from './blog/srinagar.js'
 import udupi from './blog/udupi.js'
+import stranglerFigPattern from './blog/strangler-fig-pattern.js'
 
 // All writing posts - add new posts here by importing and adding to the array
 export const writing = [
+  stranglerFigPattern,
   albumsYouMustHear,
   articulationPerspicuityEloquence,
   grit,

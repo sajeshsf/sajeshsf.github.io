@@ -1514,6 +1514,31 @@ html {
   color: var(--accent-hover);
 }
 
+.writing-content code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+  padding: 0.1em 0.35em;
+  border-radius: var(--radius-sm);
+}
+
+.writing-content pre {
+  margin: var(--spacing-md) 0;
+  padding: var(--spacing-md);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  line-height: 1.5;
+}
+
+.writing-content pre code {
+  padding: 0;
+  background: none;
+  font-size: 0.875rem;
+}
+
 /* Blog Masonry Grid */
 .blog-masonry-grid {
   margin-top: 2rem;
