@@ -59,6 +59,7 @@ import ifMoneyAndStatusIsNoObjectWhatWouldYouDo from './blog/if-money-and-status
 import theWorldIsThereForTaking from './blog/the-world-is-there-for-taking.js'
 import whyDogsAreSpecial from './blog/why-dogs-are-special.js'
 import soc2Overview from './blog/soc2-overview.js'
+import proxyPatterns from './blog/proxy-patterns.js'
 import gameOfLifePrinciples from './blog/game-of-life-principles.js'
 import albumsYouMustHear from './blog/1001-albums-you-must-hear-before-you-die.js'
 import grit from './blog/grit.js'
@@ -102,6 +103,7 @@ export const writing = [
   theWorldIsThereForTaking,
   whyDogsAreSpecial,
   soc2Overview,
+  proxyPatterns,
   gameOfLifePrinciples,
   haridwar,
   rishikesh,
