@@ -36,11 +36,17 @@ For complete blog post structure, categories, and content format documentation, 
 }
 ```
 
+## Series
+
+- **Quant Finance from Scratch** lives in [`quant-finance/`](./quant-finance/README.md) — see its README for how to add a new part.
+- Series posts set `series`, `seriesTitle` and `seriesOrder`; the post page shows a series table of contents and previous/next links.
+- Set `math: true` on a post to render LaTeX (`$...$`, `$$...$$`) with KaTeX.
+
 ## Content Format
 
 - **title**: Post title (required)
 - **date**: Publication date in ISO format (YYYY-MM-DD) (required)
-- **category**: One of 'how-tos', 'communication-craft', 'internet-finds', 'book-notes', 'travel', 'travel-food-experiences', 'writes' (required)
+- **category**: One of 'how-tos', 'communication-craft', 'internet-finds', 'book-notes', 'travel', 'travel-food-experiences', 'quant-finance', 'writes' (required)
 - **summary**: Brief summary for listing pages (optional but recommended)
 - **content**: Full HTML content of the post (required)
 - **seriesTitle**: If part of a series (optional)

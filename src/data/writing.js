@@ -37,6 +37,12 @@ export const writingCategories = {
     description: 'Stories from travels, food adventures, and life experiences',
     icon: '✈️',
   },
+  'quant-finance': {
+    id: 'quant-finance',
+    name: 'Quant Finance',
+    description: 'Learning quantitative finance from scratch, one concept at a time',
+    icon: '📈',
+  },
   writes: {
     id: 'writes',
     name: 'Writes',
@@ -81,9 +87,11 @@ import rishikesh from './blog/rishikesh.js'
 import shimla from './blog/shimla.js'
 import srinagar from './blog/srinagar.js'
 import udupi from './blog/udupi.js'
+import { quantFinancePosts } from './blog/quant-finance/index.js'
 
 // All writing posts - add new posts here by importing and adding to the array
 export const writing = [
+  ...quantFinancePosts,
   albumsYouMustHear,
   articulationPerspicuityEloquence,
   grit,
@@ -131,7 +139,9 @@ export function getPostsByCategory(categoryId) {
 // Helper function to get posts by series
 export function getPostsBySeries(seriesId) {
   if (!seriesId) return []
-  return writing.filter((post) => post.series === seriesId)
+  return writing
+    .filter((post) => post.series === seriesId)
+    .sort((a, b) => (a.seriesOrder ?? 0) - (b.seriesOrder ?? 0))
 }
 
 // Helper function to get all categories that have posts
