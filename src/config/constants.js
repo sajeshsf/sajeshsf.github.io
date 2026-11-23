@@ -31,6 +31,7 @@ export const PAGE_IDS = {
   EXPERIENCE: 'experience',
   PROJECTS: 'projects',
   WRITING: 'writing',
+  HOROLOGY: 'horology',
 }
 
 // Environment

@@ -7,6 +7,7 @@ import AboutPage from './pages/AboutPage.jsx'
 import ExperiencePage from './pages/ExperiencePage.jsx'
 import ProjectsPage from './pages/ProjectsPage.jsx'
 import WritingPage from './pages/WritingPage.jsx'
+import HorologyPage from './pages/HorologyPage.jsx'
 
 function getPageId() {
   if (typeof document === 'undefined') return PAGE_IDS.HOME
@@ -19,6 +20,7 @@ const pagesById = {
   [PAGE_IDS.EXPERIENCE]: ExperiencePage,
   [PAGE_IDS.PROJECTS]: ProjectsPage,
   [PAGE_IDS.WRITING]: WritingPage,
+  [PAGE_IDS.HOROLOGY]: HorologyPage,
 }
 
 export default function App() {

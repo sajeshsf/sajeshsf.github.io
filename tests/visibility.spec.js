@@ -72,6 +72,7 @@ test.describe('Component Visibility and Layout Tests', () => {
       { path: '/experience/', titleId: 'experience-title', titleText: 'Experience' },
       { path: '/projects/', titleId: 'projects-title', titleText: 'Projects' },
       { path: '/writing/', titleId: 'writing-title', titleText: 'Writing' },
+      { path: '/horology/', titleId: 'horology-title', titleText: 'Horology' },
     ]
 
     for (const pageInfo of pages) {

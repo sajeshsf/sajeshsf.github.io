@@ -27,7 +27,8 @@ sajeshsf.github.io/
 ├── about/            # HTML entry point for About page (see about/README.md)
 ├── experience/       # HTML entry point for Experience page (see experience/README.md)
 ├── projects/         # HTML entry point for Projects page (see projects/README.md)
-└── writing/          # HTML entry point for Writing page (see writing/README.md)
+├── writing/          # HTML entry point for Writing page (see writing/README.md)
+└── horology/         # HTML entry point for Horology page (see horology/README.md)
 ```
 
 For detailed documentation, see the README in each folder:
@@ -45,7 +46,7 @@ For detailed documentation, see the README in each folder:
 
 - **Modern Design**: Bento Box grid layout with dark theme
 - **Single-Page Layout**: Long-scrolling homepage with parallax effects
-- **Multi-Page Support**: Separate pages for About, Experience, Projects, and Writing
+- **Multi-Page Support**: Separate pages for About, Experience, Projects, Writing, and Horology
 - **Progressive Disclosure**: Fade-out truncation for projects and timeline
 - **Responsive**: Mobile-first design with comprehensive responsive tests
 - **Accessibility**: WCAG compliant with ARIA labels and keyboard navigation

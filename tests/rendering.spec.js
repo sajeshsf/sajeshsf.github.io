@@ -38,6 +38,7 @@ const pages = [
   { path: '/experience/', title: 'Experience' },
   { path: '/projects/', title: 'Projects' },
   { path: '/writing/', title: 'Writing' },
+  { path: '/horology/', title: 'Horology' },
 ]
 
 test.describe('Page Rendering Checks', () => {

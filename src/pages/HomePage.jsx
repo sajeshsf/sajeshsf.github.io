@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { writing, writingCategories } from '../data/writing.js'
+import { horology, horologyTopics } from '../data/horology.js'
 import { useScroll } from '../utils/useScroll.js'
 import { slugify } from '../utils/slugify.js'
 import {
@@ -19,6 +20,7 @@ export default function HomePage() {
   const experienceRef = useRef(null)
   const projectsRef = useRef(null)
   const writingRef = useRef(null)
+  const horologyRef = useRef(null)
   const scrollY = useScroll()
 
   // Parallax effect for hero section
@@ -32,7 +34,7 @@ export default function HomePage() {
 
   // Intersection Observer for section animations
   useEffect(() => {
-    const sections = [aboutRef, experienceRef, projectsRef, writingRef]
+    const sections = [aboutRef, experienceRef, projectsRef, writingRef, horologyRef]
     const observers = []
 
     sections.forEach((ref) => {
@@ -188,6 +190,42 @@ export default function HomePage() {
               })}
             </div>
           )}
+        </div>
+      </section>
+
+      {/* Horology Section */}
+      <section ref={horologyRef} id="horology" className="section section-writing section-horology">
+        <div className="container">
+          <h2 className="section-title">Horology</h2>
+          <div className="writing-grid">
+            {horology.slice(0, 3).map((article) => {
+              const topic = horologyTopics[article.topic]
+              return (
+                <article key={article.id} className="card">
+                  <h3 className="no-margin margin-bottom-sm">
+                    <a href={`/horology/#${article.id}`}>{article.title}</a>
+                  </h3>
+                  <p className="text-muted no-margin font-size-xs">
+                    <time dateTime={article.date}>{article.date}</time>
+                    {topic && (
+                      <>
+                        {' · '}
+                        <span>
+                          {topic.icon} {topic.name}
+                        </span>
+                      </>
+                    )}
+                  </p>
+                  {article.summary && (
+                    <p className="text-muted margin-top-sm">{article.summary}</p>
+                  )}
+                </article>
+              )
+            })}
+          </div>
+          <p style={{ marginTop: '1.5rem', marginBottom: 0 }}>
+            <a href="/horology/">All horology notes →</a>
+          </p>
         </div>
       </section>
     </div>

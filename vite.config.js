@@ -24,6 +24,7 @@ export default defineConfig({
         experience: resolve(__dirname, 'experience/index.html'),
         projects: resolve(__dirname, 'projects/index.html'),
         writing: resolve(__dirname, 'writing/index.html'),
+        horology: resolve(__dirname, 'horology/index.html'),
       },
     },
   },
