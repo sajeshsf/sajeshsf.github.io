@@ -12,7 +12,7 @@ Each blog post is stored as a separate JavaScript file that exports the post con
 export default {
   title: 'Post Title',
   date: '2025-01-16',
-  category: 'how-tos', // or 'communication-craft', 'internet-finds', 'book-notes', 'travel', 'travel-food-experiences', 'writes'
+  category: 'how-tos', // or 'communication-craft', 'internet-finds', 'book-notes', 'travel', 'travel-food-experiences', 'algorithms', 'writes'
   summary: 'Brief summary of the post',
   content: '<HTML content with the full post>',
   seriesTitle: 'Series Name' // Optional
@@ -40,7 +40,8 @@ For complete blog post structure, categories, and content format documentation, 
 
 - **title**: Post title (required)
 - **date**: Publication date in ISO format (YYYY-MM-DD) (required)
-- **category**: One of 'how-tos', 'communication-craft', 'internet-finds', 'book-notes', 'travel', 'travel-food-experiences', 'writes' (required)
+- **category**: One of 'how-tos', 'communication-craft', 'internet-finds', 'book-notes', 'travel', 'travel-food-experiences', 'algorithms', 'writes' (required)
+- **series** / **seriesTitle** / **seriesOrder**: Group posts into an ordered series (optional). Posts in a series with 2+ entries get a table of contents and previous/next links.
 - **summary**: Brief summary for listing pages (optional but recommended)
 - **content**: Full HTML content of the post (required)
 - **seriesTitle**: If part of a series (optional)
