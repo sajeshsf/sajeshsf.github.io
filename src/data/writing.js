@@ -81,6 +81,7 @@ import rishikesh from './blog/rishikesh.js'
 import shimla from './blog/shimla.js'
 import srinagar from './blog/srinagar.js'
 import udupi from './blog/udupi.js'
+import bakeryJunctionThiruvananthapuram from './blog/bakery-junction-thiruvananthapuram.js'
 
 // All writing posts - add new posts here by importing and adding to the array
 export const writing = [
@@ -119,6 +120,7 @@ export const writing = [
   goa,
   gokarna,
   udupi,
+  bakeryJunctionThiruvananthapuram,
   // Add more blog posts here as you create them
 ]
 
