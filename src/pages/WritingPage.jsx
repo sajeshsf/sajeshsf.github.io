@@ -2,6 +2,8 @@ import { writing, writingCategories } from '../data/writing.js'
 import { useHash } from '../utils/useHash.js'
 import { slugify } from '../utils/slugify.js'
 import { ArrowLeft } from '../components/ArrowIcon.jsx'
+import SeriesNav from '../components/SeriesNav.jsx'
+import MathContent from '../components/MathContent.jsx'
 
 function getIdFromHash(hash) {
   return String(hash || '').replace(/^#/, '').trim()
@@ -88,11 +90,7 @@ export default function WritingPage() {
               {category.icon} {category.name}
               </p>
             )}
-            {selectedPost.series && (
-              <p className="text-muted font-size-sm" style={{ marginTop: '0.25rem' }}>
-                Series: {selectedPost.seriesTitle || selectedPost.series}
-              </p>
-            )}
+            <SeriesNav post={selectedPost} position="top" />
             <h1 id="writing-detail-title" className="post-title">
               {selectedPost.title}
             </h1>
@@ -102,9 +100,11 @@ export default function WritingPage() {
           </header>
 
           {selectedPost.content && (
-            <div
+            <MathContent
+              key={postId}
               className="writing-content margin-top-2xl"
-              dangerouslySetInnerHTML={{ __html: selectedPost.content }}
+              html={selectedPost.content}
+              math={Boolean(selectedPost.math)}
             />
           )}
 
@@ -113,6 +113,7 @@ export default function WritingPage() {
               <p className="text-muted line-height-loose">{selectedPost.summary}</p>
             </div>
           )}
+          <SeriesNav post={selectedPost} />
         </article>
       </section>
     )

@@ -22,6 +22,7 @@
   "dependencies": {
     "@fontsource/oswald": "^5.2.8",
     "@fontsource/roboto": "^5.2.9",
+    "katex": "^0.16.47",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
