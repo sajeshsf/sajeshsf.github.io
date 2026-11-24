@@ -76,6 +76,7 @@ test.describe('Navigation Tests', () => {
       { path: '/experience/', name: 'Experience' },
       { path: '/projects/', name: 'Projects' },
       { path: '/writing/', name: 'Writing' },
+      { path: '/horology/', name: 'Horology' },
     ]
 
     for (const pageInfo of pages) {

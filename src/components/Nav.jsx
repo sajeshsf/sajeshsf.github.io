@@ -6,6 +6,7 @@ const nav = [
   { id: PAGE_IDS.EXPERIENCE, href: '/#experience', label: 'Experience' },
   { id: PAGE_IDS.PROJECTS, href: '/#projects', label: 'Projects' },
   { id: PAGE_IDS.WRITING, href: '/#writing', label: 'Writing' },
+  { id: PAGE_IDS.HOROLOGY, href: '/#horology', label: 'Horology' },
 ]
 
 export default function Nav({ currentPage, isMobileMenuOpen, onMobileMenuToggle }) {

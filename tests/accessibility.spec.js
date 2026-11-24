@@ -7,6 +7,7 @@ const pages = [
   { path: '/experience/', name: 'Experience' },
   { path: '/projects/', name: 'Projects' },
   { path: '/writing/', name: 'Writing' },
+  { path: '/horology/', name: 'Horology' },
 ]
 
 test.describe('Accessibility Tests', () => {
