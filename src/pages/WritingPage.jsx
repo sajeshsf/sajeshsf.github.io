@@ -1,7 +1,8 @@
-import { writing, writingCategories } from '../data/writing.js'
+import { writing, writingCategories, getPostsBySeries } from '../data/writing.js'
 import { useHash } from '../utils/useHash.js'
 import { slugify } from '../utils/slugify.js'
 import { ArrowLeft } from '../components/ArrowIcon.jsx'
+import SeriesNav from '../components/SeriesNav.jsx'
 
 function getIdFromHash(hash) {
   return String(hash || '').replace(/^#/, '').trim()
@@ -105,6 +106,15 @@ export default function WritingPage() {
             <div
               className="writing-content margin-top-2xl"
               dangerouslySetInnerHTML={{ __html: selectedPost.content }}
+            />
+          )}
+
+          {selectedPost.series && (
+            <SeriesNav
+              currentSlug={getPostSlug(selectedPost)}
+              posts={getPostsBySeries(selectedPost.series)}
+              seriesTitle={selectedPost.seriesTitle || selectedPost.series}
+              getSlug={getPostSlug}
             />
           )}
 

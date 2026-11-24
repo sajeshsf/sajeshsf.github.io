@@ -37,6 +37,12 @@ export const writingCategories = {
     description: 'Stories from travels, food adventures, and life experiences',
     icon: '✈️',
   },
+  algorithms: {
+    id: 'algorithms',
+    name: 'Algorithms',
+    description: 'Problem-solving strategies, complexity analysis, and classic algorithms',
+    icon: '🧮',
+  },
   writes: {
     id: 'writes',
     name: 'Writes',
@@ -81,6 +87,12 @@ import rishikesh from './blog/rishikesh.js'
 import shimla from './blog/shimla.js'
 import srinagar from './blog/srinagar.js'
 import udupi from './blog/udupi.js'
+import bigONotation from './blog/big-o-notation.js'
+import sortingAndSearching from './blog/sorting-and-searching.js'
+import bruteForceAlgorithms from './blog/brute-force-algorithms.js'
+import greedyAlgorithms from './blog/greedy-algorithms.js'
+import divideAndConquer from './blog/divide-and-conquer.js'
+import dynamicProgramming from './blog/dynamic-programming.js'
 
 // All writing posts - add new posts here by importing and adding to the array
 export const writing = [
@@ -119,6 +131,13 @@ export const writing = [
   goa,
   gokarna,
   udupi,
+  // Algorithm Fundamentals series (ordered via seriesOrder)
+  bigONotation,
+  sortingAndSearching,
+  bruteForceAlgorithms,
+  greedyAlgorithms,
+  divideAndConquer,
+  dynamicProgramming,
   // Add more blog posts here as you create them
 ]
 
@@ -131,7 +150,9 @@ export function getPostsByCategory(categoryId) {
 // Helper function to get posts by series
 export function getPostsBySeries(seriesId) {
   if (!seriesId) return []
-  return writing.filter((post) => post.series === seriesId)
+  return writing
+    .filter((post) => post.series === seriesId)
+    .sort((a, b) => (a.seriesOrder ?? Infinity) - (b.seriesOrder ?? Infinity))
 }
 
 // Helper function to get all categories that have posts
