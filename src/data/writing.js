@@ -81,11 +81,13 @@ import rishikesh from './blog/rishikesh.js'
 import shimla from './blog/shimla.js'
 import srinagar from './blog/srinagar.js'
 import udupi from './blog/udupi.js'
+import asdSte100 from './blog/asd-ste100-simplified-technical-english.js'
 
 // All writing posts - add new posts here by importing and adding to the array
 export const writing = [
   albumsYouMustHear,
   articulationPerspicuityEloquence,
+  asdSte100,
   grit,
   discernmentQuality,
   roadmapSh,
